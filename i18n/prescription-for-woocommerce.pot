@@ -1,0 +1,1978 @@
+# Copyright (C) 2026 DevDiggers
+# This file is distributed under the GPLv3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Prescription for WooCommerce 1.0.0\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/prescription-for-woocommerce\n"
+"POT-Creation-Date: 2026-09-24 10:32:01+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: functions.php:97
+#. translators: %1$s: opening link tag, %2$s: closing link tag
+msgid ""
+"Prescription for WooCommerce is activated but not effective. It requires "
+"%1$sWooCommerce%2$s in order to work."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Prescription for WooCommerce"
+msgstr ""
+
+#: functions.php:132 includes/admin-dashboard.php:101
+msgid "Dashboard"
+msgstr ""
+
+#: functions.php:134 includes/admin-dashboard.php:116
+msgid "Configuration"
+msgstr ""
+
+#: functions.php:136
+msgid "Setup Wizard"
+msgstr ""
+
+#: functions.php:138
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: functions.php:155
+msgid "Support"
+msgstr ""
+
+#: functions.php:156
+msgid "Documentation"
+msgstr ""
+
+#: functions.php:157 includes/admin-dashboard.php:64
+#: includes/admin-dashboard.php:111
+#: templates/admin/orders/orders-list-template.php:562
+msgid "Review"
+msgstr ""
+
+#: helper/prescription-helper.php:163
+msgid "You need to log in before you can attach the medical prescription later."
+msgstr ""
+
+#: helper/prescription-helper.php:167
+msgid "Kindly upload the medical prescription first in order to place an order."
+msgstr ""
+
+#: helper/prescription-helper.php:228
+#. translators: 1: previous prescription status, 2: new prescription status
+msgid "Prescription status is changed from %1$s to %2$s."
+msgstr ""
+
+#: helper/prescription-helper.php:229
+msgid "None"
+msgstr ""
+
+#: helper/prescription-helper.php:231 helper/prescription-helper.php:325
+#. translators: %s: reason text
+#. translators: %s: reason given by the reviewer
+msgid "Reason: %s"
+msgstr ""
+
+#: helper/prescription-helper.php:294
+#. translators: %s: prescription status label
+msgid "Prescription %s."
+msgstr ""
+
+#: helper/prescription-helper.php:333
+msgid "You can upload a replacement prescription from your order page."
+msgstr ""
+
+#: helper/prescription-helper.php:441
+msgid "Attached Medical Prescription(s)"
+msgstr ""
+
+#: helper/prescription-helper.php:443
+msgid "Attach Medical Prescription"
+msgstr ""
+
+#: helper/prescription-helper.php:464
+msgid "Why this was rejected"
+msgstr ""
+
+#: helper/prescription-helper.php:474
+msgid "The pharmacist needs a little more"
+msgstr ""
+
+#: helper/prescription-helper.php:484
+msgid "Attach Now"
+msgstr ""
+
+#: helper/prescription-helper.php:488
+msgid "Attach later"
+msgstr ""
+
+#: helper/prescription-helper.php:497
+msgid "You need to attach the prescription later to the order for the approval."
+msgstr ""
+
+#: helper/prescription-helper.php:499
+msgid ""
+"You need to login in order to attach the medical prescription later to the "
+"order for the approval."
+msgstr ""
+
+#: helper/prescription-helper.php:514
+msgid "Upload your prescription"
+msgstr ""
+
+#: helper/prescription-helper.php:515
+msgid "Drag and drop, or click to browse"
+msgstr ""
+
+#: helper/prescription-helper.php:520
+#. translators: %d: how many files the customer may attach
+msgid "JPG, PNG or PDF. Up to %d file."
+msgid_plural "JPG, PNG or PDF. Up to %d files."
+msgstr[0] ""
+msgstr[1] ""
+
+#: helper/prescription-helper.php:545
+msgid "Submit for Approval"
+msgstr ""
+
+#: helper/prescription-helper.php:575
+msgid "Remove this file"
+msgstr ""
+
+#: helper/prescription-helper.php:581 helper/prescription-helper.php:587
+msgid "View Attachment"
+msgstr ""
+
+#: helper/prescription-helper.php:607
+msgid "Attachment Pending"
+msgstr ""
+
+#: helper/prescription-helper.php:608
+msgid "Pending"
+msgstr ""
+
+#: helper/prescription-helper.php:609
+#: templates/admin/dashboard/dashboard-template.php:82
+#: templates/admin/dashboard/dashboard-template.php:127
+msgid "Approved"
+msgstr ""
+
+#: helper/prescription-helper.php:610
+#: templates/admin/dashboard/dashboard-template.php:89
+msgid "Rejected"
+msgstr ""
+
+#: helper/prescription-helper.php:611
+msgid "Information Requested"
+msgstr ""
+
+#: helper/security-helper.php:273
+msgid "You are not allowed to view this prescription."
+msgstr ""
+
+#: helper/security-helper.php:274
+msgid "Access denied"
+msgstr ""
+
+#: helper/security-helper.php:283
+msgid "Prescription file not found."
+msgstr ""
+
+#: helper/security-helper.php:284
+msgid "Not found"
+msgstr ""
+
+#: includes/admin/admin-functions.php:143
+msgid "Requires prescription"
+msgstr ""
+
+#: includes/admin/admin-functions.php:144
+msgid ""
+"Overrides the category rules for this product. Leave on \"Use category "
+"rules\" to keep the global behaviour."
+msgstr ""
+
+#: includes/admin/admin-functions.php:148
+msgid "Use category rules"
+msgstr ""
+
+#: includes/admin/admin-functions.php:149
+msgid "Always require a prescription"
+msgstr ""
+
+#: includes/admin/admin-functions.php:150
+msgid "Never require a prescription"
+msgstr ""
+
+#: includes/admin/admin-functions.php:160
+msgid "Maximum quantity per order (Pro)"
+msgstr ""
+
+#: includes/admin/admin-functions.php:161
+msgid "Pro caps how much of a controlled product one order may contain."
+msgstr ""
+
+#: includes/admin/admin-functions.php:214
+#: includes/admin/admin-functions.php:219
+#: templates/admin/orders/orders-list-template.php:561
+msgid "Prescription"
+msgstr ""
+
+#: includes/admin/admin-functions.php:268
+msgid "Medical Prescription Review"
+msgstr ""
+
+#: includes/admin/admin-functions.php:290
+#: includes/front/front-ajax-functions.php:327
+msgid "Order not found."
+msgstr ""
+
+#: includes/admin/admin-functions.php:321
+#. translators: %d: number of uploaded files
+msgid "Uploaded File (%d)"
+msgid_plural "Uploaded Files (%d)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/admin-functions.php:328
+msgid "The customer has not uploaded a prescription yet."
+msgstr ""
+
+#: includes/admin/admin-functions.php:343
+msgid "Decision"
+msgstr ""
+
+#: includes/admin/admin-functions.php:349
+msgid "Review decision"
+msgstr ""
+
+#: includes/admin/admin-functions.php:358
+msgid "Message to the customer"
+msgstr ""
+
+#: includes/admin/admin-functions.php:359
+msgid "e.g. the prescription is unreadable, or the prescriber details are missing."
+msgstr ""
+
+#: includes/admin/admin-functions.php:365
+msgid ""
+"The decision is saved when you update the order, and the customer is "
+"emailed straight away."
+msgstr ""
+
+#: includes/admin/admin-functions.php:368
+msgid "You do not have permission to review prescriptions."
+msgstr ""
+
+#: includes/admin/admin-functions.php:399
+msgid ""
+"A rejection reason is required, so the prescription status was left "
+"unchanged."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:76
+msgid "Welcome"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:80
+msgid "Products"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:81
+msgid "What needs a prescription?"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:82
+msgid ""
+"Pick the categories that may only be sold against a prescription. Leave it "
+"empty to require one for every product."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:87
+msgid "Workflow"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:88
+msgid "How should orders behave?"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:89
+msgid ""
+"Decide what happens to an order while a pharmacist is still reviewing the "
+"prescription."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:94
+msgid "Ready!"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:95
+msgid "Your prescription workflow is live."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:96
+msgid ""
+"Prescriptions are stored in a protected folder and served only to the "
+"customer and your reviewers. Fine tune everything from the configuration "
+"screen."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:134
+msgid "Sell regulated products with confidence"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:136
+msgid ""
+"Customers upload a prescription at checkout, your pharmacist approves or "
+"rejects it, and every file is kept in a protected folder that only they and "
+"your reviewers can open. Three short steps and you are ready."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:154
+msgid "Enable prescriptions"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:155
+msgid "Ask customers for a prescription at checkout"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:156
+msgid ""
+"The master switch. With this off nothing is asked for, shown or held "
+"anywhere on the store front."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:163
+msgid "Prescription categories"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:164
+msgid ""
+"Leave empty to require a prescription for every product in the store. "
+"Individual products can override this later from the product screen."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:172
+msgid "Product badge text"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:173
+msgid ""
+"Shown on the shop and product pages so a customer knows before they add to "
+"cart. You can restyle it later under Configuration, Design."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:174 includes/file-handler.php:142
+msgid "Requires Prescription"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:192
+msgid "While under review"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:193
+msgid ""
+"Park the order in this status until a pharmacist decides, so it is never "
+"fulfilled early, even after the customer pays."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:195
+msgid "Leave the order alone"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:201
+msgid "On approval"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:202
+msgid ""
+"Where the order goes the moment a pharmacist approves it. Processing "
+"releases it to your normal fulfilment flow."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:204 includes/admin/setup-wizard.php:213
+msgid "Do not change the order"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:210
+msgid "On rejection"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:211
+msgid ""
+"Where the order goes when the prescription is refused. Leaving it alone "
+"lets the customer upload a replacement without you reopening anything."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:219
+msgid "Customer emails"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:220
+msgid "Email the customer when their prescription is approved or rejected"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:221
+msgid ""
+"Sent with your WooCommerce email template, with a clear message for "
+"approvals, rejections and requests for more information."
+msgstr ""
+
+#: includes/admin/setup-wizard.php:228
+msgid "Reviewer emails"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:229
+msgid "Email the store when a prescription is waiting for review"
+msgstr ""
+
+#: includes/admin/setup-wizard.php:230
+msgid ""
+"Goes to the WooCommerce admin address with a link straight into the review "
+"screen, so nothing sits in the queue unnoticed."
+msgstr ""
+
+#: includes/admin-dashboard.php:68
+#. translators: %s: a link showing five stars.
+msgid ""
+"If you like Prescription for WooCommerce, please leave us a %s rating. We "
+"really appreciate it!"
+msgstr ""
+
+#: includes/admin-dashboard.php:88 includes/admin-dashboard.php:93
+#: includes/admin-dashboard.php:94
+msgid "Prescriptions"
+msgstr ""
+
+#: includes/admin-dashboard.php:106
+#: templates/admin/orders/orders-list-template.php:56
+msgid "Orders"
+msgstr ""
+
+#: includes/admin-dashboard.php:120
+msgid "General"
+msgstr ""
+
+#: includes/admin-dashboard.php:125
+msgid "Design"
+msgstr ""
+
+#: includes/admin-dashboard.php:130
+msgid "Prescription Rules"
+msgstr ""
+
+#: includes/admin-dashboard.php:135
+msgid "Review Workflow"
+msgstr ""
+
+#: includes/admin-dashboard.php:140
+msgid "Customer Experience"
+msgstr ""
+
+#: includes/admin-dashboard.php:145
+msgid "Emails"
+msgstr ""
+
+#: includes/admin-dashboard.php:150
+msgid "Compliance"
+msgstr ""
+
+#: includes/admin-dashboard.php:176
+msgid "Results Per Page"
+msgstr ""
+
+#: includes/admin-dashboard.php:216
+msgid "Orders with Prescriptions"
+msgstr ""
+
+#: includes/admin-dashboard.php:225
+msgid "Search"
+msgstr ""
+
+#: includes/admin-dashboard.php:244
+msgid "Clear the whole queue from one screen with Pro"
+msgstr ""
+
+#: includes/admin-dashboard.php:245
+msgid ""
+"In Free each prescription is reviewed on its own order screen. The Pro "
+"review workspace puts the file, the details and the decision side by side "
+"and moves straight on to the next one."
+msgstr ""
+
+#: includes/admin-dashboard.php:247
+msgid ""
+"A document viewer with zoom and rotate, so a phone photo taken sideways is "
+"still readable"
+msgstr ""
+
+#: includes/admin-dashboard.php:248
+msgid ""
+"Approve, reject or ask for more, then land on the next prescription without "
+"a page load"
+msgstr ""
+
+#: includes/admin-dashboard.php:249
+msgid "Approve or reject a batch of orders at once from the Orders screen"
+msgstr ""
+
+#: includes/admin-dashboard.php:250
+msgid ""
+"Warnings before you decide: a file uploaded on another order, a blocked "
+"prescriber, a lapsed prescription"
+msgstr ""
+
+#: includes/admin-dashboard.php:251
+msgid ""
+"Send the prescriber a private link to confirm they wrote it, answered "
+"without an account"
+msgstr ""
+
+#: includes/admin-dashboard.php:252
+msgid ""
+"Assign prescriptions to a named pharmacist, with an overdue badge when one "
+"waits too long"
+msgstr ""
+
+#: includes/admin-dashboard.php:253
+msgid ""
+"One click saved replies, a full audit trail and a log of who opened each "
+"file"
+msgstr ""
+
+#: includes/admin-dashboard.php:377
+msgid "Please give the customer a reason before rejecting this prescription."
+msgstr ""
+
+#: includes/email-notification-handler.php:68
+#: includes/email-notification-handler.php:69
+#: includes/email-notification-handler.php:71
+#: includes/email-notification-handler.php:454
+#: includes/email-notification-handler.php:463
+msgid "Prescription Notification"
+msgstr ""
+
+#: includes/email-notification-handler.php:70
+msgid ""
+"Email notifications sent when medical prescriptions are uploaded or status "
+"changes."
+msgstr ""
+
+#: includes/email-notification-handler.php:75
+msgid "Thank you for shopping with us."
+msgstr ""
+
+#: includes/email-notification-handler.php:110
+msgid "Invalid email data provided."
+msgstr ""
+
+#: includes/email-notification-handler.php:128
+msgid "Email validation failed."
+msgstr ""
+
+#: includes/email-notification-handler.php:139
+msgid "No recipient specified for email notification."
+msgstr ""
+
+#: includes/email-notification-handler.php:169
+msgid "An error occurred while sending the email."
+msgstr ""
+
+#: includes/email-notification-handler.php:342
+#. translators: %s: list of placeholders
+msgid "Available placeholders: %s"
+msgstr ""
+
+#: includes/email-notification-handler.php:348
+#: templates/admin/configuration/configuration-template.php:52
+msgid "Enable/Disable"
+msgstr ""
+
+#: includes/email-notification-handler.php:350
+msgid "Enable this email notification"
+msgstr ""
+
+#: includes/email-notification-handler.php:352
+msgid "Enable or disable this email notification."
+msgstr ""
+
+#: includes/email-notification-handler.php:355
+msgid "Recipient(s)"
+msgstr ""
+
+#: includes/email-notification-handler.php:359
+#. translators: %s: WP admin email
+msgid "Enter recipients (comma separated) for this email. Defaults to %s."
+msgstr ""
+
+#: includes/email-notification-handler.php:368
+msgid "Subject"
+msgstr ""
+
+#: includes/email-notification-handler.php:371
+msgid ""
+"Used for the email the store receives when a prescription arrives. Customer "
+"emails use their own subject, written into the plugin."
+msgstr ""
+
+#: includes/email-notification-handler.php:377
+msgid "Email heading"
+msgstr ""
+
+#: includes/email-notification-handler.php:380
+msgid ""
+"Used for the email the store receives when a prescription arrives. Customer "
+"emails use their own heading, written into the plugin."
+msgstr ""
+
+#: includes/email-notification-handler.php:386
+msgid "Additional content"
+msgstr ""
+
+#: includes/email-notification-handler.php:387
+msgid "Text to appear below the main email content."
+msgstr ""
+
+#: includes/email-notification-handler.php:389
+msgid "N/A"
+msgstr ""
+
+#: includes/email-notification-handler.php:396
+msgid "Email type"
+msgstr ""
+
+#: includes/email-notification-handler.php:398
+msgid "Choose which format of email to send."
+msgstr ""
+
+#: includes/email-notification-handler.php:405
+msgid "Debug Mode"
+msgstr ""
+
+#: includes/email-notification-handler.php:407
+msgid "Enable debug logging for email notifications"
+msgstr ""
+
+#: includes/email-notification-handler.php:409
+msgid "Enable this to log detailed information about email sending process."
+msgstr ""
+
+#: includes/file-handler.php:47
+msgid "[{site_title}] Prescription approved for order #{order_number}"
+msgstr ""
+
+#: includes/file-handler.php:48
+msgid "Your prescription has been approved"
+msgstr ""
+
+#: includes/file-handler.php:50
+msgid ""
+"<p>Hi {customer_name},</p>\n"
+"\t\t\t\t\t\t\t<p>Great news. A pharmacist at {site_title} has reviewed the "
+"prescription you uploaded for order #{order_number} and approved it.</p>\n"
+"\t\t\t\t\t\t\t<p>Your order is now being prepared for dispatch, so there is "
+"nothing further you need to do.</p>\n"
+"\t\t\t\t\t\t\t<p>Thank you for trusting us with your prescription.</p>\n"
+"\t\t\t\t\t\t\t<p>Best regards</p>"
+msgstr ""
+
+#: includes/file-handler.php:61
+msgid "[{site_title}] Prescription rejected for order #{order_number}"
+msgstr ""
+
+#: includes/file-handler.php:62
+msgid "We could not accept your prescription"
+msgstr ""
+
+#: includes/file-handler.php:64
+msgid ""
+"<p>Hi {customer_name},</p>\n"
+"\t\t\t\t\t\t\t<p>Thank you for sending your prescription for order "
+"#{order_number}. A pharmacist at {site_title} was not able to accept it "
+"this time.</p>\n"
+"\t\t\t\t\t\t\t<p>{reason}</p>\n"
+"\t\t\t\t\t\t\t<p>You are very welcome to send us a replacement whenever you "
+"are ready and we will review it as soon as it arrives. {reupload_note}</p>\n"
+"\t\t\t\t\t\t\t<p>Thank you for your patience.</p>\n"
+"\t\t\t\t\t\t\t<p>Best regards</p>"
+msgstr ""
+
+#: includes/file-handler.php:76
+msgid "[{site_title}] More information needed for order #{order_number}"
+msgstr ""
+
+#: includes/file-handler.php:77
+msgid "We need a little more from you"
+msgstr ""
+
+#: includes/file-handler.php:79
+msgid ""
+"<p>Hi {customer_name},</p>\n"
+"\t\t\t\t\t\t\t<p>Thank you for uploading your prescription for order "
+"#{order_number}. Nothing has been refused. Before a pharmacist at "
+"{site_title} can finish the check we need one more thing from you.</p>\n"
+"\t\t\t\t\t\t\t<p>{reason}</p>\n"
+"\t\t\t\t\t\t\t<p>As soon as we have it we will pick your order straight "
+"back up. {reupload_note}</p>\n"
+"\t\t\t\t\t\t\t<p>Thank you for your help.</p>\n"
+"\t\t\t\t\t\t\t<p>Best regards</p>"
+msgstr ""
+
+#: includes/front/front-ajax-functions.php:76
+#: includes/front/front-ajax-functions.php:412
+msgid "Security Check Failed!!"
+msgstr ""
+
+#: includes/front/front-ajax-functions.php:90
+msgid "You are not allowed to change this order."
+msgstr ""
+
+#: includes/front/front-ajax-functions.php:97
+msgid "Invalid request."
+msgstr ""
+
+#: includes/front/front-ajax-functions.php:143
+msgid "Kindly select a file to upload."
+msgstr ""
+
+#: includes/front/front-ajax-functions.php:178
+#: includes/front/front-functions.php:149
+#. translators: %d: maximum number of files
+msgid "You can attach a maximum of %d file(s)."
+msgstr ""
+
+#: includes/front/front-ajax-functions.php:187
+msgid "Sorry, jpg, jpeg, png, webp, pdf, doc, docx files are allowed."
+msgstr ""
+
+#: includes/front/front-ajax-functions.php:194
+#. translators: %s: maximum upload size in megabytes
+msgid "Attachment size too large, the limit is %s MB."
+msgstr ""
+
+#: includes/front/front-ajax-functions.php:201
+msgid "Invalid Attachment."
+msgstr ""
+
+#: includes/front/front-ajax-functions.php:261
+msgid "Uploaded successfully."
+msgstr ""
+
+#: includes/front/front-ajax-functions.php:279
+msgid "Invalid attachment."
+msgstr ""
+
+#: includes/front/front-ajax-functions.php:289
+msgid "That attachment does not belong to this order."
+msgstr ""
+
+#: includes/front/front-ajax-functions.php:312
+msgid "Attachment removed successfully."
+msgstr ""
+
+#: includes/front/front-ajax-functions.php:336
+msgid "Kindly upload the attachment first."
+msgstr ""
+
+#: includes/front/front-ajax-functions.php:350
+msgid "Your prescription has been submitted for review."
+msgstr ""
+
+#: includes/front/front-ajax-functions.php:371
+#: includes/front/front-functions.php:337
+#. translators: %s: order number
+msgid "A customer has uploaded medical prescription(s) for order #%s."
+msgstr ""
+
+#: includes/front/front-ajax-functions.php:376
+#: includes/front/front-functions.php:342
+#. translators: %s: review queue URL
+msgid "Review queue: %s"
+msgstr ""
+
+#: includes/front/front-functions.php:146
+msgid "Kindly select valid image or pdf file(s)"
+msgstr ""
+
+#: includes/front/front-functions.php:152
+msgid "Uploading"
+msgstr ""
+
+#: includes/front/front-functions.php:153
+#: includes/front/front-functions.php:403
+msgid "Close"
+msgstr ""
+
+#: includes/front/front-functions.php:316
+msgid "Held until the medical prescription is approved."
+msgstr ""
+
+#: includes/front/front-functions.php:404
+msgid "Prescription preview"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:49
+msgid "Where Prescriptions Are Stored"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:50
+msgid ""
+"Uploaded prescriptions never sit in the public uploads folder. They are "
+"written to a private, deny-all directory with an unguessable name, and "
+"served only through a capability checked endpoint."
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:55
+msgid "Vault Location"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:56
+msgid ""
+"Back this folder up with the same care as your database. Its name is unique "
+"to this site."
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:64
+msgid "Data Retention"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:65
+msgid "Health records should not be kept longer than the reason you collected them."
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:69
+msgid "Delete old prescriptions on schedule, in Pro"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:70
+msgid ""
+"Data protection rules expect health data to be removed once you no longer "
+"need it. Pro does it for you, every day, without touching open orders."
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:72
+msgid "Choose how many days prescriptions are kept after an order is finished"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:73
+msgid "Delete only the files, or the files and the patient and prescriber details"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:74
+msgid ""
+"The decision and audit trail survive, so you can still prove an order was "
+"checked"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:82
+msgid "Access Log"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:83
+msgid ""
+"Record every time a prescription file is opened, so you can answer who "
+"looked at a patient record and when."
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:87
+msgid "Answer who opened a patient record, in Pro"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:88
+msgid ""
+"Pro writes the user, the time and the IP address against the order each "
+"time a prescription file is served."
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:90
+msgid "A per order log of every view, shown in the review workspace"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:91
+msgid "Repeat views collapsed, so the log shows people rather than page refreshes"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:92
+msgid "A full, structured audit trail of every review decision alongside it"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:100
+msgid "Customer Consent"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:101
+msgid ""
+"Ask the customer to agree to their prescription being handled before they "
+"place the order, and keep the timestamped proof on the order."
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:105
+msgid "Keep proof the customer agreed, in Pro"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:106
+msgid ""
+"Prescriptions are health data. Pro asks for explicit consent under the "
+"upload box and stores exactly what the customer agreed to."
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:108
+msgid ""
+"Checkout waits until the customer ticks your consent statement, in the "
+"classic and block checkout"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:109
+msgid ""
+"Your own wording, stored on the order as it read on the day, with the date "
+"and IP address"
+msgstr ""
+
+#: templates/admin/configuration/compliance-configuration-template.php:110
+msgid ""
+"A consent badge on the review screen, so a pharmacist sees it before "
+"deciding"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:46
+msgid "Plugin Settings"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:47
+msgid ""
+"Switch the prescription workflow on and choose which products need a "
+"prescription."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:53
+msgid "Enable Prescription for WooCommerce"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:54
+msgid "This allows the module functionality to be used on the frontend."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:63
+msgid "Product Categories and Exclusions"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:64
+msgid ""
+"Configure which product categories require prescription approval and which "
+"products to exclude."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:69
+msgid "Allowed Categories"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:70
+msgid ""
+"Prescription approval is mandatory for products which exists in the "
+"selected categories. If there are no selected category, then it will get "
+"applied for all products."
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:80
+msgid "Excluded Products"
+msgstr ""
+
+#: templates/admin/configuration/configuration-template.php:81
+msgid ""
+"Prescription won't be needed for these selected products even if they "
+"exists in the above allowed categories."
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:46
+msgid "Customer Features"
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:47
+msgid ""
+"Configure additional features for customers regarding prescription "
+"management."
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:52
+msgid "Attach Later"
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:53
+msgid "Let Logged-in Customers Attach the Prescription After Ordering"
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:54
+msgid ""
+"The order can be placed without a prescription and the file uploaded later "
+"from the order page. The order still waits for a review before it moves on."
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:62
+msgid "My Account"
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:63
+msgid "Show a Prescriptions Tab in My Account"
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:64
+msgid ""
+"Customers get their own list of prescriptions with the review status, the "
+"details and the files for each one, and can fix a refused one from there."
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:72
+msgid "Self Service"
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:73
+msgid "Let Customers Fix and Resubmit a Refused Prescription"
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:74
+msgid ""
+"Adds the upload box to the order page, so a customer who was refused or "
+"asked for a better scan can act on it without contacting you."
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:82
+msgid "Reuse"
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:83
+msgid "Let Customers Reuse an Approved Prescription"
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:84
+msgid ""
+"Repeat customers can pick a prescription that is still valid instead of "
+"uploading the same file again. The new order is approved straight away."
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:94
+msgid "My Account Section"
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:95
+msgid ""
+"The prescriptions screen inside the WooCommerce My Account area, with its "
+"own endpoint slug, menu title and sidebar handling, is part of the Pro "
+"plugin."
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:101
+msgid "Endpoint Slug"
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:102
+msgid ""
+"The URL identifier for the prescriptions screen, for example "
+"\"medical-prescriptions\"."
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:111
+msgid "Menu Title"
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:112
+msgid "The label shown in the My Account sidebar navigation."
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:121
+msgid "Sidebar Widgets"
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:122
+msgid "Keep the Theme Sidebar Widgets on the Prescriptions Screen"
+msgstr ""
+
+#: templates/admin/configuration/customer-experience-configuration-template.php:123
+msgid ""
+"Turn this off for a full width prescriptions screen without the theme "
+"sidebar."
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:49
+#: templates/admin/configuration/design-configuration-template.php:57
+#: templates/admin/configuration/design-configuration-template.php:68
+#: templates/admin/configuration/design-configuration-template.php:76
+#: templates/admin/configuration/design-configuration-template.php:82
+msgid "Disabled"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:50
+#: templates/admin/configuration/design-configuration-template.php:61
+msgid "Before Product Title"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:51
+#: templates/admin/configuration/design-configuration-template.php:60
+msgid "After Product Title"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:52
+msgid "Before Add to Cart Button"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:53
+msgid "After Add to Cart Button"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:58
+msgid "Default"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:59
+msgid "After Product Image"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:62
+msgid "After Short Description"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:63
+msgid "After Add To Cart Button"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:64
+msgid "Before Tab Information"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:69
+msgid "Before Cart Products Table"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:70
+msgid "After Cart Products Table"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:71
+msgid "Before Proceed To Checkout Button"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:72
+msgid "After Proceed To Checkout Button"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:77
+msgid "Before Checkout Form"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:78
+msgid "After Checkout Form"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:83
+msgid "Before Order Details Table"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:84
+msgid "After Order Details Table"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:90
+msgid "Product Information Display"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:91
+msgid "Configure how prescription information is displayed on product pages."
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:96
+msgid "Product Page Label"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:97
+msgid ""
+"Enter the medical prescription label which will be visible at the single "
+"product page."
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:104
+msgid "Label Font Color"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:105
+msgid "Select the label font color."
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:112
+msgid "Label Background Color"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:113
+msgid "Select the label background color."
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:120
+msgid "Description"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:121
+msgid ""
+"Enter the medical prescription description. If not entered then no "
+"description will be visible to customers."
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:131
+msgid "Display Positions"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:132
+msgid "Configure where prescription information is displayed on different pages."
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:137
+msgid "Product Page"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:138
+msgid ""
+"Select the position to display requires medical prescription info for the "
+"product on the single product page."
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:146
+msgid "Shop/Category Page"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:147
+msgid ""
+"Select the position to display requires medical prescription info for "
+"products on the shop and category pages."
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:155
+msgid "Cart Page"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:156
+msgid ""
+"Select the position to display the attach medical prescription box on the "
+"cart page."
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:164
+msgid "Checkout Page"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:165
+msgid ""
+"Select the position to display the attach medical prescription box on the "
+"checkout page."
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:173
+msgid "Order/Thank You Page"
+msgstr ""
+
+#: templates/admin/configuration/design-configuration-template.php:174
+msgid ""
+"Select the position to display the attach medical prescription box on the "
+"order details section."
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:48
+msgid "Email Delivery"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:49
+msgid ""
+"Who hears about a prescription, and when. Recipients, footer text and HTML "
+"or plain text format are set in WooCommerce > Settings > Emails > "
+"Prescription Notification."
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:54
+msgid "Admin Emails"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:55
+msgid "Tell Me When a Customer Uploads a Prescription"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:56
+msgid ""
+"Sends the store admin a message whenever a prescription arrives and is "
+"waiting for review."
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:63
+msgid "Customer Emails"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:64
+msgid "Tell the Customer When Their Prescription Is Decided"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:65
+msgid ""
+"Sends the customer a message when their prescription is approved, rejected "
+"or needs more information."
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:74
+msgid "Reminders"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:75
+msgid ""
+"Chase the two things that stall a pharmacy queue: an order with no "
+"prescription on it, and an approval about to lapse."
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:79
+msgid "Recover the orders stuck waiting on a prescription, in Pro"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:80
+msgid ""
+"An order held for a prescription that never arrives is revenue you have "
+"already won and are about to lose. Pro follows up for you."
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:82
+msgid ""
+"One reminder per order to customers who chose to attach their prescription "
+"later"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:83
+msgid ""
+"A warning before an approved prescription lapses, so the customer sends a "
+"fresh one in time"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:84
+msgid "Your own delay in hours and days, sent by a scheduled task"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:92
+msgid "Email Wording"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:93
+msgid ""
+"Free sends a complete, friendly message for every decision, written for a "
+"pharmacy."
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:97
+msgid "Write every email in your own voice, in Pro"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:98
+msgid ""
+"Every customer message is yours to reword in a rich text editor, from the "
+"subject line to the sign off."
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:100
+msgid ""
+"Subject, heading and body for approved, rejected, more information needed, "
+"expiring and reminder emails"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:101
+msgid ""
+"Placeholders for the customer name, order number, reviewer message, "
+"validity date and more"
+msgstr ""
+
+#: templates/admin/configuration/emails-configuration-template.php:102
+msgid ""
+"Sent with your WooCommerce email template, so they match the rest of your "
+"store"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:46
+msgid "Details to Collect"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:47
+msgid ""
+"Collect the prescriber and patient information your pharmacy needs "
+"alongside the uploaded file."
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:51
+msgid "Know who the prescription is for and who wrote it, in Pro"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:52
+msgid ""
+"A file on its own is hard to check. Pro asks the customer for the details a "
+"pharmacist needs, right beside the upload box."
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:54
+msgid ""
+"Patient name and age, prescribing doctor, registration or licence number, "
+"date of issue and valid until date"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:55
+msgid ""
+"Choose which details to ask for and which ones the order cannot be placed "
+"without"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:56
+msgid ""
+"Shown on the review screen and in My Account, and checked against your "
+"prescriber registry"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:64
+msgid "Validity and Limits"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:65
+msgid ""
+"Decide how long a prescription stays valid and how many files one order may "
+"carry."
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:71
+msgid "Validity"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:72
+msgid "Expire Approved Prescriptions After a Set Period"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:73
+msgid ""
+"A daily task moves lapsed prescriptions to Expired so they can no longer be "
+"reused."
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:82
+msgid "Valid For (Days)"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:83
+msgid ""
+"Counted from the date of issue the customer supplied, or from the upload "
+"date when they did not supply one. A date entered in the Valid Until field "
+"always wins."
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:92
+msgid "Maximum Files"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:93
+msgid "How many prescription files one order may carry."
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:105
+msgid "Refills"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:106
+msgid ""
+"Give each approved prescription a fixed number of uses so a repeat customer "
+"cannot reuse the same paper indefinitely."
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:110
+msgid "Repeat orders without a second upload, in Pro"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:111
+msgid ""
+"Returning patients pick a prescription you already approved at checkout, "
+"and Pro counts every reuse against the refills the prescriber allowed."
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:113
+msgid ""
+"Customers reuse an approved, still valid prescription instead of uploading "
+"it again"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:114
+msgid ""
+"The new order is approved on arrival, so repeat business never waits in the "
+"queue"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:115
+msgid ""
+"A refill allowance per prescription, drawn down on every reuse and "
+"adjustable per order"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:116
+msgid "Exhausted and lapsed prescriptions drop out of the reuse list on their own"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:124
+msgid "Prescriber Registry"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:125
+msgid ""
+"The prescribers you already know about. A prescription naming one of them "
+"carries their standing into the review screen, so a pharmacist sees it "
+"before deciding rather than after."
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:129
+msgid "Know the prescriber before you approve, in Pro"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:130
+msgid ""
+"Keep a list of the doctors you have verified and the ones you never want to "
+"dispense for again. Every prescription is checked against it automatically."
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:132
+msgid ""
+"Mark prescribers as verified, on watch or blocked, matched by name or "
+"licence number"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:133
+msgid ""
+"A warning on the review screen the moment a watched or blocked prescriber "
+"appears"
+msgstr ""
+
+#: templates/admin/configuration/prescription-rules-configuration-template.php:134
+msgid "A dashboard view of which prescribers your orders come from"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:43
+msgid "Leave the order unchanged"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:48
+msgid "Order Status Automation"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:49
+msgid ""
+"Control what happens to an order while a pharmacist is reviewing the "
+"prescription, and once a decision is made."
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:54
+msgid "While Under Review"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:55
+msgid ""
+"Park the order in this status until a decision is made, so it is never "
+"fulfilled before approval. The order stays here even when Cash on Delivery, "
+"bank transfer or a card payment would normally move it to Processing."
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:63
+msgid "On Approval"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:64
+msgid "Move the order to this status as soon as the prescription is approved."
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:72
+msgid "On Rejection"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:73
+msgid "Move the order to this status when the prescription is rejected."
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:83
+msgid "Decisions"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:84
+msgid ""
+"Decide what a reviewer has to supply, and what is recorded about each "
+"decision."
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:89
+msgid "Rejection Reason"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:90
+msgid "Require a Reason Before a Prescription Can Be Rejected"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:91
+msgid ""
+"The reason is sent to the customer and kept on the order, so nobody is "
+"refused without being told why."
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:99
+msgid "Audit Trail"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:100
+msgid "Record Every Review Decision"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:101
+msgid ""
+"Who decided, what they decided and when, kept as a structured trail on the "
+"order and shown in the review screen, beyond the plain order note."
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:109
+msgid "Order Notes"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:110
+msgid "Write Each Decision to the Order Notes"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:111
+msgid ""
+"Puts the decision where the rest of your team already looks, in the order "
+"timeline in WooCommerce."
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:119
+msgid "Duplicate Warning"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:120
+msgid "Warn When the Same File Has Been Uploaded Before"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:121
+msgid ""
+"Compares the uploaded file against every prescription already on the site "
+"and flags a match in the review screen. It only warns, it never blocks an "
+"order."
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:131
+msgid "Assignment and Service Level"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:132
+msgid ""
+"Share the queue out between reviewers and make it obvious when a "
+"prescription has been waiting too long."
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:136
+msgid "Run the queue as a team, in Pro"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:137
+msgid ""
+"When more than one pharmacist reviews, Pro makes sure every prescription "
+"has an owner and nothing waits past your target."
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:139
+msgid ""
+"Assign a prescription to a named reviewer, with an Assigned to me view "
+"above the queue"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:140
+msgid ""
+"A review target in hours, with an overdue badge on anything that has waited "
+"too long"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:141
+msgid "Missed targets and reviewer activity counted on the dashboard"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:142
+msgid ""
+"A Pharmacist role that reviews prescriptions without shop manager access to "
+"the rest of your store"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:150
+msgid "Saved Replies"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:151
+msgid "The handful of sentences your pharmacists write over and over."
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:155
+msgid "Stop retyping the same refusal, in Pro"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:156
+msgid ""
+"Blurry scan, missing signature, page cut off. Pro turns the messages you "
+"send every day into one click replies."
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:158
+msgid "Your own list of replies, shown as one click chips above the message box"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:159
+msgid "A sensible built in set, ready from the first review"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:160
+msgid "Still editable after picking one, so every message can be personal"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:168
+msgid "Prescriber Verification"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:169
+msgid ""
+"When a prescription needs confirming, a reviewer can hand the prescriber a "
+"private link instead of chasing the surgery by phone."
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:173
+msgid "Let the doctor confirm it, in Pro"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:174
+msgid ""
+"Pro creates a private, expiring link that opens one prescription. The "
+"prescriber confirms or denies it without an account, and the answer lands "
+"on the order."
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:176
+msgid ""
+"One link per prescription, valid for seven days and spent the moment it is "
+"answered"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:177
+msgid "The prescriber sees only that order's files, nothing else in your store"
+msgstr ""
+
+#: templates/admin/configuration/review-workflow-configuration-template.php:178
+msgid "Their answer and note are written to the order for your records"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:70
+#. translators: %s: admin display name.
+msgid "Welcome back, %s! 👋🏻"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:71
+msgid "Here is how prescription review is going across your store."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:75
+msgid "Awaiting Review"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:96
+msgid "Waiting on the Customer"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:103
+#: templates/admin/dashboard/dashboard-template.php:122
+msgid "Prescription Orders"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:113
+msgid "Prescription Activity"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:132
+msgid "No prescription activity yet"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:133
+msgid ""
+"Once customers start attaching prescriptions at checkout, their volume and "
+"approval trend appear here."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:139
+msgid "Review Status Mix"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:148
+msgid "No review data"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:149
+msgid "The split between pending, approved and rejected prescriptions appears here."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:154
+msgid "Review Queue"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:173
+msgid "Nothing is waiting for review. Nice work."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:187
+#. translators: 1: human readable duration, 2: number of files
+msgid "Waiting %1$s &middot; %2$d file(s)"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:199
+msgid "Open the full queue"
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:55
+#: templates/admin/orders/orders-list-template.php:559
+msgid "Order"
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:287
+msgid "M j, Y"
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:323
+msgid "Awaiting upload"
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:400
+#. translators: %s: payment method
+msgid "via %s"
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:482
+msgid "All"
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:521
+msgid "Review prescription"
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:542
+msgid "Bulk decisions"
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:543
+msgid "Bulk approve or reject"
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:560
+msgid "Status & Date"
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:563
+msgid "Total"
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:575
+msgid "No matching orders"
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:576
+msgid ""
+"Nothing matches that search. Try an order number, a billing email or a "
+"customer name."
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:578
+msgid "No orders with this status"
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:579
+msgid "Choose another tab above to see the rest of the queue."
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:581
+msgid "Nothing waiting for review"
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:582
+msgid ""
+"Orders appear here as soon as a customer attaches a medical prescription at "
+"checkout."
+msgstr ""
+
+#: templates/emails/email-template.php:43
+msgid "Order Information"
+msgstr ""
+
+#: templates/emails/email-template.php:44
+#: templates/emails/plain/email-template.php:39
+msgid "Order Number:"
+msgstr ""
+
+#: templates/emails/email-template.php:46
+#: templates/emails/plain/email-template.php:42
+msgid "Order Date:"
+msgstr ""
+
+#: templates/emails/email-template.php:49
+#: templates/emails/plain/email-template.php:46
+msgid "Status:"
+msgstr ""
+
+#: templates/emails/email-template.php:60
+msgid "View Order"
+msgstr ""
+
+#: templates/emails/plain/email-template.php:37
+msgid "ORDER INFORMATION"
+msgstr ""
+
+#: templates/emails/plain/email-template.php:54
+msgid "View your order:"
+msgstr ""
+
+#: templates/emails/plain/email-template.php:60
+msgid "ADDITIONAL INFORMATION"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://devdiggers.com/product/woocommerce-medical-prescription-attachment/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Let customers upload a medical prescription at checkout, hold the order "
+"until a pharmacist approves it, and keep every file in a private, "
+"access-checked folder."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "DevDiggers"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://devdiggers.com/"
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:236
+#. translators: 1: first name 2: last name
+msgctxt "full name"
+msgid "%1$s %2$s"
+msgstr ""
+
+#: templates/admin/orders/orders-list-template.php:282
+#. translators: %s = human-readable time difference
+msgctxt "%s = human-readable time difference"
+msgid "%s ago"
+msgstr ""

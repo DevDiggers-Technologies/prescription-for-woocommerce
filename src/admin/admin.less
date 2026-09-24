@@ -1,0 +1,145 @@
+@import '../shared/review.less';
+
+
+.ddwcmpa-cell-note {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #787c82;
+}
+
+
+// The framework pins .ddfw-pro-tag to the corner of its nearest positioned parent.
+.ddwcmpa-bulk-locked {
+    position: relative;
+
+    a {
+        text-decoration: none;
+    }
+
+}
+
+
+.ddwcmpa-dash-list {
+    display: flex;
+    flex-direction: column;
+
+    .ddwcmpa-dash-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f1;
+        text-decoration: none;
+        color: inherit;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        &:hover {
+            color: #0256ff;
+        }
+    }
+
+    .ddwcmpa-dash-item-main {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+
+        strong {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    .ddwcmpa-dash-item-sub {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: #787c82;
+    }
+
+    .ddwcmpa-dash-item-value {
+        flex-shrink: 0;
+        font-weight: 600;
+    }
+}
+
+
+.ddwcmpa-dash-more {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+
+.ddwcmpa-empty-state-large {
+    padding: 60px 20px;
+}
+
+
+.ddwcmpa-vault-path {
+    display: inline-block;
+    padding: 4px 8px;
+    word-break: break-all;
+}
+
+
+.ddwcmpa-empty-state-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #6b7280;
+
+    &.is-good {
+        background: #f0fdf4;
+        color: #15803d;
+    }
+}
+
+
+/* Table cell stacks ---------------------------------------------------------
+ * Two tier cells, the way the MultiPOS order table is built: the thing you
+ * scan on top, its context underneath in the muted note style. */
+
+.ddwcmpa-cell-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+
+    .ddwcmpa-cell-note {
+        margin-top: 0;
+    }
+}
+
+
+/* Plugin header mark --------------------------------------------------------
+ * The framework fills every path in the header svg with the brand colour, so
+ * a two tone mark has to reclaim its own fills here rather than in the markup:
+ * wp_kses strips a style attribute off a path, and a plain fill attribute
+ * loses to the framework's rule. */
+
+.ddfw-plugin-name svg.ddwcmpa-mark {
+    path.ddwcmpa-mark-bg {
+        fill: #e4ecff;
+    }
+
+    path.ddwcmpa-mark-line {
+        fill: none;
+        stroke: var( --ddfw-primary-color, #0256ff );
+        stroke-width: 2.3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+}

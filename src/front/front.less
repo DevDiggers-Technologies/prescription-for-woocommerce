@@ -1,0 +1,678 @@
+.ddwcmpa-label {
+    background-color: var( --ddwcmpa-label-background-color );
+    color: var( --ddwcmpa-label-font-color );
+    font-weight: 600;
+    padding: 2px 8px;
+    display: inline-block;
+}
+.ddwcmpa-hide {
+    display: none !important;
+}
+.ddwcmpa-prescription-attachment-container {
+    width: 100%;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.4);
+}
+.ddwcmpa-prescription-attachment-container h3 {
+    margin: 0;
+    display: inline-block;
+}
+.ddwcmpa-prescription-attachment-container .ddwcmpa-tabs {
+    margin: 0;
+}
+.ddwcmpa-prescription-attachment-container .ddwcmpa-tab {
+    display: inline-block;
+    list-style: none;
+    padding: 8px 0px;
+    cursor: pointer;
+    margin-right: 20px;
+    font-weight: 600;
+}
+.ddwcmpa-prescription-attachment-container .ddwcmpa-tab.ddwcmpa-active {
+    color: var( --ddwcmpa-label-background-color );
+    border-bottom: 4px solid var( --ddwcmpa-label-background-color );
+}
+.ddwcmpa-prescription-attachment-container .ddwcmpa-prescription-attachment-box {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(1px, 100px));
+    grid-gap: 8px;
+    grid-auto-rows: 105px;
+}
+.ddwcmpa-prescription-attachment-container .ddwcmpa-prescription-attachment-box label {
+    margin-top: 10px;
+    margin-bottom: inherit;
+    position: relative;
+    font-weight: 600;
+    text-align: center;
+    border: 2px solid var( --ddwcmpa-label-background-color );
+    border-radius: 10px;
+    vertical-align: top;
+    color: var( --ddwcmpa-label-background-color );
+    cursor: pointer;
+}
+.ddwcmpa-prescription-attachment-container .ddwcmpa-prescription-attachment-box img {
+    height: 100%;
+    object-fit: cover;
+    padding: 5px;
+}
+.ddwcmpa-prescription-attachment-container .ddwcmpa-prescription-attachment-box a.ddwcmpa-attachment-name {
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    word-break: break-all;
+}
+.ddwcmpa-prescription-attachment-container .ddwcmpa-attachment-later-description {
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+.ddwcmpa-prescription-attachment-container .ddwcmpa-remove-prescription {
+    position: absolute;
+    right: 2px;
+    top: -8px;
+}
+.ddwcmpa-prescription-attachment-container .ddwcmpa-remove-prescription::before {
+    content: 'x';
+    font-weight: 600;
+    font-size: 22px;
+    font-family: Arial, sans-serif;
+}
+.ddwcmpa-prescription-attachment-container .ddwcmpa-approval-submit {
+    margin-top: 10px;
+}
+.ddwcmpa-help-tip {
+    color: #666;
+    display: inline-block;
+    font-size: 1.1em;
+    font-style: normal;
+    height: 16px;
+    line-height: 16px;
+    position: relative;
+    vertical-align: text-top;
+    width: 16px;
+    cursor: help;
+    margin-left: 5px;
+}
+.ddwcmpa-help-tip:hover {
+    font-size: 1.2em;
+    color: #333;
+}
+.ddwcmpa-help-tip::after {
+    font-family: Dashicons;
+    speak: never;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    text-indent: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    content: "\f223";
+    cursor: help;
+}
+// Custom tooltip styles
+.ddwcmpa-custom-tooltip {
+    position: fixed;
+    z-index: 8675309;
+    background: #333;
+    color: #fff;
+    font-size: 0.8em;
+    max-width: 200px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    word-wrap: break-word;
+    line-height: 1.4;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 5px solid transparent;
+        border-top-color: #333;
+    }
+    
+    &.ddwcmpa-tooltip-bottom {
+        &::before {
+            top: -10px;
+            border-top-color: transparent;
+            border-bottom-color: #333;
+        }
+    }
+}
+// Status pills, matching the soft tint treatment used across the DevDiggers
+// plugins. No float: the card header lays them out.
+.ddwcmpa-status {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0;
+    text-transform: none;
+    white-space: nowrap;
+    color: #222530;
+    background-color: #e1e4ea;
+    border: 0;
+
+    &.ddwcmpa-status-attachments_pending {
+        color: #4b5563;
+        background-color: #f3f4f6;
+    }
+
+    &.ddwcmpa-status-pending,
+    &.ddwcmpa-status-info_required {
+        color: #9a5b00;
+        background-color: #fff8ec;
+    }
+
+    &.ddwcmpa-status-approved {
+        color: #15803d;
+        background-color: #f0fdf4;
+    }
+
+    &.ddwcmpa-status-rejected {
+        color: #e02e2a;
+        background-color: #fdeeee;
+    }
+}
+.ddwcmpa-loader-wrap {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    top: 0;
+    /* Written rgba: the css minifier drops the slash alpha and leaves a solid
+       black overlay. */
+    background-color: rgba(0, 0, 0, 0.59);
+    align-items: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    z-index: 999999;
+}
+.ddwcmpa-loader {
+    width: 60px;
+    height: 60px;
+}
+.ddwcmpa-loader svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    animation: rotation 1455ms infinite linear;
+}
+.ddwcmpa-loader circle {
+    color: #f3f3f3;
+    stroke: currentColor;
+    stroke-dasharray: 44px;
+    stroke-dashoffset: 11px;
+    transform-origin: center;
+    transform: rotatey(180deg) rotate(90deg);
+    animation: spinner 3850ms infinite ease;
+}
+@keyframes spinner {
+    0% {
+        stroke-dashoffset: 33px;
+        transform: rotatey(0deg) rotate(0deg);
+    }
+    25% {
+        stroke-dashoffset: 11px;
+        transform: rotatey(0deg) rotate(0deg);
+    }
+    25.0001% {
+        stroke-dashoffset: 11px;
+        transform: rotatey(180deg) rotate(270deg);
+    }
+    50% {
+        stroke-dashoffset: 33px;
+        transform: rotatey(180deg) rotate(270deg);
+    }
+    50.0001% {
+        stroke-dashoffset: 33px;
+        transform: rotatey(0deg) rotate(180deg);
+    }
+    75% {
+        stroke-dashoffset: 11px;
+        transform: rotatey(0deg) rotate(180deg);
+    }
+    75.0001% {
+        stroke-dashoffset: 11px;
+        transform: rotatey(180deg) rotate(90deg);
+    }
+    100% {
+        stroke-dashoffset: 33px;
+        transform: rotatey(180deg) rotate(90deg);
+    }
+}
+@keyframes rotation {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* -------------------------------------------------------------------------
+ * Upload dropzone and lightbox.
+ * ---------------------------------------------------------------------- */
+
+.ddwcmpa-prescription-attachment-box .ddwcmpa-dropzone {
+    --ddwcmpa-progress: 0%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 10px;
+    border-style: dashed;
+    overflow: hidden;
+    transition: background-color .15s ease, border-color .15s ease;
+
+    &:focus-visible {
+        outline: 2px solid var( --ddwcmpa-label-background-color );
+        outline-offset: 2px;
+    }
+
+    &.is-dragging {
+        background-color: fade(#0256ff, 8%);
+        border-style: solid;
+    }
+
+    .ddwcmpa-dropzone-title {
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    .ddwcmpa-dropzone-hint {
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 1.3;
+        opacity: .7;
+    }
+
+    &.is-uploading::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 4px;
+        width: var( --ddwcmpa-progress );
+        background-color: var( --ddwcmpa-label-background-color );
+        transition: width .2s ease;
+    }
+}
+
+.ddwcmpa-inline-notice {
+    margin: 0 0 12px;
+    padding: 10px 14px;
+    border-radius: 4px;
+    background-color: fade(#16a34a, 8%);
+    font-size: 14px;
+
+    &.is-error {
+        background-color: fade(#dc2626, 8%);
+    }
+}
+
+.ddwcmpa-rejection-reason {
+    margin: 12px 0;
+}
+
+.ddwcmpa-lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: rgba( 0, 0, 0, .82 );
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 6px;
+        box-shadow: 0 20px 60px rgba( 0, 0, 0, .5 );
+    }
+
+    .ddwcmpa-lightbox-close {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border: 0;
+        border-radius: 50%;
+        background-color: rgba( 255, 255, 255, .15 );
+        color: #fff;
+        font-size: 26px;
+        line-height: 1;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba( 255, 255, 255, .28 );
+        }
+    }
+}
+
+.ddwcmpa-info-required {
+    margin-top: 12px;
+}
+
+/* -------------------------------------------------------------------------
+ * Front end.
+ *
+ * The old markup leaned on Dashicons, which WordPress only loads on the front
+ * end for logged in users: a guest saw an empty box where the upload icon
+ * should be. Every icon is now an inline SVG that inherits the surrounding
+ * colour, and the box is laid out as a card rather than a stack of floats.
+ * ---------------------------------------------------------------------- */
+
+.ddwcmpa-icon {
+    flex: none;
+    vertical-align: middle;
+}
+
+.ddwcmpa-prescription-attachment-container {
+    padding: 22px;
+    border: 1px solid rgba( 0, 0, 0, .1 );
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba( 0, 0, 0, .04 );
+
+    h3 {
+        display: block;
+        margin: 0;
+        font-size: 1.15em;
+        line-height: 1.3;
+    }
+}
+
+.ddwcmpa-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba( 0, 0, 0, .08 );
+}
+
+.ddwcmpa-card-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background-color: fade( #0256ff, 10% );
+    background-color: color-mix( in srgb, var( --ddwcmpa-label-background-color ) 12%, transparent );
+    color: var( --ddwcmpa-label-background-color );
+}
+
+.ddwcmpa-card-heading {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.ddwcmpa-card-subtitle {
+    margin: 4px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+    opacity: .7;
+}
+
+.ddwcmpa-card-header-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    flex: none;
+}
+
+/* Notices ---------------------------------------------------------------- */
+
+.ddwcmpa-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0 0 16px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background-color: rgba( 107, 114, 128, .08 );
+    font-size: 14px;
+    line-height: 1.5;
+
+    strong {
+        display: block;
+    }
+
+    &.ddwcmpa-notice-error {
+        background-color: rgba( 220, 38, 38, .07 );
+        color: #991b1b;
+    }
+
+    &.ddwcmpa-notice-warning {
+        background-color: rgba( 217, 119, 6, .09 );
+        color: #92400e;
+    }
+
+    &.ddwcmpa-notice-info {
+        background-color: rgba( 37, 99, 235, .07 );
+        color: #1e40af;
+    }
+}
+
+/* Attach now / later ------------------------------------------------------ */
+
+.ddwcmpa-prescription-attachment-container .ddwcmpa-tabs {
+    display: flex;
+    gap: 6px;
+    margin: 0 0 16px;
+    padding: 4px;
+    border-radius: 8px;
+    background-color: rgba( 0, 0, 0, .04 );
+}
+
+.ddwcmpa-prescription-attachment-container .ddwcmpa-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    flex: 1 1 0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
+    opacity: .75;
+    transition: background-color .15s ease, color .15s ease;
+
+    /* The pill sits on its own background now, so the old underline would only
+       draw a second, competing indicator. */
+    &.ddwcmpa-active {
+        background-color: #fff;
+        color: var( --ddwcmpa-label-background-color );
+        border-bottom: 0;
+        opacity: 1;
+        box-shadow: 0 1px 2px rgba( 0, 0, 0, .1 );
+    }
+}
+
+/* Dropzone --------------------------------------------------------------- */
+
+.ddwcmpa-upload-form .ddwcmpa-dropzone {
+    --ddwcmpa-progress: 0%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    margin: 0 0 12px;
+    padding: 26px 20px;
+    border: 2px dashed rgba( 0, 0, 0, .16 );
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background-color .15s ease, border-color .15s ease;
+
+    &:hover,
+    &:focus-visible {
+        border-color: var( --ddwcmpa-label-background-color );
+    }
+
+    &:focus-visible {
+        outline: 2px solid var( --ddwcmpa-label-background-color );
+        outline-offset: 2px;
+    }
+
+    &.is-dragging {
+        border-style: solid;
+        border-color: var( --ddwcmpa-label-background-color );
+        background-color: rgba( 34, 147, 232, .06 );
+    }
+
+    .ddwcmpa-dropzone-mark {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        margin-bottom: 6px;
+        border-radius: 50%;
+        background-color: rgba( 34, 147, 232, .1 );
+        color: var( --ddwcmpa-label-background-color );
+    }
+
+    .ddwcmpa-dropzone-title {
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.3;
+        color: var( --ddwcmpa-label-background-color );
+    }
+
+    .ddwcmpa-dropzone-hint {
+        font-size: 13px;
+        font-weight: 400;
+        opacity: .7;
+    }
+
+    .ddwcmpa-dropzone-formats {
+        font-size: 12px;
+        opacity: .55;
+    }
+
+    &.is-uploading::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 4px;
+        width: var( --ddwcmpa-progress );
+        background-color: var( --ddwcmpa-label-background-color );
+        transition: width .2s ease;
+    }
+}
+
+/* Attachment tiles -------------------------------------------------------- */
+
+/* Not scoped to the container: My Account renders read only tiles on their own,
+   with no upload box around them. */
+.ddwcmpa-prescription-attachment-box {
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax( 92px, 100px ) );
+    grid-auto-rows: 100px;
+    grid-gap: 10px;
+
+    &:empty {
+        display: none;
+    }
+
+    /* Doubled up on the container so the editable tiles inside the upload box
+       and the read only ones on My Account look like the same component. */
+    label,
+    .ddwcmpa-prescription-attachment-container & label {
+        display: block;
+        margin: 0;
+        overflow: hidden;
+        border: 1px solid rgba( 0, 0, 0, .12 );
+        border-radius: 8px;
+        background-color: rgba( 0, 0, 0, .02 );
+    }
+
+    img,
+    .ddwcmpa-prescription-attachment-container & img {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        object-fit: cover;
+    }
+
+    a.ddwcmpa-attachment-name {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        height: 100%;
+        padding: 8px;
+        font-size: 11px;
+        line-height: 1.3;
+        text-decoration: none;
+        -webkit-line-clamp: none;
+
+        span {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            word-break: break-word;
+        }
+    }
+
+    .ddwcmpa-remove-prescription {
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        z-index: 2;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 22px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background-color: rgba( 255, 255, 255, .92 );
+        color: #dc2626;
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba( 0, 0, 0, .2 );
+
+        &::before {
+            content: none;
+        }
+    }
+}
+
+.ddwcmpa-approval-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 16px;
+}
