@@ -9,10 +9,10 @@
  * Text Domain: prescription-for-woocommerce
  * Domain Path: /i18n
  * Requires at least: 6.5
- * Tested up to: 7.1.2
+ * Tested up to: 7.1
  * Requires PHP: 7.4
  * WC requires at least: 9.0
- * WC tested up to: 11.1.2
+ * WC tested up to: 11.1
  * DevDiggersPrefix: ddwcmpa
  * Requires Plugins: woocommerce
  * License: GPLv3 or later
