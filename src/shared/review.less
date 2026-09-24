@@ -1,0 +1,465 @@
+// Shared review styles
+//
+// Everything the prescription review UI needs, in one partial imported by both
+// the admin bundle and the order edit bundle, so these rules live here once
+// rather than being copied into two stylesheets.
+
+.ddwcmpa-prescription-attachment-box {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(1px, 100px));
+    grid-gap: 8px;
+    grid-auto-rows: 105px;
+}
+
+.ddwcmpa-prescription-attachment-box label {
+    margin-top: 10px;
+    margin-top: inherit;
+    position: relative;
+    font-weight: 600;
+    text-align: center;
+    border: 2px solid var( --ddwcmpa-label-background-color );
+    border-radius: 10px;
+    vertical-align: top;
+    color: var( --ddwcmpa-label-background-color );
+    cursor: pointer;
+}
+
+.ddwcmpa-prescription-attachment-box a {
+    display: block;
+    height: 100%;
+}
+
+.ddwcmpa-prescription-attachment-box img {
+    height: 90%;
+    width: 90%;
+    object-fit: cover;
+    padding: 5px;
+}
+
+.ddwcmpa-prescription-attachment-box a.ddwcmpa-attachment-name {
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+.ddwcmpa-status-select-label {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+// Status pills, matching the soft tint treatment used across the DevDiggers
+// plugins: a coloured word, not a coloured block shouting at the reviewer.
+.ddwcmpa-status {
+    display: inline-block;
+    background-color: #e1e4ea;
+    color: #222530;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    line-height: 1.5;
+    padding: 2px 10px;
+    white-space: nowrap;
+}
+
+.ddwcmpa-status {
+    // Approved and verified: settled, nothing to do.
+    &.ddwcmpa-status-approved {
+        color: #15803d;
+        background-color: #f0fdf4;
+    }
+
+    // Waiting on somebody.
+    &.ddwcmpa-status-pending,
+    &.ddwcmpa-status-info_required {
+        color: #9a5b00;
+        background-color: #fff8ec;
+    }
+
+    &.ddwcmpa-status-attachments_pending {
+        color: #4b5563;
+        background-color: #f3f4f6;
+    }
+
+    // Refused or lapsed.
+    &.ddwcmpa-status-rejected {
+        color: #e02e2a;
+        background-color: #fdeeee;
+    }
+}
+
+.ddwcmpa-muted {
+    color: #6b7280;
+}
+
+
+// WooCommerce order statuses, drawn in the same soft tint as the review
+// statuses above so a row does not carry two different badge languages.
+// Scoped to our own cell so WooCommerce's orders screen keeps its native badges.
+.ddwcmpa-cell-stack .order-status {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+    white-space: nowrap;
+    color: #222530;
+    background-color: #e1e4ea;
+
+    span {
+        color: inherit;
+    }
+
+    &.status-processing,
+    &.status-completed {
+        color: #15803d;
+        background-color: #f0fdf4;
+    }
+
+    &.status-pending,
+    &.status-on-hold {
+        color: #9a5b00;
+        background-color: #fff8ec;
+    }
+
+    &.status-cancelled,
+    &.status-failed,
+    &.status-trash {
+        color: #e02e2a;
+        background-color: #fdeeee;
+    }
+
+    &.status-refunded {
+        color: #6b21a8;
+        background-color: #faf5ff;
+    }
+
+    &.status-checkout-draft,
+    &.status-custom {
+        color: #4b5563;
+        background-color: #f3f4f6;
+    }
+}
+
+
+// Tips tooltip styling for order status
+.ddwcmpa-cell-stack .order-status.tips {
+    cursor: help;
+    position: relative;
+    
+    &:hover::after {
+        content: attr(data-tip);
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #000;
+        color: #fff;
+        padding: 4px 8px;
+        border-radius: 3px;
+        font-size: 11px;
+        white-space: nowrap;
+        z-index: 1000;
+        margin-bottom: 5px;
+    }
+    
+    &:hover::before {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 4px solid transparent;
+        border-top-color: #000;
+        z-index: 1000;
+    }
+}
+
+/* -------------------------------------------------------------------------
+ * Review panel, list table extras, empty states.
+ * ---------------------------------------------------------------------- */
+
+.ddwcmpa-hide {
+    display: none !important;
+}
+
+
+.ddwcmpa-muted {
+    opacity: .5;
+}
+
+
+.ddwcmpa-review-panel {
+    .ddwcmpa-review-note {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin: 10px 0;
+        color: #50575e;
+
+    }
+}
+
+
+.ddwcmpa-review-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: flex-start;
+    margin-top: 16px;
+
+    label {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-weight: 600;
+    }
+
+    .ddwcmpa-reason-label {
+        flex: 1 1 320px;
+
+        textarea {
+            width: 100%;
+            font-weight: 400;
+        }
+    }
+}
+
+
+
+.ddwcmpa-thumb-strip {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    .ddwcmpa-thumb {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border: 1px solid #dcdcde;
+        border-radius: 4px;
+        overflow: hidden;
+        background-color: #f6f7f7;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    }
+
+    .ddwcmpa-thumb-more {
+        font-size: 12px;
+        color: #787c82;
+    }
+}
+
+
+.ddwcmpa-empty-state {
+    padding: 40px 20px;
+    text-align: center;
+
+
+    h3 {
+        margin: 12px 0 6px;
+    }
+
+    // Doubled class so it outranks core's ".widefat td p" margin, which otherwise
+    // pins the paragraph to the left edge of the empty table cell.
+    &.ddwcmpa-empty-state p {
+        margin: 0 auto;
+        max-width: 440px;
+        color: #787c82;
+    }
+}
+
+
+.ddwcmpa-field {
+    display: block;
+    margin-bottom: 14px;
+
+    > span {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        font-size: 13px;
+    }
+
+    select,
+    textarea {
+        width: 100%;
+    }
+
+    // select2 sizes its container from the select it replaced, which inside a
+    // sidebar comes out narrower than the textarea under it. Force it, the same
+    // way the framework's own wizard does.
+    .select2-container {
+        width: 100% !important;
+    }
+
+    .select2-container .select2-selection--single {
+        height: 36px;
+    }
+
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        line-height: 34px;
+    }
+
+    .select2-container .select2-selection--single .select2-selection__arrow {
+        height: 34px;
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Shared icon sizing and the order meta box.
+// ---------------------------------------------------------------------------
+
+.ddwcmpa-icon {
+    flex: none;
+    vertical-align: middle;
+}
+
+
+.button .ddwcmpa-icon,
+.button-link .ddwcmpa-icon {
+    margin-right: 4px;
+}
+
+
+.button {
+    &:has(> .ddwcmpa-icon) {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+}
+
+
+.ddwcmpa-icon-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px !important;
+
+    .ddwcmpa-icon {
+        margin: 0;
+    }
+}
+
+
+// --- Order meta box ---------------------------------------------------------
+
+.ddwcmpa-review-panel {
+    .ddwcmpa-review-topbar {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid #e2e4e7;
+        margin-bottom: 14px;
+    }
+
+    .ddwcmpa-review-topbar-spacer {
+        flex: 1 1 auto;
+    }
+
+    .ddwcmpa-review-columns {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .ddwcmpa-review-panel-card {
+        display: flex;
+        flex-direction: column;
+        padding: 14px 16px 16px;
+        border: 1px solid #e2e4e7;
+        border-radius: 10px;
+        background: #fbfbfc;
+    }
+
+    .ddwcmpa-review-panel-title {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin: 0 0 12px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: .4px;
+        color: #6b7280;
+
+        svg {
+            flex: none;
+        }
+    }
+
+    .ddwcmpa-review-hint {
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+        margin: auto 0 0;
+        padding-top: 12px;
+        font-size: 12px;
+        color: #6b7280;
+
+        svg {
+            flex: none;
+            margin-top: 1px;
+        }
+    }
+
+    @media screen and (max-width: 782px) {
+        .ddwcmpa-review-columns {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+
+    .ddwcmpa-status-select-label,
+    .ddwcmpa-reason-label {
+        display: block;
+        font-weight: 600;
+        margin: 0 0 12px;
+
+        select,
+        textarea {
+            display: block;
+            width: 100%;
+            max-width: 420px;
+            margin-top: 6px;
+            font-weight: 400;
+        }
+    }
+}
+
+
+.ddwcmpa-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 9px;
+    border-radius: 6px;
+    background: #f3f4f6;
+    color: #4b5563;
+    font-size: 12px;
+    line-height: 1.6;
+
+    &.ddwcmpa-chip-good {
+        background: #f0fdf4;
+        color: #15803d;
+    }
+
+    &.ddwcmpa-chip-danger {
+        background: #fdeeee;
+        color: #e02e2a;
+    }
+}
