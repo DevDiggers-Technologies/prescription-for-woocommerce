@@ -1,4 +1,4 @@
-# Prescription for WooCommerce
+# DevDiggers Prescription for WooCommerce
 
 Require a prescription upload at WooCommerce checkout, hold the order until a pharmacist approves it, and keep every file private on your server.
 
@@ -42,7 +42,7 @@ Built for online pharmacies, chemists and medical stores. You choose which produ
 | Consent records, data retention | No | Yes |
 | Pharmacy analytics and CSV export | No | Yes |
 
-[Prescription for WooCommerce Pro](https://devdiggers.com/product/woocommerce-medical-prescription-attachment/) installs on top of this plugin and uses the same order data.
+[DevDiggers Prescription for WooCommerce Pro](https://devdiggers.com/product/woocommerce-medical-prescription-attachment/) installs on top of this plugin and uses the same order data.
 
 ## Development
 
@@ -56,7 +56,7 @@ php bin/test-free-boundary.php
 
 ## Support
 
-- [WordPress.org support forum](https://wordpress.org/support/plugin/prescription-for-woocommerce/)
+- [WordPress.org support forum](https://wordpress.org/support/plugin/devdiggers-prescription-for-woocommerce/)
 - [Documentation](https://docs.devdiggers.com/woocommerce-medical-prescription-attachment/)
 - [Contact DevDiggers](https://devdiggers.com/contact/)
 

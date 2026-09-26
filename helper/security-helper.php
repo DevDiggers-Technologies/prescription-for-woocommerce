@@ -8,7 +8,7 @@
  * serves it back through a capability checked endpoint.
  *
  * @author DevDiggers
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  * @version 1.0.0
  */
 
@@ -270,8 +270,8 @@ if ( ! class_exists( 'DDWCMPA_Security_Helper' ) ) {
 
 			if ( ! self::can_view( $attachment_id, $order_id ) ) {
 				wp_die(
-					esc_html__( 'You are not allowed to view this prescription.', 'prescription-for-woocommerce' ),
-					esc_html__( 'Access denied', 'prescription-for-woocommerce' ),
+					esc_html__( 'You are not allowed to view this prescription.', 'devdiggers-prescription-for-woocommerce' ),
+					esc_html__( 'Access denied', 'devdiggers-prescription-for-woocommerce' ),
 					[ 'response' => 403 ]
 				);
 			}
@@ -280,8 +280,8 @@ if ( ! class_exists( 'DDWCMPA_Security_Helper' ) ) {
 
 			if ( empty( $file ) || ! file_exists( $file ) ) {
 				wp_die(
-					esc_html__( 'Prescription file not found.', 'prescription-for-woocommerce' ),
-					esc_html__( 'Not found', 'prescription-for-woocommerce' ),
+					esc_html__( 'Prescription file not found.', 'devdiggers-prescription-for-woocommerce' ),
+					esc_html__( 'Not found', 'devdiggers-prescription-for-woocommerce' ),
 					[ 'response' => 404 ]
 				);
 			}

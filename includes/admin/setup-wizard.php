@@ -4,7 +4,7 @@
  *
  * @author DevDiggers
  * @version 1.0.0
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  */
 
 namespace DDWCMedicalPrescriptionAttachment\Includes\Admin;
@@ -24,7 +24,7 @@ if ( ! class_exists( 'DDWCMPA_Setup_Wizard' ) ) {
 		 *
 		 * @var string
 		 */
-		const SLUG = 'prescription-for-woocommerce';
+		const SLUG = 'devdiggers-prescription-for-woocommerce';
 
 		/**
 		 * The options the wizard steps are allowed to write.
@@ -73,27 +73,27 @@ if ( ! class_exists( 'DDWCMPA_Setup_Wizard' ) ) {
 				'logo'           => $this->get_logo(),
 				'steps'          => [
 					'welcome'  => [
-						'label'         => esc_html__( 'Welcome', 'prescription-for-woocommerce' ),
+						'label'         => esc_html__( 'Welcome', 'devdiggers-prescription-for-woocommerce' ),
 						'view_callback' => [ $this, 'welcome_view' ],
 					],
 					'products' => [
-						'label'         => esc_html__( 'Products', 'prescription-for-woocommerce' ),
-						'title'         => esc_html__( 'What needs a prescription?', 'prescription-for-woocommerce' ),
-						'description'   => esc_html__( 'Pick the categories that may only be sold against a prescription. Leave it empty to require one for every product.', 'prescription-for-woocommerce' ),
+						'label'         => esc_html__( 'Products', 'devdiggers-prescription-for-woocommerce' ),
+						'title'         => esc_html__( 'What needs a prescription?', 'devdiggers-prescription-for-woocommerce' ),
+						'description'   => esc_html__( 'Pick the categories that may only be sold against a prescription. Leave it empty to require one for every product.', 'devdiggers-prescription-for-woocommerce' ),
 						'view_callback' => [ $this, 'products_view' ],
 						'save_callback' => [ $this, 'save_fields' ],
 					],
 					'workflow' => [
-						'label'         => esc_html__( 'Workflow', 'prescription-for-woocommerce' ),
-						'title'         => esc_html__( 'How should orders behave?', 'prescription-for-woocommerce' ),
-						'description'   => esc_html__( 'Decide what happens to an order while a pharmacist is still reviewing the prescription.', 'prescription-for-woocommerce' ),
+						'label'         => esc_html__( 'Workflow', 'devdiggers-prescription-for-woocommerce' ),
+						'title'         => esc_html__( 'How should orders behave?', 'devdiggers-prescription-for-woocommerce' ),
+						'description'   => esc_html__( 'Decide what happens to an order while a pharmacist is still reviewing the prescription.', 'devdiggers-prescription-for-woocommerce' ),
 						'view_callback' => [ $this, 'workflow_view' ],
 						'save_callback' => [ $this, 'save_fields' ],
 					],
 					'ready'    => [
-						'label'             => esc_html__( 'Ready!', 'prescription-for-woocommerce' ),
-						'ready_title'       => esc_html__( 'Your prescription workflow is live.', 'prescription-for-woocommerce' ),
-						'ready_description' => esc_html__( 'Prescriptions are stored in a protected folder and served only to the customer and your reviewers. Fine tune everything from the configuration screen.', 'prescription-for-woocommerce' ),
+						'label'             => esc_html__( 'Ready!', 'devdiggers-prescription-for-woocommerce' ),
+						'ready_title'       => esc_html__( 'Your prescription workflow is live.', 'devdiggers-prescription-for-woocommerce' ),
+						'ready_description' => esc_html__( 'Prescriptions are stored in a protected folder and served only to the customer and your reviewers. Fine tune everything from the configuration screen.', 'devdiggers-prescription-for-woocommerce' ),
 					],
 				],
 			];
@@ -131,9 +131,9 @@ if ( ! class_exists( 'DDWCMPA_Setup_Wizard' ) ) {
 						<path d="m15.2 21.2 5.4 4M20.8 20.9l-5.5 4.4" fill="none" stroke="var(--ddfw-primary-color, #0256ff)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 					</svg>
 				</div>
-				<h2 class="ddfw-setup-wizard-ready-title"><?php esc_html_e( 'Sell regulated products with confidence', 'prescription-for-woocommerce' ); ?></h2>
+				<h2 class="ddfw-setup-wizard-ready-title"><?php esc_html_e( 'Sell regulated products with confidence', 'devdiggers-prescription-for-woocommerce' ); ?></h2>
 				<p class="ddfw-setup-wizard-ready-desc">
-					<?php esc_html_e( 'Customers upload a prescription at checkout, your pharmacist approves or rejects it, and every file is kept in a protected folder that only they and your reviewers can open. Three short steps and you are ready.', 'prescription-for-woocommerce' ); ?>
+					<?php esc_html_e( 'Customers upload a prescription at checkout, your pharmacist approves or rejects it, and every file is kept in a protected folder that only they and your reviewers can open. Three short steps and you are ready.', 'devdiggers-prescription-for-woocommerce' ); ?>
 				</p>
 			</div>
 			<?php
@@ -151,17 +151,17 @@ if ( ! class_exists( 'DDWCMPA_Setup_Wizard' ) ) {
 						'id'             => 'ddwcmpa-enabled',
 						'name'           => '_ddwcmpa_enabled',
 						'type'           => 'checkbox',
-						'label'          => esc_html__( 'Enable prescriptions', 'prescription-for-woocommerce' ),
-						'checkbox_label' => esc_html__( 'Ask customers for a prescription at checkout', 'prescription-for-woocommerce' ),
-						'description'    => esc_html__( 'The master switch. With this off nothing is asked for, shown or held anywhere on the store front.', 'prescription-for-woocommerce' ),
+						'label'          => esc_html__( 'Enable prescriptions', 'devdiggers-prescription-for-woocommerce' ),
+						'checkbox_label' => esc_html__( 'Ask customers for a prescription at checkout', 'devdiggers-prescription-for-woocommerce' ),
+						'description'    => esc_html__( 'The master switch. With this off nothing is asked for, shown or held anywhere on the store front.', 'devdiggers-prescription-for-woocommerce' ),
 						'value'          => get_option( '_ddwcmpa_enabled', 'yes' ),
 					],
 					[
 						'id'                => 'ddwcmpa-allowed-categories',
 						'name'              => '_ddwcmpa_allowed_categories[]',
 						'type'              => 'categories',
-						'label'             => esc_html__( 'Prescription categories', 'prescription-for-woocommerce' ),
-						'description'       => esc_html__( 'Leave empty to require a prescription for every product in the store. Individual products can override this later from the product screen.', 'prescription-for-woocommerce' ),
+						'label'             => esc_html__( 'Prescription categories', 'devdiggers-prescription-for-woocommerce' ),
+						'description'       => esc_html__( 'Leave empty to require a prescription for every product in the store. Individual products can override this later from the product screen.', 'devdiggers-prescription-for-woocommerce' ),
 						'value'             => (array) get_option( '_ddwcmpa_allowed_categories', [] ),
 						'custom_attributes' => [ 'multiple' => true ],
 					],
@@ -169,9 +169,9 @@ if ( ! class_exists( 'DDWCMPA_Setup_Wizard' ) ) {
 						'id'          => 'ddwcmpa-product-label',
 						'name'        => '_ddwcmpa_product_label',
 						'type'        => 'text',
-						'label'       => esc_html__( 'Product badge text', 'prescription-for-woocommerce' ),
-						'description' => esc_html__( 'Shown on the shop and product pages so a customer knows before they add to cart. You can restyle it later under Configuration, Design.', 'prescription-for-woocommerce' ),
-						'value'       => get_option( '_ddwcmpa_product_label', esc_html__( 'Requires Prescription', 'prescription-for-woocommerce' ) ),
+						'label'       => esc_html__( 'Product badge text', 'devdiggers-prescription-for-woocommerce' ),
+						'description' => esc_html__( 'Shown on the shop and product pages so a customer knows before they add to cart. You can restyle it later under Configuration, Design.', 'devdiggers-prescription-for-woocommerce' ),
+						'value'       => get_option( '_ddwcmpa_product_label', esc_html__( 'Requires Prescription', 'devdiggers-prescription-for-woocommerce' ) ),
 					],
 				]
 			);
@@ -189,45 +189,45 @@ if ( ! class_exists( 'DDWCMPA_Setup_Wizard' ) ) {
 						'id'          => 'ddwcmpa-hold-order-status',
 						'name'        => '_ddwcmpa_hold_order_status',
 						'type'        => 'select',
-						'label'       => esc_html__( 'While under review', 'prescription-for-woocommerce' ),
-						'description' => esc_html__( 'Park the order in this status until a pharmacist decides, so it is never fulfilled early, even after the customer pays.', 'prescription-for-woocommerce' ),
+						'label'       => esc_html__( 'While under review', 'devdiggers-prescription-for-woocommerce' ),
+						'description' => esc_html__( 'Park the order in this status until a pharmacist decides, so it is never fulfilled early, even after the customer pays.', 'devdiggers-prescription-for-woocommerce' ),
 						'value'       => get_option( '_ddwcmpa_hold_order_status', 'wc-on-hold' ),
-						'options'     => $this->get_status_options( esc_html__( 'Leave the order alone', 'prescription-for-woocommerce' ) ),
+						'options'     => $this->get_status_options( esc_html__( 'Leave the order alone', 'devdiggers-prescription-for-woocommerce' ) ),
 					],
 					[
 						'id'          => 'ddwcmpa-approved-order-status',
 						'name'        => '_ddwcmpa_approved_order_status',
 						'type'        => 'select',
-						'label'       => esc_html__( 'On approval', 'prescription-for-woocommerce' ),
-						'description' => esc_html__( 'Where the order goes the moment a pharmacist approves it. Processing releases it to your normal fulfilment flow.', 'prescription-for-woocommerce' ),
+						'label'       => esc_html__( 'On approval', 'devdiggers-prescription-for-woocommerce' ),
+						'description' => esc_html__( 'Where the order goes the moment a pharmacist approves it. Processing releases it to your normal fulfilment flow.', 'devdiggers-prescription-for-woocommerce' ),
 						'value'       => get_option( '_ddwcmpa_approved_order_status', 'wc-processing' ),
-						'options'     => $this->get_status_options( esc_html__( 'Do not change the order', 'prescription-for-woocommerce' ) ),
+						'options'     => $this->get_status_options( esc_html__( 'Do not change the order', 'devdiggers-prescription-for-woocommerce' ) ),
 					],
 					[
 						'id'          => 'ddwcmpa-rejected-order-status',
 						'name'        => '_ddwcmpa_rejected_order_status',
 						'type'        => 'select',
-						'label'       => esc_html__( 'On rejection', 'prescription-for-woocommerce' ),
-						'description' => esc_html__( 'Where the order goes when the prescription is refused. Leaving it alone lets the customer upload a replacement without you reopening anything.', 'prescription-for-woocommerce' ),
+						'label'       => esc_html__( 'On rejection', 'devdiggers-prescription-for-woocommerce' ),
+						'description' => esc_html__( 'Where the order goes when the prescription is refused. Leaving it alone lets the customer upload a replacement without you reopening anything.', 'devdiggers-prescription-for-woocommerce' ),
 						'value'       => get_option( '_ddwcmpa_rejected_order_status', '' ),
-						'options'     => $this->get_status_options( esc_html__( 'Do not change the order', 'prescription-for-woocommerce' ) ),
+						'options'     => $this->get_status_options( esc_html__( 'Do not change the order', 'devdiggers-prescription-for-woocommerce' ) ),
 					],
 					[
 						'id'             => 'ddwcmpa-customer-email-enabled',
 						'name'           => '_ddwcmpa_customer_email_enabled',
 						'type'           => 'checkbox',
-						'label'          => esc_html__( 'Customer emails', 'prescription-for-woocommerce' ),
-						'checkbox_label' => esc_html__( 'Email the customer when their prescription is approved or rejected', 'prescription-for-woocommerce' ),
-						'description'    => esc_html__( 'Sent with your WooCommerce email template, with a clear message for approvals, rejections and requests for more information.', 'prescription-for-woocommerce' ),
+						'label'          => esc_html__( 'Customer emails', 'devdiggers-prescription-for-woocommerce' ),
+						'checkbox_label' => esc_html__( 'Email the customer when their prescription is approved or rejected', 'devdiggers-prescription-for-woocommerce' ),
+						'description'    => esc_html__( 'Sent with your WooCommerce email template, with a clear message for approvals, rejections and requests for more information.', 'devdiggers-prescription-for-woocommerce' ),
 						'value'          => get_option( '_ddwcmpa_customer_email_enabled', 'yes' ),
 					],
 					[
 						'id'             => 'ddwcmpa-admin-email-enabled',
 						'name'           => '_ddwcmpa_admin_email_enabled',
 						'type'           => 'checkbox',
-						'label'          => esc_html__( 'Reviewer emails', 'prescription-for-woocommerce' ),
-						'checkbox_label' => esc_html__( 'Email the store when a prescription is waiting for review', 'prescription-for-woocommerce' ),
-						'description'    => esc_html__( 'Goes to the WooCommerce admin address with a link straight into the review screen, so nothing sits in the queue unnoticed.', 'prescription-for-woocommerce' ),
+						'label'          => esc_html__( 'Reviewer emails', 'devdiggers-prescription-for-woocommerce' ),
+						'checkbox_label' => esc_html__( 'Email the store when a prescription is waiting for review', 'devdiggers-prescription-for-woocommerce' ),
+						'description'    => esc_html__( 'Goes to the WooCommerce admin address with a link straight into the review screen, so nothing sits in the queue unnoticed.', 'devdiggers-prescription-for-woocommerce' ),
 						'value'          => get_option( '_ddwcmpa_admin_email_enabled', 'yes' ),
 					],
 				]

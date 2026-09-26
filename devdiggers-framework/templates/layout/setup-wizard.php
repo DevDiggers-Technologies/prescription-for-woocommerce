@@ -31,13 +31,13 @@ $dashboard_page = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GE
                         <circle cx="19" cy="7" r="1.5" fill="white"/>
                     </svg>
                 </div>
-                <span class="ddfw-setup-wizard-header-title"><?php esc_html_e( 'Onboarding', 'prescription-for-woocommerce' ); ?></span>
+                <span class="ddfw-setup-wizard-header-title"><?php esc_html_e( 'Onboarding', 'devdiggers-prescription-for-woocommerce' ); ?></span>
             </div>
             <div class="ddfw-setup-wizard-step-counter">
                 <?php
                 printf(
                     /* translators: 1: current step number, 2: total steps */
-                    esc_html__( 'Step %1$s of %2$s', 'prescription-for-woocommerce' ),
+                    esc_html__( 'Step %1$s of %2$s', 'devdiggers-prescription-for-woocommerce' ),
                     '<span class="ddfw-current-step-number">' . esc_html( $current_num ) . '</span>',
                     esc_html( $total_steps )
                 );
@@ -82,7 +82,7 @@ $dashboard_page = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GE
 
                                 <div class="ddfw-setup-wizard-actions">
                                     <div class="ddfw-setup-wizard-actions-left">
-                                        <a href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin.php?page=' . $dashboard_page . '&setup-wizard-skipped=true' ), 'ddfw_skip_setup_wizard_' . $plugin_slug ) ); ?>" class="ddfw-setup-wizard-skip"><?php esc_html_e( 'Skip Setup', 'prescription-for-woocommerce' ); ?></a>
+                                        <a href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin.php?page=' . $dashboard_page . '&setup-wizard-skipped=true' ), 'ddfw_skip_setup_wizard_' . $plugin_slug ) ); ?>" class="ddfw-setup-wizard-skip"><?php esc_html_e( 'Skip Setup', 'devdiggers-prescription-for-woocommerce' ); ?></a>
                                     </div>
                                     <div class="ddfw-setup-wizard-actions-right">
                                         <?php if ( array_key_first( $steps ) !== $id ) : ?>
@@ -93,17 +93,17 @@ $dashboard_page = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GE
                                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M10 9V5L3 12L10 19V14.9C15 14.9 18.5 16.5 21 20C20 15 17 10 10 9Z"/>
                                                 </svg>
-                                                <?php esc_html_e( 'Go Back', 'prescription-for-woocommerce' ); ?>
+                                                <?php esc_html_e( 'Go Back', 'devdiggers-prescription-for-woocommerce' ); ?>
                                             </button>
                                         <?php endif; ?>
 
                                         <?php if ( array_key_last( $steps ) === $id ) : ?>
-                                            <button type="submit" class="button button-primary ddfw-setup-wizard-finish"><?php esc_html_e( 'Finish', 'prescription-for-woocommerce' ); ?></button>
+                                            <button type="submit" class="button button-primary ddfw-setup-wizard-finish"><?php esc_html_e( 'Finish', 'devdiggers-prescription-for-woocommerce' ); ?></button>
                                         <?php else : ?>
                                             <button type="submit" class="button button-primary ddfw-setup-wizard-next" data-next="<?php
                                                 $current_pos = array_search( $id, $step_keys );
                                                 echo esc_attr( $step_keys[ $current_pos + 1 ] );
-                                            ?>"><?php esc_html_e( 'Continue', 'prescription-for-woocommerce' ); ?></button>
+                                            ?>"><?php esc_html_e( 'Continue', 'devdiggers-prescription-for-woocommerce' ); ?></button>
                                         <?php endif; ?>
                                     </div>
                                 </div>

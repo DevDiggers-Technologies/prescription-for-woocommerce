@@ -2,7 +2,7 @@
 /**
  * Prescription helper class
  *
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  * @version 1.0.0
  */
 
@@ -160,11 +160,11 @@ if ( ! class_exists( 'DDWCMPA_Prescription_Helper' ) ) {
 			$attach_now      = empty( $attachment_when ) || 'now' === $attachment_when;
 
 			if ( 'later' === $attachment_when && ! is_user_logged_in() ) {
-				return esc_html__( 'You need to log in before you can attach the medical prescription later.', 'prescription-for-woocommerce' );
+				return esc_html__( 'You need to log in before you can attach the medical prescription later.', 'devdiggers-prescription-for-woocommerce' );
 			}
 
 			if ( $attach_now && empty( $attachments ) ) {
-				return esc_html__( 'Kindly upload the medical prescription first in order to place an order.', 'prescription-for-woocommerce' );
+				return esc_html__( 'Kindly upload the medical prescription first in order to place an order.', 'devdiggers-prescription-for-woocommerce' );
 			}
 
 			return '';
@@ -225,10 +225,10 @@ if ( ! class_exists( 'DDWCMPA_Prescription_Helper' ) ) {
 				$order->add_order_note(
 					sprintf(
 						/* translators: 1: previous prescription status, 2: new prescription status */
-						esc_html__( 'Prescription status is changed from %1$s to %2$s.', 'prescription-for-woocommerce' ),
-						! empty( $statuses[ $old_status ] ) ? $statuses[ $old_status ] : esc_html__( 'None', 'prescription-for-woocommerce' ),
+						esc_html__( 'Prescription status is changed from %1$s to %2$s.', 'devdiggers-prescription-for-woocommerce' ),
+						! empty( $statuses[ $old_status ] ) ? $statuses[ $old_status ] : esc_html__( 'None', 'devdiggers-prescription-for-woocommerce' ),
 						$statuses[ $status ]
-					) . ( ! empty( $args['reason'] ) ? ' ' . sprintf( /* translators: %s: reason text */ esc_html__( 'Reason: %s', 'prescription-for-woocommerce' ), $args['reason'] ) : '' )
+					) . ( ! empty( $args['reason'] ) ? ' ' . sprintf( /* translators: %s: reason text */ esc_html__( 'Reason: %s', 'devdiggers-prescription-for-woocommerce' ), $args['reason'] ) : '' )
 				);
 			}
 
@@ -291,7 +291,7 @@ if ( ! class_exists( 'DDWCMPA_Prescription_Helper' ) ) {
 				$target,
 				sprintf(
 					/* translators: %s: prescription status label */
-					esc_html__( 'Prescription %s.', 'prescription-for-woocommerce' ),
+					esc_html__( 'Prescription %s.', 'devdiggers-prescription-for-woocommerce' ),
 					$status
 				)
 			);
@@ -322,7 +322,7 @@ if ( ! class_exists( 'DDWCMPA_Prescription_Helper' ) ) {
 			if ( ! empty( $reason ) ) {
 				$reason_note = sprintf(
 					/* translators: %s: reason given by the reviewer */
-					esc_html__( 'Reason: %s', 'prescription-for-woocommerce' ),
+					esc_html__( 'Reason: %s', 'devdiggers-prescription-for-woocommerce' ),
 					'<em>' . esc_html( $reason ) . '</em>'
 				);
 			}
@@ -330,7 +330,7 @@ if ( ! class_exists( 'DDWCMPA_Prescription_Helper' ) ) {
 			$reupload_note = '';
 
 			if ( in_array( $status, [ 'rejected', 'info_required' ], true ) && ! empty( $this->ddwcmpa_configuration['reupload_enabled'] ) ) {
-				$reupload_note = esc_html__( 'You can upload a replacement prescription from your order page.', 'prescription-for-woocommerce' );
+				$reupload_note = esc_html__( 'You can upload a replacement prescription from your order page.', 'devdiggers-prescription-for-woocommerce' );
 			}
 
 			// The label, not the key: it fills the Status row in the template's order
@@ -385,16 +385,16 @@ if ( ! class_exists( 'DDWCMPA_Prescription_Helper' ) ) {
 		}
 
 		/**
-		 * One configured piece of a per status email.
+		 * One piece of a per status email.
 		 *
 		 * @param string $part   One of subject, heading or message.
 		 * @param string $status Prescription status.
 		 * @return string
 		 */
 		protected function ddwcmpa_get_email_part( $part, $status ) {
-			$key = 'email_' . $part . '_' . $status;
+			$emails = \DDWCMedicalPrescriptionAttachment\Includes\DDWCMPA_File_Handler::default_emails();
 
-			return ! empty( $this->ddwcmpa_configuration[ $key ] ) ? $this->ddwcmpa_configuration[ $key ] : '';
+			return ! empty( $emails[ $status ][ $part ] ) ? $emails[ $status ][ $part ] : '';
 		}
 
 		/**
@@ -438,9 +438,9 @@ if ( ! class_exists( 'DDWCMPA_Prescription_Helper' ) ) {
 						<h3>
 							<?php
 							if ( ! empty( $order_id ) ) {
-								esc_html_e( 'Attached Medical Prescription(s)', 'prescription-for-woocommerce' );
+								esc_html_e( 'Attached Medical Prescription(s)', 'devdiggers-prescription-for-woocommerce' );
 							} else {
-								esc_html_e( 'Attach Medical Prescription', 'prescription-for-woocommerce' );
+								esc_html_e( 'Attach Medical Prescription', 'devdiggers-prescription-for-woocommerce' );
 							}
 							?>
 						</h3>
@@ -461,7 +461,7 @@ if ( ! class_exists( 'DDWCMPA_Prescription_Helper' ) ) {
 					<div class="ddwcmpa-notice ddwcmpa-notice-error">
 						<?php DDWCMPA_Icon_Helper::render( 'cross', [ 'size' => 18 ] ); ?>
 						<span>
-							<strong><?php esc_html_e( 'Why this was rejected', 'prescription-for-woocommerce' ); ?></strong>
+							<strong><?php esc_html_e( 'Why this was rejected', 'devdiggers-prescription-for-woocommerce' ); ?></strong>
 							<?php echo esc_html( $reason ); ?>
 						</span>
 					</div>
@@ -471,7 +471,7 @@ if ( ! class_exists( 'DDWCMPA_Prescription_Helper' ) ) {
 					<div class="ddwcmpa-notice ddwcmpa-notice-info">
 						<?php DDWCMPA_Icon_Helper::render( 'info', [ 'size' => 18 ] ); ?>
 						<span>
-							<strong><?php esc_html_e( 'The pharmacist needs a little more', 'prescription-for-woocommerce' ); ?></strong>
+							<strong><?php esc_html_e( 'The pharmacist needs a little more', 'devdiggers-prescription-for-woocommerce' ); ?></strong>
 							<?php echo esc_html( $reason ); ?>
 						</span>
 					</div>
@@ -481,11 +481,11 @@ if ( ! class_exists( 'DDWCMPA_Prescription_Helper' ) ) {
 					<ul class="ddwcmpa-tabs">
 						<li class="ddwcmpa-tab <?php echo esc_attr( 'now' === $attachment_when ? 'ddwcmpa-active' : '' ); ?>" data-attachment="now">
 							<?php DDWCMPA_Icon_Helper::render( 'upload', [ 'size' => 17 ] ); ?>
-							<?php esc_html_e( 'Attach Now', 'prescription-for-woocommerce' ); ?>
+							<?php esc_html_e( 'Attach Now', 'devdiggers-prescription-for-woocommerce' ); ?>
 						</li>
 						<li class="ddwcmpa-tab <?php echo esc_attr( 'later' === $attachment_when ? 'ddwcmpa-active' : '' ); ?>" data-attachment="later">
 							<?php DDWCMPA_Icon_Helper::render( 'clock', [ 'size' => 17 ] ); ?>
-							<?php esc_html_e( 'Attach later', 'prescription-for-woocommerce' ); ?>
+							<?php esc_html_e( 'Attach later', 'devdiggers-prescription-for-woocommerce' ); ?>
 						</li>
 					</ul>
 
@@ -494,9 +494,9 @@ if ( ! class_exists( 'DDWCMPA_Prescription_Helper' ) ) {
 						<span>
 							<?php
 							if ( is_user_logged_in() ) {
-								esc_html_e( 'You need to attach the prescription later to the order for the approval.', 'prescription-for-woocommerce' );
+								esc_html_e( 'You need to attach the prescription later to the order for the approval.', 'devdiggers-prescription-for-woocommerce' );
 							} else {
-								esc_html_e( 'You need to login in order to attach the medical prescription later to the order for the approval.', 'prescription-for-woocommerce' );
+								esc_html_e( 'You need to login in order to attach the medical prescription later to the order for the approval.', 'devdiggers-prescription-for-woocommerce' );
 							}
 							?>
 						</span>
@@ -511,13 +511,13 @@ if ( ! class_exists( 'DDWCMPA_Prescription_Helper' ) ) {
 					<?php if ( $editable ) : ?>
 						<label class="ddwcmpa-dropzone" tabindex="0">
 							<span class="ddwcmpa-dropzone-mark"><?php DDWCMPA_Icon_Helper::render( 'upload', [ 'size' => 26 ] ); ?></span>
-							<span class="ddwcmpa-dropzone-title"><?php esc_html_e( 'Upload your prescription', 'prescription-for-woocommerce' ); ?></span>
-							<span class="ddwcmpa-dropzone-hint"><?php esc_html_e( 'Drag and drop, or click to browse', 'prescription-for-woocommerce' ); ?></span>
+							<span class="ddwcmpa-dropzone-title"><?php esc_html_e( 'Upload your prescription', 'devdiggers-prescription-for-woocommerce' ); ?></span>
+							<span class="ddwcmpa-dropzone-hint"><?php esc_html_e( 'Drag and drop, or click to browse', 'devdiggers-prescription-for-woocommerce' ); ?></span>
 							<span class="ddwcmpa-dropzone-formats">
 								<?php
 								printf(
 									/* translators: %d: how many files the customer may attach */
-									esc_html( _n( 'JPG, PNG or PDF. Up to %d file.', 'JPG, PNG or PDF. Up to %d files.', absint( $this->ddwcmpa_configuration['max_files'] ), 'prescription-for-woocommerce' ) ),
+									esc_html( _n( 'JPG, PNG or PDF. Up to %d file.', 'JPG, PNG or PDF. Up to %d files.', absint( $this->ddwcmpa_configuration['max_files'] ), 'devdiggers-prescription-for-woocommerce' ) ),
 									absint( $this->ddwcmpa_configuration['max_files'] )
 								);
 								?>
@@ -542,7 +542,7 @@ if ( ! class_exists( 'DDWCMPA_Prescription_Helper' ) ) {
 					?>
 					<button type="submit" class="button ddwcmpa-approval-submit">
 						<?php DDWCMPA_Icon_Helper::render( 'check', [ 'size' => 17 ] ); ?>
-						<?php esc_html_e( 'Submit for Approval', 'prescription-for-woocommerce' ); ?>
+						<?php esc_html_e( 'Submit for Approval', 'devdiggers-prescription-for-woocommerce' ); ?>
 					</button>
 					<?php
 				}
@@ -572,19 +572,19 @@ if ( ! class_exists( 'DDWCMPA_Prescription_Helper' ) ) {
 				<?php
 				if ( $editable ) {
 					?>
-					<button type="button" class="ddwcmpa-remove-prescription" aria-label="<?php esc_attr_e( 'Remove this file', 'prescription-for-woocommerce' ); ?>"><?php DDWCMPA_Icon_Helper::render( 'cross', [ 'size' => 18 ] ); ?></button>
+					<button type="button" class="ddwcmpa-remove-prescription" aria-label="<?php esc_attr_e( 'Remove this file', 'devdiggers-prescription-for-woocommerce' ); ?>"><?php DDWCMPA_Icon_Helper::render( 'cross', [ 'size' => 18 ] ); ?></button>
 					<?php
 				}
 
 				if ( strpos( $attachment->post_mime_type, 'image' ) !== false ) {
 					?>
-					<a href="<?php echo esc_url( $url ); ?>" class="ddwcmpa-lightbox" title="<?php esc_attr_e( 'View Attachment', 'prescription-for-woocommerce' ); ?>" target="_blank" rel="noopener noreferrer">
+					<a href="<?php echo esc_url( $url ); ?>" class="ddwcmpa-lightbox" title="<?php esc_attr_e( 'View Attachment', 'devdiggers-prescription-for-woocommerce' ); ?>" target="_blank" rel="noopener noreferrer">
 						<img src="<?php echo esc_url( $url ); ?>" alt="<?php echo esc_attr( get_the_title( $attachment_id ) ); ?>" title="<?php echo esc_attr( get_the_title( $attachment_id ) ); ?>" />
 					</a>
 					<?php
 				} else {
 					?>
-					<a class="ddwcmpa-attachment-name" href="<?php echo esc_url( $url ); ?>" title="<?php esc_attr_e( 'View Attachment', 'prescription-for-woocommerce' ); ?>" target="_blank" rel="noopener noreferrer">
+					<a class="ddwcmpa-attachment-name" href="<?php echo esc_url( $url ); ?>" title="<?php esc_attr_e( 'View Attachment', 'devdiggers-prescription-for-woocommerce' ); ?>" target="_blank" rel="noopener noreferrer">
 						<?php DDWCMPA_Icon_Helper::render( 'document', [ 'size' => 26 ] ); ?>
 						<span><?php echo esc_html( get_the_title( $attachment_id ) ); ?></span>
 					</a>
@@ -604,11 +604,11 @@ if ( ! class_exists( 'DDWCMPA_Prescription_Helper' ) ) {
 			return apply_filters(
 				'ddwcmpa_modify_statuses',
 				[
-					'attachments_pending' => esc_html__( 'Attachment Pending', 'prescription-for-woocommerce' ),
-					'pending'             => esc_html__( 'Pending', 'prescription-for-woocommerce' ),
-					'approved'            => esc_html__( 'Approved', 'prescription-for-woocommerce' ),
-					'rejected'            => esc_html__( 'Rejected', 'prescription-for-woocommerce' ),
-					'info_required'       => esc_html__( 'Information Requested', 'prescription-for-woocommerce' ),
+					'attachments_pending' => esc_html__( 'Attachment Pending', 'devdiggers-prescription-for-woocommerce' ),
+					'pending'             => esc_html__( 'Pending', 'devdiggers-prescription-for-woocommerce' ),
+					'approved'            => esc_html__( 'Approved', 'devdiggers-prescription-for-woocommerce' ),
+					'rejected'            => esc_html__( 'Rejected', 'devdiggers-prescription-for-woocommerce' ),
+					'info_required'       => esc_html__( 'Information Requested', 'devdiggers-prescription-for-woocommerce' ),
 				]
 			);
 		}

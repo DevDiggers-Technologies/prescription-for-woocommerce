@@ -2,10 +2,11 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Prescription for WooCommerce 1.0.0\n"
+"Project-Id-Version: DevDiggers Prescription for WooCommerce 1.0.0\n"
 "Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/plugin/prescription-for-woocommerce\n"
-"POT-Creation-Date: 2026-09-24 10:32:01+00:00\n"
+"https://wordpress.org/support/plugin/devdiggers-prescription-for-"
+"woocommerce\n"
+"POT-Creation-Date: 2026-09-26 11:14:06+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,42 +26,42 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: functions.php:97
+#: functions.php:96
 #. translators: %1$s: opening link tag, %2$s: closing link tag
 msgid ""
-"Prescription for WooCommerce is activated but not effective. It requires "
-"%1$sWooCommerce%2$s in order to work."
+"DevDiggers Prescription for WooCommerce is activated but not effective. It "
+"requires %1$sWooCommerce%2$s in order to work."
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Prescription for WooCommerce"
+msgid "DevDiggers Prescription for WooCommerce"
 msgstr ""
 
-#: functions.php:132 includes/admin-dashboard.php:101
+#: functions.php:131 includes/admin-dashboard.php:101
 msgid "Dashboard"
 msgstr ""
 
-#: functions.php:134 includes/admin-dashboard.php:116
+#: functions.php:133 includes/admin-dashboard.php:116
 msgid "Configuration"
 msgstr ""
 
-#: functions.php:136
+#: functions.php:135
 msgid "Setup Wizard"
 msgstr ""
 
-#: functions.php:138
+#: functions.php:137
 msgid "Upgrade to Pro"
 msgstr ""
 
-#: functions.php:155
+#: functions.php:154
 msgid "Support"
 msgstr ""
 
-#: functions.php:156
+#: functions.php:155
 msgid "Documentation"
 msgstr ""
 
-#: functions.php:157 includes/admin-dashboard.php:64
+#: functions.php:156 includes/admin-dashboard.php:64
 #: includes/admin-dashboard.php:111
 #: templates/admin/orders/orders-list-template.php:562
 msgid "Review"
@@ -198,89 +199,89 @@ msgstr ""
 msgid "Not found"
 msgstr ""
 
-#: includes/admin/admin-functions.php:143
+#: includes/admin/admin-functions.php:273
 msgid "Requires prescription"
 msgstr ""
 
-#: includes/admin/admin-functions.php:144
+#: includes/admin/admin-functions.php:274
 msgid ""
 "Overrides the category rules for this product. Leave on \"Use category "
 "rules\" to keep the global behaviour."
 msgstr ""
 
-#: includes/admin/admin-functions.php:148
+#: includes/admin/admin-functions.php:278
 msgid "Use category rules"
 msgstr ""
 
-#: includes/admin/admin-functions.php:149
+#: includes/admin/admin-functions.php:279
 msgid "Always require a prescription"
 msgstr ""
 
-#: includes/admin/admin-functions.php:150
+#: includes/admin/admin-functions.php:280
 msgid "Never require a prescription"
 msgstr ""
 
-#: includes/admin/admin-functions.php:160
+#: includes/admin/admin-functions.php:290
 msgid "Maximum quantity per order (Pro)"
 msgstr ""
 
-#: includes/admin/admin-functions.php:161
+#: includes/admin/admin-functions.php:291
 msgid "Pro caps how much of a controlled product one order may contain."
 msgstr ""
 
-#: includes/admin/admin-functions.php:214
-#: includes/admin/admin-functions.php:219
+#: includes/admin/admin-functions.php:347
+#: includes/admin/admin-functions.php:352
 #: templates/admin/orders/orders-list-template.php:561
 msgid "Prescription"
 msgstr ""
 
-#: includes/admin/admin-functions.php:268
+#: includes/admin/admin-functions.php:401
 msgid "Medical Prescription Review"
 msgstr ""
 
-#: includes/admin/admin-functions.php:290
-#: includes/front/front-ajax-functions.php:327
+#: includes/admin/admin-functions.php:423
+#: includes/front/front-ajax-functions.php:329
 msgid "Order not found."
 msgstr ""
 
-#: includes/admin/admin-functions.php:321
+#: includes/admin/admin-functions.php:454
 #. translators: %d: number of uploaded files
 msgid "Uploaded File (%d)"
 msgid_plural "Uploaded Files (%d)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin/admin-functions.php:328
+#: includes/admin/admin-functions.php:461
 msgid "The customer has not uploaded a prescription yet."
 msgstr ""
 
-#: includes/admin/admin-functions.php:343
+#: includes/admin/admin-functions.php:476
 msgid "Decision"
 msgstr ""
 
-#: includes/admin/admin-functions.php:349
+#: includes/admin/admin-functions.php:482
 msgid "Review decision"
 msgstr ""
 
-#: includes/admin/admin-functions.php:358
+#: includes/admin/admin-functions.php:491
 msgid "Message to the customer"
 msgstr ""
 
-#: includes/admin/admin-functions.php:359
+#: includes/admin/admin-functions.php:492
 msgid "e.g. the prescription is unreadable, or the prescriber details are missing."
 msgstr ""
 
-#: includes/admin/admin-functions.php:365
+#: includes/admin/admin-functions.php:498
 msgid ""
 "The decision is saved when you update the order, and the customer is "
 "emailed straight away."
 msgstr ""
 
-#: includes/admin/admin-functions.php:368
+#: includes/admin/admin-functions.php:501
 msgid "You do not have permission to review prescriptions."
 msgstr ""
 
-#: includes/admin/admin-functions.php:399
+#: includes/admin/admin-functions.php:532
 msgid ""
 "A rejection reason is required, so the prescription status was left "
 "unchanged."
@@ -378,7 +379,7 @@ msgid ""
 "cart. You can restyle it later under Configuration, Design."
 msgstr ""
 
-#: includes/admin/setup-wizard.php:174 includes/file-handler.php:142
+#: includes/admin/setup-wizard.php:174 includes/file-handler.php:137
 msgid "Requires Prescription"
 msgstr ""
 
@@ -451,8 +452,8 @@ msgstr ""
 #: includes/admin-dashboard.php:68
 #. translators: %s: a link showing five stars.
 msgid ""
-"If you like Prescription for WooCommerce, please leave us a %s rating. We "
-"really appreciate it!"
+"If you like DevDiggers Prescription for WooCommerce, please leave us a %s "
+"rating. We really appreciate it!"
 msgstr ""
 
 #: includes/admin-dashboard.php:88 includes/admin-dashboard.php:93
@@ -563,8 +564,8 @@ msgstr ""
 #: includes/email-notification-handler.php:68
 #: includes/email-notification-handler.php:69
 #: includes/email-notification-handler.php:71
-#: includes/email-notification-handler.php:454
-#: includes/email-notification-handler.php:463
+#: includes/email-notification-handler.php:451
+#: includes/email-notification-handler.php:460
 msgid "Prescription Notification"
 msgstr ""
 
@@ -594,94 +595,94 @@ msgstr ""
 msgid "An error occurred while sending the email."
 msgstr ""
 
-#: includes/email-notification-handler.php:342
+#: includes/email-notification-handler.php:339
 #. translators: %s: list of placeholders
 msgid "Available placeholders: %s"
 msgstr ""
 
-#: includes/email-notification-handler.php:348
+#: includes/email-notification-handler.php:345
 #: templates/admin/configuration/configuration-template.php:52
 msgid "Enable/Disable"
 msgstr ""
 
-#: includes/email-notification-handler.php:350
+#: includes/email-notification-handler.php:347
 msgid "Enable this email notification"
 msgstr ""
 
-#: includes/email-notification-handler.php:352
+#: includes/email-notification-handler.php:349
 msgid "Enable or disable this email notification."
 msgstr ""
 
-#: includes/email-notification-handler.php:355
+#: includes/email-notification-handler.php:352
 msgid "Recipient(s)"
 msgstr ""
 
-#: includes/email-notification-handler.php:359
+#: includes/email-notification-handler.php:356
 #. translators: %s: WP admin email
 msgid "Enter recipients (comma separated) for this email. Defaults to %s."
 msgstr ""
 
-#: includes/email-notification-handler.php:368
+#: includes/email-notification-handler.php:365
 msgid "Subject"
 msgstr ""
 
-#: includes/email-notification-handler.php:371
+#: includes/email-notification-handler.php:368
 msgid ""
 "Used for the email the store receives when a prescription arrives. Customer "
 "emails use their own subject, written into the plugin."
 msgstr ""
 
-#: includes/email-notification-handler.php:377
+#: includes/email-notification-handler.php:374
 msgid "Email heading"
 msgstr ""
 
-#: includes/email-notification-handler.php:380
+#: includes/email-notification-handler.php:377
 msgid ""
 "Used for the email the store receives when a prescription arrives. Customer "
 "emails use their own heading, written into the plugin."
 msgstr ""
 
-#: includes/email-notification-handler.php:386
+#: includes/email-notification-handler.php:383
 msgid "Additional content"
 msgstr ""
 
-#: includes/email-notification-handler.php:387
+#: includes/email-notification-handler.php:384
 msgid "Text to appear below the main email content."
 msgstr ""
 
-#: includes/email-notification-handler.php:389
+#: includes/email-notification-handler.php:386
 msgid "N/A"
 msgstr ""
 
-#: includes/email-notification-handler.php:396
+#: includes/email-notification-handler.php:393
 msgid "Email type"
 msgstr ""
 
-#: includes/email-notification-handler.php:398
+#: includes/email-notification-handler.php:395
 msgid "Choose which format of email to send."
 msgstr ""
 
-#: includes/email-notification-handler.php:405
+#: includes/email-notification-handler.php:402
 msgid "Debug Mode"
 msgstr ""
 
-#: includes/email-notification-handler.php:407
+#: includes/email-notification-handler.php:404
 msgid "Enable debug logging for email notifications"
 msgstr ""
 
-#: includes/email-notification-handler.php:409
+#: includes/email-notification-handler.php:406
 msgid "Enable this to log detailed information about email sending process."
 msgstr ""
 
-#: includes/file-handler.php:47
+#: includes/file-handler.php:42
 msgid "[{site_title}] Prescription approved for order #{order_number}"
 msgstr ""
 
-#: includes/file-handler.php:48
+#: includes/file-handler.php:43
 msgid "Your prescription has been approved"
 msgstr ""
 
-#: includes/file-handler.php:50
+#: includes/file-handler.php:45
 msgid ""
 "<p>Hi {customer_name},</p>\n"
 "\t\t\t\t\t\t\t<p>Great news. A pharmacist at {site_title} has reviewed the "
@@ -692,15 +693,15 @@ msgid ""
 "\t\t\t\t\t\t\t<p>Best regards</p>"
 msgstr ""
 
-#: includes/file-handler.php:61
+#: includes/file-handler.php:56
 msgid "[{site_title}] Prescription rejected for order #{order_number}"
 msgstr ""
 
-#: includes/file-handler.php:62
+#: includes/file-handler.php:57
 msgid "We could not accept your prescription"
 msgstr ""
 
-#: includes/file-handler.php:64
+#: includes/file-handler.php:59
 msgid ""
 "<p>Hi {customer_name},</p>\n"
 "\t\t\t\t\t\t\t<p>Thank you for sending your prescription for order "
@@ -713,15 +714,15 @@ msgid ""
 "\t\t\t\t\t\t\t<p>Best regards</p>"
 msgstr ""
 
-#: includes/file-handler.php:76
+#: includes/file-handler.php:71
 msgid "[{site_title}] More information needed for order #{order_number}"
 msgstr ""
 
-#: includes/file-handler.php:77
+#: includes/file-handler.php:72
 msgid "We need a little more from you"
 msgstr ""
 
-#: includes/file-handler.php:79
+#: includes/file-handler.php:74
 msgid ""
 "<p>Hi {customer_name},</p>\n"
 "\t\t\t\t\t\t\t<p>Thank you for uploading your prescription for order "
@@ -735,7 +736,7 @@ msgid ""
 msgstr ""
 
 #: includes/front/front-ajax-functions.php:76
-#: includes/front/front-ajax-functions.php:412
+#: includes/front/front-ajax-functions.php:414
 msgid "Security Check Failed!!"
 msgstr ""
 
@@ -747,60 +748,60 @@ msgstr ""
 msgid "Invalid request."
 msgstr ""
 
-#: includes/front/front-ajax-functions.php:143
+#: includes/front/front-ajax-functions.php:144
 msgid "Kindly select a file to upload."
 msgstr ""
 
-#: includes/front/front-ajax-functions.php:178
+#: includes/front/front-ajax-functions.php:179
 #: includes/front/front-functions.php:149
 #. translators: %d: maximum number of files
 msgid "You can attach a maximum of %d file(s)."
 msgstr ""
 
-#: includes/front/front-ajax-functions.php:187
+#: includes/front/front-ajax-functions.php:188
 msgid "Sorry, jpg, jpeg, png, webp, pdf, doc, docx files are allowed."
 msgstr ""
 
-#: includes/front/front-ajax-functions.php:194
+#: includes/front/front-ajax-functions.php:195
 #. translators: %s: maximum upload size in megabytes
 msgid "Attachment size too large, the limit is %s MB."
 msgstr ""
 
-#: includes/front/front-ajax-functions.php:201
+#: includes/front/front-ajax-functions.php:202
 msgid "Invalid Attachment."
 msgstr ""
 
-#: includes/front/front-ajax-functions.php:261
+#: includes/front/front-ajax-functions.php:262
 msgid "Uploaded successfully."
 msgstr ""
 
-#: includes/front/front-ajax-functions.php:279
+#: includes/front/front-ajax-functions.php:281
 msgid "Invalid attachment."
 msgstr ""
 
-#: includes/front/front-ajax-functions.php:289
+#: includes/front/front-ajax-functions.php:291
 msgid "That attachment does not belong to this order."
 msgstr ""
 
-#: includes/front/front-ajax-functions.php:312
+#: includes/front/front-ajax-functions.php:314
 msgid "Attachment removed successfully."
 msgstr ""
 
-#: includes/front/front-ajax-functions.php:336
+#: includes/front/front-ajax-functions.php:338
 msgid "Kindly upload the attachment first."
 msgstr ""
 
-#: includes/front/front-ajax-functions.php:350
+#: includes/front/front-ajax-functions.php:352
 msgid "Your prescription has been submitted for review."
 msgstr ""
 
-#: includes/front/front-ajax-functions.php:371
+#: includes/front/front-ajax-functions.php:373
 #: includes/front/front-functions.php:337
 #. translators: %s: order number
 msgid "A customer has uploaded medical prescription(s) for order #%s."
 msgstr ""
 
-#: includes/front/front-ajax-functions.php:376
+#: includes/front/front-ajax-functions.php:378
 #: includes/front/front-functions.php:342
 #. translators: %s: review queue URL
 msgid "Review queue: %s"
@@ -961,7 +962,7 @@ msgid ""
 msgstr ""
 
 #: templates/admin/configuration/configuration-template.php:53
-msgid "Enable Prescription for WooCommerce"
+msgid "Enable DevDiggers Prescription for WooCommerce"
 msgstr ""
 
 #: templates/admin/configuration/configuration-template.php:54
@@ -1828,16 +1829,52 @@ msgstr ""
 msgid "Review Queue"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:173
+#: templates/admin/dashboard/dashboard-template.php:159
+msgid "Pharmacy Analytics"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:176
+msgid "See where your prescription revenue and delays come from, in Pro"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:177
+msgid "Pro turns the same orders into the numbers a pharmacy manager asks for."
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:179
+msgid "Approval rate, average review time and orders that missed your review target"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:180
+msgid "Revenue approved and revenue still on hold waiting for a decision"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:181
+msgid "The prescribers and products behind your prescription orders"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:182
+msgid "Approved prescriptions expiring in the next 30 days"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:183
+msgid "Decisions per reviewer and the reasons customers are refused most"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:184
+msgid "A CSV export of every prescription, with the columns you choose"
+msgstr ""
+
+#: templates/admin/dashboard/dashboard-template.php:201
 msgid "Nothing is waiting for review. Nice work."
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:187
+#: templates/admin/dashboard/dashboard-template.php:215
 #. translators: 1: human readable duration, 2: number of files
 msgid "Waiting %1$s &middot; %2$d file(s)"
 msgstr ""
 
-#: templates/admin/dashboard/dashboard-template.php:199
+#: templates/admin/dashboard/dashboard-template.php:227
 msgid "Open the full queue"
 msgstr ""
 

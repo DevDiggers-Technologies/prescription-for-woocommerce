@@ -1,8 +1,8 @@
 <?php
 /**
- * Prescription for WooCommerce Notification email
+ * DevDiggers Prescription for WooCommerce Notification email
  *
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  * @version 1.0.0
  */
 
@@ -40,13 +40,13 @@ if ( ! empty( $email_message ) && is_array( $email_message ) ) {
 if ( $order && ! empty( $order_number ) ) {
 	?>
 	<div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #007cba;">
-		<h3 style="margin: 0 0 10px 0; color: #333;"><?php esc_html_e( 'Order Information', 'prescription-for-woocommerce' ); ?></h3>
-		<p style="margin: 5px 0;"><strong><?php esc_html_e( 'Order Number:', 'prescription-for-woocommerce' ); ?></strong> <?php echo esc_html( $order_number ); ?></p>
+		<h3 style="margin: 0 0 10px 0; color: #333;"><?php esc_html_e( 'Order Information', 'devdiggers-prescription-for-woocommerce' ); ?></h3>
+		<p style="margin: 5px 0;"><strong><?php esc_html_e( 'Order Number:', 'devdiggers-prescription-for-woocommerce' ); ?></strong> <?php echo esc_html( $order_number ); ?></p>
 		<?php if ( ! empty( $order_date ) ) : ?>
-			<p style="margin: 5px 0;"><strong><?php esc_html_e( 'Order Date:', 'prescription-for-woocommerce' ); ?></strong> <?php echo esc_html( $order_date ); ?></p>
+			<p style="margin: 5px 0;"><strong><?php esc_html_e( 'Order Date:', 'devdiggers-prescription-for-woocommerce' ); ?></strong> <?php echo esc_html( $order_date ); ?></p>
 		<?php endif; ?>
 		<?php if ( ! empty( $status ) ) : ?>
-			<p style="margin: 5px 0;"><strong><?php esc_html_e( 'Status:', 'prescription-for-woocommerce' ); ?></strong> <?php echo esc_html( $status ); ?></p>
+			<p style="margin: 5px 0;"><strong><?php esc_html_e( 'Status:', 'devdiggers-prescription-for-woocommerce' ); ?></strong> <?php echo esc_html( $status ); ?></p>
 		<?php endif; ?>
 	</div>
 	<?php
@@ -57,7 +57,7 @@ if ( $order && ! empty( $order_url ) ) {
 	?>
 	<div style="margin: 20px 0; text-align: center;">
 		<a href="<?php echo esc_url( $order_url ); ?>" style="display: inline-block; padding: 12px 24px; background-color: #007cba; color: #ffffff; text-decoration: none; border-radius: 4px; font-weight: bold;">
-			<?php esc_html_e( 'View Order', 'prescription-for-woocommerce' ); ?>
+			<?php esc_html_e( 'View Order', 'devdiggers-prescription-for-woocommerce' ); ?>
 		</a>
 	</div>
 	<?php

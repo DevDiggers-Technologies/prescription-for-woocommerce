@@ -84,10 +84,10 @@ if ( ! class_exists( 'DDFW_Assets' ) ) {
 							'ajaxNonce' => wp_create_nonce( 'ddfw-nonce' ),
 						],
 						'i18n' => [
-							'subscribing'         => esc_html__( 'Subscribing...', 'prescription-for-woocommerce' ),
-							'subscribe'           => esc_html__( 'Subscribe', 'prescription-for-woocommerce' ),
-							'subscriptionSuccess' => esc_html__( 'Thank you for subscribing!', 'prescription-for-woocommerce' ),
-							'subscriptionError'   => esc_html__( 'An error occurred. Please try again.', 'prescription-for-woocommerce' ),
+							'subscribing'         => esc_html__( 'Subscribing...', 'devdiggers-prescription-for-woocommerce' ),
+							'subscribe'           => esc_html__( 'Subscribe', 'devdiggers-prescription-for-woocommerce' ),
+							'subscriptionSuccess' => esc_html__( 'Thank you for subscribing!', 'devdiggers-prescription-for-woocommerce' ),
+							'subscriptionError'   => esc_html__( 'An error occurred. Please try again.', 'devdiggers-prescription-for-woocommerce' ),
 						],
 					]
 				);
@@ -105,12 +105,12 @@ if ( ! class_exists( 'DDFW_Assets' ) ) {
 						'ajaxNonce' => wp_create_nonce( 'ddfw-nonce' ),
 					],
 					'i18n' => [
-						'selectImage'         => esc_html__( 'Select Image', 'prescription-for-woocommerce' ),
-						'useImage'            => esc_html__( 'Use Image', 'prescription-for-woocommerce' ),
-						'pleaseEnter'         => esc_html__( 'Please enter', 'prescription-for-woocommerce' ),
-						'moreCharacter'       => esc_html__( 'or more character', 'prescription-for-woocommerce' ),
-						'noResult'            => esc_html__( 'No result Found', 'prescription-for-woocommerce' ),
-						'deleteConfirm'       => esc_html__( 'Are you sure you want to delete?', 'prescription-for-woocommerce' ),
+						'selectImage'         => esc_html__( 'Select Image', 'devdiggers-prescription-for-woocommerce' ),
+						'useImage'            => esc_html__( 'Use Image', 'devdiggers-prescription-for-woocommerce' ),
+						'pleaseEnter'         => esc_html__( 'Please enter', 'devdiggers-prescription-for-woocommerce' ),
+						'moreCharacter'       => esc_html__( 'or more character', 'devdiggers-prescription-for-woocommerce' ),
+						'noResult'            => esc_html__( 'No result Found', 'devdiggers-prescription-for-woocommerce' ),
+						'deleteConfirm'       => esc_html__( 'Are you sure you want to delete?', 'devdiggers-prescription-for-woocommerce' ),
 					],
 					'site_url'          => site_url(),
 					'devdiggers_plugin' => $devdiggers_plugin,

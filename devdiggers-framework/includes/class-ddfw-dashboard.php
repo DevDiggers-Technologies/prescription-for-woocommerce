@@ -118,7 +118,7 @@ if ( ! class_exists( 'DDFW_Dashboard' ) ) {
 			$show_date_filter = ! isset( $header['show_date_filter'] ) || $header['show_date_filter'];
 			$current_user     = wp_get_current_user();
 
-			$welcome = isset( $header['welcome'] ) ? $header['welcome'] : esc_html__( 'Welcome back!', 'prescription-for-woocommerce' );
+			$welcome = isset( $header['welcome'] ) ? $header['welcome'] : esc_html__( 'Welcome back!', 'devdiggers-prescription-for-woocommerce' );
 			if ( false !== strpos( $welcome, '%s' ) ) {
 				$welcome = sprintf( $welcome, $current_user->display_name );
 			}
@@ -144,7 +144,7 @@ if ( ! class_exists( 'DDFW_Dashboard' ) ) {
 									<?php if ( ! empty( $back_link['url'] ) ) : ?>
 										<a href="<?php echo esc_url( $back_link['url'] ); ?>" class="ddfw-dash-back-button">
 											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-											<?php echo esc_html( ! empty( $back_link['label'] ) ? $back_link['label'] : esc_html__( 'Back', 'prescription-for-woocommerce' ) ); ?>
+											<?php echo esc_html( ! empty( $back_link['label'] ) ? $back_link['label'] : esc_html__( 'Back', 'devdiggers-prescription-for-woocommerce' ) ); ?>
 										</a>
 									<?php endif; ?>
 								</h1>
@@ -205,7 +205,7 @@ if ( ! class_exists( 'DDFW_Dashboard' ) ) {
 							<div class="ddfw-dash-dropdown-content">
 								<div class="ddfw-dash-date-presets">
 									<div class="ddfw-dash-presets-header">
-										<h4><?php esc_html_e( 'Quick Select', 'prescription-for-woocommerce' ); ?></h4>
+										<h4><?php esc_html_e( 'Quick Select', 'devdiggers-prescription-for-woocommerce' ); ?></h4>
 									</div>
 									<?php foreach ( $presets as $key => $label ) : ?>
 										<button type="button" class="ddfw-dash-date-preset" data-range="<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $label ); ?></button>
@@ -214,20 +214,20 @@ if ( ! class_exists( 'DDFW_Dashboard' ) ) {
 
 								<div class="ddfw-dash-custom-date-range">
 									<div class="ddfw-dash-custom-header">
-										<h4><?php esc_html_e( 'Custom Range', 'prescription-for-woocommerce' ); ?></h4>
-										<p><?php esc_html_e( 'Select specific start and end dates for your analysis', 'prescription-for-woocommerce' ); ?></p>
+										<h4><?php esc_html_e( 'Custom Range', 'devdiggers-prescription-for-woocommerce' ); ?></h4>
+										<p><?php esc_html_e( 'Select specific start and end dates for your analysis', 'devdiggers-prescription-for-woocommerce' ); ?></p>
 									</div>
 									<div class="ddfw-dash-date-inputs">
 										<div class="ddfw-dash-date-input-group">
-											<label for="ddfw-dash-from-date"><?php esc_html_e( 'From Date', 'prescription-for-woocommerce' ); ?></label>
+											<label for="ddfw-dash-from-date"><?php esc_html_e( 'From Date', 'devdiggers-prescription-for-woocommerce' ); ?></label>
 											<input type="date" name="from_date" id="ddfw-dash-from-date" value="<?php echo esc_attr( $this->date_range['from'] ); ?>" />
 										</div>
 										<div class="ddfw-dash-date-input-group">
-											<label for="ddfw-dash-to-date"><?php esc_html_e( 'To Date', 'prescription-for-woocommerce' ); ?></label>
+											<label for="ddfw-dash-to-date"><?php esc_html_e( 'To Date', 'devdiggers-prescription-for-woocommerce' ); ?></label>
 											<input type="date" name="to_date" id="ddfw-dash-to-date" value="<?php echo esc_attr( $this->date_range['to'] ); ?>" />
 										</div>
 									</div>
-									<button type="button" class="ddfw-dash-apply-custom-range button button-primary"><?php esc_html_e( 'Apply Custom Range', 'prescription-for-woocommerce' ); ?></button>
+									<button type="button" class="ddfw-dash-apply-custom-range button button-primary"><?php esc_html_e( 'Apply Custom Range', 'devdiggers-prescription-for-woocommerce' ); ?></button>
 								</div>
 							</div>
 						</div>
@@ -406,8 +406,8 @@ if ( ! class_exists( 'DDFW_Dashboard' ) ) {
 				'valueKey'    => $chart['value_key'] ?? 'value',
 				'valueFormat' => $chart['value_format'] ?? 'number',
 				'empty'       => [
-					'title' => $chart['empty']['title'] ?? esc_html__( 'No data available', 'prescription-for-woocommerce' ),
-					'desc'  => $chart['empty']['desc'] ?? esc_html__( 'Data will appear here once activity is recorded.', 'prescription-for-woocommerce' ),
+					'title' => $chart['empty']['title'] ?? esc_html__( 'No data available', 'devdiggers-prescription-for-woocommerce' ),
+					'desc'  => $chart['empty']['desc'] ?? esc_html__( 'Data will appear here once activity is recorded.', 'devdiggers-prescription-for-woocommerce' ),
 				],
 			];
 
@@ -484,7 +484,7 @@ if ( ! class_exists( 'DDFW_Dashboard' ) ) {
 					'dateRange'      => $this->date_range,
 					'currencySymbol' => $currency_symbol,
 					'i18n'           => [
-						'noData' => esc_html__( 'No data available', 'prescription-for-woocommerce' ),
+						'noData' => esc_html__( 'No data available', 'devdiggers-prescription-for-woocommerce' ),
 					],
 				]
 			);

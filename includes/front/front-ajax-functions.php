@@ -4,7 +4,7 @@
  *
  * @author DevDiggers
  * @version 1.0.0
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  */
 
 namespace DDWCMedicalPrescriptionAttachment\Includes\Front;
@@ -73,7 +73,7 @@ if ( ! class_exists( 'DDWCMPA_Front_Ajax_Functions' ) ) {
 				wp_send_json(
 					[
 						'success' => false,
-						'message' => esc_html__( 'Security Check Failed!!', 'prescription-for-woocommerce' ),
+						'message' => esc_html__( 'Security Check Failed!!', 'devdiggers-prescription-for-woocommerce' ),
 					]
 				);
 			}
@@ -87,14 +87,14 @@ if ( ! class_exists( 'DDWCMPA_Front_Ajax_Functions' ) ) {
 				wp_send_json(
 					[
 						'success' => false,
-						'message' => esc_html__( 'You are not allowed to change this order.', 'prescription-for-woocommerce' ),
+						'message' => esc_html__( 'You are not allowed to change this order.', 'devdiggers-prescription-for-woocommerce' ),
 					]
 				);
 			}
 
 			$response = [
 				'success' => false,
-				'message' => esc_html__( 'Invalid request.', 'prescription-for-woocommerce' ),
+				'message' => esc_html__( 'Invalid request.', 'devdiggers-prescription-for-woocommerce' ),
 			];
 
 			switch ( $type ) {
@@ -136,11 +136,12 @@ if ( ! class_exists( 'DDWCMPA_Front_Ajax_Functions' ) ) {
 		 * @return array
 		 */
 		protected function ddwcmpa_handle_upload( $order, $order_id ) {
-			// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified by the caller.
+			check_ajax_referer( 'ddwcmpa-nonce', 'nonce' );
+
 			if ( empty( $_FILES['ddwcmpa_prescription_attachment']['name'][0] ) ) {
 				return [
 					'success' => false,
-					'message' => esc_html__( 'Kindly select a file to upload.', 'prescription-for-woocommerce' ),
+					'message' => esc_html__( 'Kindly select a file to upload.', 'devdiggers-prescription-for-woocommerce' ),
 				];
 			}
 
@@ -150,7 +151,7 @@ if ( ! class_exists( 'DDWCMPA_Front_Ajax_Functions' ) ) {
 			$attachments_html = [];
 			$error_message    = '';
 			$user_id          = get_current_user_id();
-			// phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce verified by the caller, each member is validated below.
+			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Each member is validated below.
 			$files     = $_FILES['ddwcmpa_prescription_attachment'];
 			$max_files = absint( $this->ddwcmpa_configuration['max_files'] );
 
@@ -169,13 +170,13 @@ if ( ! class_exists( 'DDWCMPA_Front_Ajax_Functions' ) ) {
 				]
 			);
 
-			$original_files = $_FILES; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized, WordPress.Security.NonceVerification.Missing -- Nonce verified by the caller, and the array is restored untouched after the upload loop.
+			$original_files = $_FILES; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- The array is restored untouched after the upload loop.
 
 			foreach ( $files['name'] as $key => $file ) {
 				if ( $max_files && count( $attachments ) >= $max_files ) {
 					$error_message = sprintf(
 						/* translators: %d: maximum number of files */
-						esc_html__( 'You can attach a maximum of %d file(s).', 'prescription-for-woocommerce' ),
+						esc_html__( 'You can attach a maximum of %d file(s).', 'devdiggers-prescription-for-woocommerce' ),
 						$max_files
 					);
 					break;
@@ -184,21 +185,21 @@ if ( ! class_exists( 'DDWCMPA_Front_Ajax_Functions' ) ) {
 				$doc_type = ! empty( $files['tmp_name'][ $key ] ) ? mime_content_type( $files['tmp_name'][ $key ] ) : '';
 
 				if ( apply_filters( 'ddwcmpa_check_attachments_mime_type', true, $file ) && ! empty( $doc_type ) && ! in_array( $doc_type, $allowed_doc_type, true ) ) {
-					$error_message = esc_html__( 'Sorry, jpg, jpeg, png, webp, pdf, doc, docx files are allowed.', 'prescription-for-woocommerce' );
+					$error_message = esc_html__( 'Sorry, jpg, jpeg, png, webp, pdf, doc, docx files are allowed.', 'devdiggers-prescription-for-woocommerce' );
 					break;
 				}
 
 				if ( ! empty( $files['size'][ $key ] ) && $files['size'][ $key ] > wp_max_upload_size() ) {
 					$error_message = sprintf(
 						/* translators: %s: maximum upload size in megabytes */
-						esc_html__( 'Attachment size too large, the limit is %s MB.', 'prescription-for-woocommerce' ),
+						esc_html__( 'Attachment size too large, the limit is %s MB.', 'devdiggers-prescription-for-woocommerce' ),
 						number_format( wp_max_upload_size() / 1048576 )
 					);
 					break;
 				}
 
 				if ( apply_filters( 'ddwcmpa_check_custom_validation_for_attachment', false, $file ) ) {
-					$error_message = apply_filters( 'ddwcmpa_custom_validation_error_message', esc_html__( 'Invalid Attachment.', 'prescription-for-woocommerce' ), $file );
+					$error_message = apply_filters( 'ddwcmpa_custom_validation_error_message', esc_html__( 'Invalid Attachment.', 'devdiggers-prescription-for-woocommerce' ), $file );
 					break;
 				}
 
@@ -258,7 +259,7 @@ if ( ! class_exists( 'DDWCMPA_Front_Ajax_Functions' ) ) {
 			return [
 				'success'          => true,
 				'attachments_html' => $attachments_html,
-				'message'          => esc_html__( 'Uploaded successfully.', 'prescription-for-woocommerce' ),
+				'message'          => esc_html__( 'Uploaded successfully.', 'devdiggers-prescription-for-woocommerce' ),
 			];
 		}
 
@@ -270,13 +271,14 @@ if ( ! class_exists( 'DDWCMPA_Front_Ajax_Functions' ) ) {
 		 * @return array
 		 */
 		protected function ddwcmpa_handle_remove( $order, $order_id ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed -- Dispatched with the same two arguments as every sibling handler.
-			// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified by the caller.
+			check_ajax_referer( 'ddwcmpa-nonce', 'nonce' );
+
 			$attachment_id = ! empty( $_POST['attachment_id'] ) ? intval( wp_unslash( $_POST['attachment_id'] ) ) : 0;
 
 			if ( empty( $attachment_id ) ) {
 				return [
 					'success' => false,
-					'message' => esc_html__( 'Invalid attachment.', 'prescription-for-woocommerce' ),
+					'message' => esc_html__( 'Invalid attachment.', 'devdiggers-prescription-for-woocommerce' ),
 				];
 			}
 
@@ -286,7 +288,7 @@ if ( ! class_exists( 'DDWCMPA_Front_Ajax_Functions' ) ) {
 			if ( ! in_array( $attachment_id, array_map( 'absint', $attachments ), true ) ) {
 				return [
 					'success' => false,
-					'message' => esc_html__( 'That attachment does not belong to this order.', 'prescription-for-woocommerce' ),
+					'message' => esc_html__( 'That attachment does not belong to this order.', 'devdiggers-prescription-for-woocommerce' ),
 				];
 			}
 
@@ -309,7 +311,7 @@ if ( ! class_exists( 'DDWCMPA_Front_Ajax_Functions' ) ) {
 
 			return [
 				'success' => true,
-				'message' => esc_html__( 'Attachment removed successfully.', 'prescription-for-woocommerce' ),
+				'message' => esc_html__( 'Attachment removed successfully.', 'devdiggers-prescription-for-woocommerce' ),
 			];
 		}
 
@@ -324,7 +326,7 @@ if ( ! class_exists( 'DDWCMPA_Front_Ajax_Functions' ) ) {
 			if ( ! $order ) {
 				return [
 					'success' => false,
-					'message' => esc_html__( 'Order not found.', 'prescription-for-woocommerce' ),
+					'message' => esc_html__( 'Order not found.', 'devdiggers-prescription-for-woocommerce' ),
 				];
 			}
 
@@ -333,7 +335,7 @@ if ( ! class_exists( 'DDWCMPA_Front_Ajax_Functions' ) ) {
 			if ( empty( $attachments ) ) {
 				return [
 					'success' => false,
-					'message' => esc_html__( 'Kindly upload the attachment first.', 'prescription-for-woocommerce' ),
+					'message' => esc_html__( 'Kindly upload the attachment first.', 'devdiggers-prescription-for-woocommerce' ),
 				];
 			}
 
@@ -347,7 +349,7 @@ if ( ! class_exists( 'DDWCMPA_Front_Ajax_Functions' ) ) {
 			return [
 				'success' => true,
 				'data'    => ob_get_clean(),
-				'message' => esc_html__( 'Your prescription has been submitted for review.', 'prescription-for-woocommerce' ),
+				'message' => esc_html__( 'Your prescription has been submitted for review.', 'devdiggers-prescription-for-woocommerce' ),
 			];
 		}
 
@@ -368,12 +370,12 @@ if ( ! class_exists( 'DDWCMPA_Front_Ajax_Functions' ) ) {
 			$email_message   = [];
 			$email_message[] = sprintf(
 				/* translators: %s: order number */
-				esc_html__( 'A customer has uploaded medical prescription(s) for order #%s.', 'prescription-for-woocommerce' ),
+				esc_html__( 'A customer has uploaded medical prescription(s) for order #%s.', 'devdiggers-prescription-for-woocommerce' ),
 				$order->get_order_number()
 			);
 			$email_message[] = sprintf(
 				/* translators: %s: review queue URL */
-				esc_html__( 'Review queue: %s', 'prescription-for-woocommerce' ),
+				esc_html__( 'Review queue: %s', 'devdiggers-prescription-for-woocommerce' ),
 				'<a href="' . esc_url( $review_url ) . '">' . esc_url( $review_url ) . '</a>'
 			);
 
@@ -409,7 +411,7 @@ if ( ! class_exists( 'DDWCMPA_Front_Ajax_Functions' ) ) {
 			} else {
 				$response = [
 					'success' => false,
-					'message' => esc_html__( 'Security Check Failed!!', 'prescription-for-woocommerce' ),
+					'message' => esc_html__( 'Security Check Failed!!', 'devdiggers-prescription-for-woocommerce' ),
 				];
 			}
 

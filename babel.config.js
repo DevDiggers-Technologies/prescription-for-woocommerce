@@ -26,7 +26,7 @@ module.exports = function( api ) {
 					[
 						'@wordpress/babel-plugin-makepot',
 						{
-							output: 'i18n/prescription-for-woocommerce.po',
+							output: 'i18n/devdiggers-prescription-for-woocommerce.po',
 						},
 					],
 				],

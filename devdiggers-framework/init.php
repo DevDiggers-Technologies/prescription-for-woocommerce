@@ -7,14 +7,14 @@
  * Author URI: https://devdiggers.com/
  * Version: 1.1.1
  * DDFW Build: free
- * Text Domain: prescription-for-woocommerce
+ * Text Domain: devdiggers-prescription-for-woocommerce
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  * Requires at least: 5.0
  * Requires PHP: 7.0
  * Tested up to: 6.x.x
  * Stable tag: 1.1.1
- * Text Domain: prescription-for-woocommerce
+ * Text Domain: devdiggers-prescription-for-woocommerce
  * Framework Domain Path - /i18n
  *
  * @author  DevDiggers
@@ -59,7 +59,10 @@ if ( ! defined( 'DDFW_RESOLVED' ) ) {
 			continue;
 		}
 
-		$ddfw_candidate = wp_normalize_path( WP_PLUGIN_DIR . '/' . $ddfw_dir . ( 'prescription-for-woocommerce' === $ddfw_dir ? '' : '/prescription-for-woocommerce' ) . '/init.php' );
+		// Folder name read from disk, not written as a string, so a plugin's text domain
+		// search and replace over this copy cannot rewrite the path.
+		$ddfw_folder    = basename( __DIR__ );
+		$ddfw_candidate = wp_normalize_path( WP_PLUGIN_DIR . '/' . $ddfw_dir . ( $ddfw_folder === $ddfw_dir ? '' : '/' . $ddfw_folder ) . '/init.php' );
 
 		if ( $ddfw_candidate === $ddfw_best['file'] || ! is_readable( $ddfw_candidate ) ) {
 			continue;
@@ -75,7 +78,7 @@ if ( ! defined( 'DDFW_RESOLVED' ) ) {
 
 	$ddfw_resolved_file = $ddfw_best['file'];
 
-	unset( $ddfw_headers, $ddfw_best, $ddfw_active, $ddfw_plugin, $ddfw_dir, $ddfw_candidate, $ddfw_data, $ddfw_compare );
+	unset( $ddfw_headers, $ddfw_best, $ddfw_active, $ddfw_plugin, $ddfw_dir, $ddfw_folder, $ddfw_candidate, $ddfw_data, $ddfw_compare );
 
 	if ( $ddfw_resolved_file !== $ddfw_this_file ) {
 		unset( $ddfw_this_file );
@@ -107,4 +110,4 @@ if ( is_admin() ) {
 	require_once DDFW_FILE . 'includes/class-ddfw-review-notice.php';
 }
 
-load_textdomain( 'prescription-for-woocommerce', dirname( __FILE__ ) . '/i18n/prescription-for-woocommerce-' . apply_filters( 'plugin_locale', determine_locale(), 'prescription-for-woocommerce' ) . '.mo' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core WordPress hook.
+load_textdomain( 'devdiggers-prescription-for-woocommerce', dirname( __FILE__ ) . '/i18n/devdiggers-prescription-for-woocommerce-' . apply_filters( 'plugin_locale', determine_locale(), 'devdiggers-prescription-for-woocommerce' ) . '.mo' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core WordPress hook.

@@ -6,7 +6,7 @@
  * there is no tracking table to install, migrate or keep in sync.
  *
  * @author DevDiggers
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  * @version 1.0.0
  */
 

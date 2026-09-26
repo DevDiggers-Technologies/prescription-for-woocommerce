@@ -1,8 +1,8 @@
 <?php
 /**
- * Prescription for WooCommerce Notification email
+ * DevDiggers Prescription for WooCommerce Notification email
  *
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  * @version 1.0.0
  */
 
@@ -34,16 +34,16 @@ if ( ! empty( $email_message ) && is_array( $email_message ) ) {
 // Order information. No greeting and no sign off here: the configured message
 // is the whole body, exactly as in the HTML template.
 if ( $order && ! empty( $order_number ) ) {
-	echo esc_html__( 'ORDER INFORMATION', 'prescription-for-woocommerce' ) . "\n";
+	echo esc_html__( 'ORDER INFORMATION', 'devdiggers-prescription-for-woocommerce' ) . "\n";
 	echo esc_html( str_repeat( '=', 20 ) ) . "\n";
-	echo esc_html__( 'Order Number:', 'prescription-for-woocommerce' ) . ' ' . esc_html( $order_number ) . "\n";
+	echo esc_html__( 'Order Number:', 'devdiggers-prescription-for-woocommerce' ) . ' ' . esc_html( $order_number ) . "\n";
 
 	if ( ! empty( $order_date ) ) {
-		echo esc_html__( 'Order Date:', 'prescription-for-woocommerce' ) . ' ' . esc_html( $order_date ) . "\n";
+		echo esc_html__( 'Order Date:', 'devdiggers-prescription-for-woocommerce' ) . ' ' . esc_html( $order_date ) . "\n";
 	}
 
 	if ( ! empty( $status ) ) {
-		echo esc_html__( 'Status:', 'prescription-for-woocommerce' ) . ' ' . esc_html( $status ) . "\n";
+		echo esc_html__( 'Status:', 'devdiggers-prescription-for-woocommerce' ) . ' ' . esc_html( $status ) . "\n";
 	}
 
 	echo "\n";
@@ -51,13 +51,13 @@ if ( $order && ! empty( $order_number ) ) {
 
 // Order URL.
 if ( $order && ! empty( $order_url ) ) {
-	echo esc_html__( 'View your order:', 'prescription-for-woocommerce' ) . "\n";
+	echo esc_html__( 'View your order:', 'devdiggers-prescription-for-woocommerce' ) . "\n";
 	echo esc_url( $order_url ) . "\n\n";
 }
 
 // Additional content.
 if ( ! empty( $additional_content ) ) {
-	echo esc_html__( 'ADDITIONAL INFORMATION', 'prescription-for-woocommerce' ) . "\n";
+	echo esc_html__( 'ADDITIONAL INFORMATION', 'devdiggers-prescription-for-woocommerce' ) . "\n";
 	echo esc_html( str_repeat( '-', 25 ) ) . "\n";
 	echo esc_html( wp_strip_all_tags( wptexturize( $additional_content ) ) ) . "\n\n";
 }

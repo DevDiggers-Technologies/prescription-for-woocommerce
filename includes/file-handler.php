@@ -3,7 +3,7 @@
  * File handler
  *
  * @author DevDiggers
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  * @version 1.0.0
  */
 
@@ -17,11 +17,6 @@ if ( ! class_exists( 'DDWCMPA_File_Handler' ) ) {
 	 */
 	class DDWCMPA_File_Handler {
 		/**
-		 * The notifications the merchant can word themselves.
-		 *
-		 * @var array
-		 */
-		const EMAIL_STATUSES = [ 'approved', 'rejected', 'info_required' ];
 
 		/**
 		 * The wording every notification ships with.
@@ -44,8 +39,8 @@ if ( ! class_exists( 'DDWCMPA_File_Handler' ) ) {
 		public static function default_emails() {
 			return [
 				'approved'      => [
-					'subject' => esc_html__( '[{site_title}] Prescription approved for order #{order_number}', 'prescription-for-woocommerce' ),
-					'heading' => esc_html__( 'Your prescription has been approved', 'prescription-for-woocommerce' ),
+					'subject' => esc_html__( '[{site_title}] Prescription approved for order #{order_number}', 'devdiggers-prescription-for-woocommerce' ),
+					'heading' => esc_html__( 'Your prescription has been approved', 'devdiggers-prescription-for-woocommerce' ),
 					'message' => wp_kses_post(
 						__(
 							'<p>Hi {customer_name},</p>
@@ -53,13 +48,13 @@ if ( ! class_exists( 'DDWCMPA_File_Handler' ) ) {
 							<p>Your order is now being prepared for dispatch, so there is nothing further you need to do.</p>
 							<p>Thank you for trusting us with your prescription.</p>
 							<p>Best regards</p>',
-							'prescription-for-woocommerce'
+							'devdiggers-prescription-for-woocommerce'
 						)
 					),
 				],
 				'rejected'      => [
-					'subject' => esc_html__( '[{site_title}] Prescription rejected for order #{order_number}', 'prescription-for-woocommerce' ),
-					'heading' => esc_html__( 'We could not accept your prescription', 'prescription-for-woocommerce' ),
+					'subject' => esc_html__( '[{site_title}] Prescription rejected for order #{order_number}', 'devdiggers-prescription-for-woocommerce' ),
+					'heading' => esc_html__( 'We could not accept your prescription', 'devdiggers-prescription-for-woocommerce' ),
 					'message' => wp_kses_post(
 						__(
 							'<p>Hi {customer_name},</p>
@@ -68,13 +63,13 @@ if ( ! class_exists( 'DDWCMPA_File_Handler' ) ) {
 							<p>You are very welcome to send us a replacement whenever you are ready and we will review it as soon as it arrives. {reupload_note}</p>
 							<p>Thank you for your patience.</p>
 							<p>Best regards</p>',
-							'prescription-for-woocommerce'
+							'devdiggers-prescription-for-woocommerce'
 						)
 					),
 				],
 				'info_required' => [
-					'subject' => esc_html__( '[{site_title}] More information needed for order #{order_number}', 'prescription-for-woocommerce' ),
-					'heading' => esc_html__( 'We need a little more from you', 'prescription-for-woocommerce' ),
+					'subject' => esc_html__( '[{site_title}] More information needed for order #{order_number}', 'devdiggers-prescription-for-woocommerce' ),
+					'heading' => esc_html__( 'We need a little more from you', 'devdiggers-prescription-for-woocommerce' ),
 					'message' => wp_kses_post(
 						__(
 							'<p>Hi {customer_name},</p>
@@ -83,7 +78,7 @@ if ( ! class_exists( 'DDWCMPA_File_Handler' ) ) {
 							<p>As soon as we have it we will pick your order straight back up. {reupload_note}</p>
 							<p>Thank you for your help.</p>
 							<p>Best regards</p>',
-							'prescription-for-woocommerce'
+							'devdiggers-prescription-for-woocommerce'
 						)
 					),
 				],
@@ -139,7 +134,7 @@ if ( ! class_exists( 'DDWCMPA_File_Handler' ) ) {
 				'attach_later_enabled'           => get_option( '_ddwcmpa_attach_later_enabled', 'yes' ),
 				'admin_email_enabled'            => get_option( '_ddwcmpa_admin_email_enabled', 'yes' ),
 				'customer_email_enabled'         => get_option( '_ddwcmpa_customer_email_enabled', 'yes' ),
-				'product_label'                  => ! empty( $product_label ) ? $product_label : esc_html__( 'Requires Prescription', 'prescription-for-woocommerce' ),
+				'product_label'                  => ! empty( $product_label ) ? $product_label : esc_html__( 'Requires Prescription', 'devdiggers-prescription-for-woocommerce' ),
 				'product_label_font_color'       => ! empty( $product_label_font_color ) ? $product_label_font_color : '#ffffff',
 				'product_label_background_color' => ! empty( $product_label_background_color ) ? $product_label_background_color : '#0256ff',
 				'prescription_description'       => get_option( '_ddwcmpa_prescription_description', '' ),
@@ -167,14 +162,6 @@ if ( ! class_exists( 'DDWCMPA_File_Handler' ) ) {
 				// their file" do not all have to change name.
 				'reupload_enabled'               => get_option( '_ddwcmpa_self_service_enabled', 'yes' ),
 			];
-
-			// Email wording is fixed in Free. The built in messages are complete, and
-			// rewording them is a Pro feature, so nothing is read from the options table.
-			foreach ( self::default_emails() as $ddwcmpa_status => $ddwcmpa_email ) {
-				foreach ( $ddwcmpa_email as $ddwcmpa_part => $ddwcmpa_value ) {
-					$ddwcmpa_configuration[ 'email_' . $ddwcmpa_part . '_' . $ddwcmpa_status ] = $ddwcmpa_value;
-				}
-			}
 
 			return $ddwcmpa_configuration;
 		}

@@ -1,9 +1,9 @@
-=== Prescription for WooCommerce ===
+=== Prescription for WooCommerce - Prescription Upload & Pharmacy Order Approval ===
 Contributors: devdiggers
 Plugin URI: https://devdiggers.com/product/woocommerce-medical-prescription-attachment/
 Author: DevDiggers
 Author URI: https://devdiggers.com/
-Tags: prescription, pharmacy, prescription upload, order approval, medical
+Tags: prescription, prescription upload, pharmacy, online pharmacy, order approval
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -13,21 +13,22 @@ Stable tag: 1.0.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Require a prescription upload at WooCommerce checkout, hold the order until a pharmacist approves it, and keep every file private on your server.
+Prescription upload for WooCommerce pharmacies. Require an Rx at checkout, hold the order until a pharmacist approves it, keep files private.
 
 == Description ==
 
 Selling prescription medicine online comes down to three rules. The customer cannot check out without a prescription. Nothing ships before someone qualified has looked at it. And the prescription never ends up in a folder the public can open.
 
-**[Prescription for WooCommerce](https://devdiggers.com/product/woocommerce-medical-prescription-attachment/)** by DevDiggers handles all three for online pharmacies, chemists and medical stores. Pick the products that need a prescription. Customers upload it on the cart or checkout page, and the order waits in a holding status until your pharmacist approves or rejects the prescription from the WooCommerce order screen.
+**[Prescription for WooCommerce plugin](https://devdiggers.com/product/woocommerce-medical-prescription-attachment/)** handles all three for online pharmacies, chemists and medical stores. Pick the products that need a prescription. Customers upload their Rx on the cart or checkout page, and the order waits in a holding status until your pharmacist approves or rejects it from the WooCommerce order screen.
 
-There is no external service, no API key and no fee per prescription. Every file stays on your own server, in a private folder that only the customer and your reviewers can open.
+Think of it as a prescription upload field and a pharmacy order approval step built into WooCommerce. A person on your team verifies every prescription. Prescriptions are never sent to an outside service. There is no AI scanning, no API key and no fee per prescription. Every file stays on your own server, in a private folder that only the customer and your reviewers can open.
 
 = Quick links =
 
-* [View Demo](https://demo.devdiggers.com/woocommerce-medical-prescription-attachment/)
+* [View Demo](https://demo.devdiggers.com/prescription-for-woocommerce/)
+* [View Pro Plugin Demo](https://demo.devdiggers.com/woocommerce-medical-prescription-attachment/)
 * [Documentation](https://docs.devdiggers.com/woocommerce-medical-prescription-attachment/)
-* [Support](https://wordpress.org/support/plugin/prescription-for-woocommerce/)
+* [Support](https://wordpress.org/support/plugin/devdiggers-prescription-for-woocommerce/)
 * [Upgrade to Pro](https://devdiggers.com/product/woocommerce-medical-prescription-attachment/)
 
 = How it works =
@@ -51,7 +52,7 @@ Not every product in a pharmacy needs a prescription. You decide where the rule 
 * A short note for customers explaining what to upload
 * Works with simple and variable products
 
-=== Prescription upload on the cart and checkout page ===
+=== Prescription upload field on the cart and checkout page ===
 
 Customers attach their prescription where they are already buying. The upload box supports drag and drop, and you choose where it appears on each page.
 
@@ -63,7 +64,7 @@ Customers attach their prescription where they are already buying. The upload bo
 * Checkout is blocked on the server until a prescription is attached, so it cannot be skipped by turning off JavaScript or calling the Store API directly
 * Attach Later lets logged in customers place the order now and upload the prescription from their order page afterwards
 
-=== Hold the order until a pharmacist approves the prescription ===
+=== Pharmacy order approval: hold the order until a pharmacist approves ===
 
 This is the part that keeps prescription medicine from shipping early. New prescription orders go to a holding status and stay there until someone makes a decision.
 
@@ -74,7 +75,7 @@ This is the part that keeps prescription medicine from shipping early. New presc
 * Require a reason before a prescription can be rejected, so no customer is refused without an explanation
 * Every decision written to the order notes
 
-=== Prescription orders screen and review queue ===
+=== Prescription verification queue for your pharmacist ===
 
 All orders with a prescription are in one place, so your pharmacist is not searching through every WooCommerce order.
 
@@ -84,7 +85,7 @@ All orders with a prescription are in one place, so your pharmacist is not searc
 * Dashboard with orders awaiting review, approved, rejected and waiting on the customer, an activity chart, the status mix and the prescriptions that have waited longest
 * Setup wizard that switches the workflow on in a few short steps
 
-=== Private prescription file storage ===
+=== Private, secure prescription file storage ===
 
 A prescription is a health record, so the plugin never leaves it in the public uploads folder.
 
@@ -152,7 +153,7 @@ The free plugin covers the full workflow, from the upload at checkout to the app
 = Automatic installation =
 
 1. Go to **Plugins > Add New** in your WordPress admin.
-2. Search for "Prescription for WooCommerce" by DevDiggers.
+2. Search for "DevDiggers Prescription for WooCommerce" by DevDiggers.
 3. Click **Install Now**, then **Activate**.
 4. Follow the setup wizard, or go to **Prescriptions > Configuration**.
 
@@ -177,7 +178,7 @@ The free plugin covers the full workflow, from the upload at checkout to the app
 
 == Frequently Asked Questions ==
 
-= How do I require a prescription upload before checkout in WooCommerce? =
+= How do I add a prescription upload field to WooCommerce checkout? =
 
 Install the plugin, turn it on under **Prescriptions > Configuration > General**, and choose the categories that need a prescription. Customers buying those products see an upload box on the cart and checkout pages, and they cannot place the order until a file is attached.
 
@@ -213,9 +214,13 @@ On your own server, in a private folder inside wp-content/uploads with a random 
 
 Yes. nginx ignores the Apache and IIS deny rules, but the random folder name keeps the files from being found, and every file is still served through the checked link.
 
-= Does the plugin verify prescriptions automatically? =
+= Does the plugin verify prescriptions automatically or with AI? =
 
 No. A person on your team reviews each prescription. The plugin does not send files to any outside or AI service. Pro adds tools that help with the check, such as a prescriber registry, duplicate file warnings and a verification link sent to the prescribing doctor.
+
+= Can I use it as a general checkout file upload? =
+
+It is built for prescriptions, but the same flow works for any document a person must check before an order ships, such as a doctor's note for medical equipment or an eye prescription for contact lenses. The upload is tied to the products you choose, and the order is held until someone approves it.
 
 = Can a customer replace a rejected prescription? =
 
@@ -251,18 +256,18 @@ Yes. It is translation ready and ships with a POT file in the `i18n` folder.
 
 = Where can I get help? =
 
-Use the [WordPress.org support forum](https://wordpress.org/support/plugin/prescription-for-woocommerce/) or [contact DevDiggers](https://devdiggers.com/contact/).
+Use the [WordPress.org support forum](https://wordpress.org/support/plugin/devdiggers-prescription-for-woocommerce/) or [contact DevDiggers](https://devdiggers.com/contact/).
 
 == Screenshots ==
 
-1. Dashboard with the review queue, activity chart and prescription status mix
-2. Prescription orders screen with status tabs and search
-3. Approving or rejecting a prescription on the WooCommerce order screen
-4. Prescription upload box on the checkout page
-5. "Requires Prescription" label on the shop page
-6. Customer replacing a rejected prescription from the order page
-7. Review workflow settings with the holding, approval and rejection statuses
-8. Setup wizard
+1. Prescription dashboard with review counts, the activity chart, status mix and review queue
+2. Prescription upload box on the WooCommerce checkout page, with Attach Now and Attach Later
+3. "Requires Prescription" label on a product page
+4. Orders with Prescriptions screen with status tabs, file previews and search
+5. Medical Prescription Review box on the order screen, requesting more information from the customer
+6. General settings: turn the workflow on and choose the categories that need a prescription
+7. Design settings for the product label text, colours and customer note
+8. Customer Experience settings for Attach Later and Self Service re-upload
 
 == External services ==
 
@@ -273,7 +278,7 @@ This plugin does not send prescriptions, customer data or order data to any outs
 * What it is: A read only API on devdiggers.com that returns the public list of DevDiggers extensions.
 * What it is used for: Showing available DevDiggers extensions on the Extensions admin page.
 * When data is sent: Only when a logged in administrator opens the Extensions admin page. The response is cached for 24 hours.
-* What data is sent: A standard outbound HTTP request only, meaning your server's IP address and a plugin user agent string. No personal data and no store data are sent.
+* What data is sent: A standard outbound HTTP request only, meaning your server's IP address and a plugin user agent string. No personal data and no store data are sent. The page also loads each listed extension's image from devdiggers.com in the administrator's browser.
 * Endpoint: https://devdiggers.com/wp-json/ddwcs/v1/plugins
 
 **2. Newsletter subscription (optional)**
