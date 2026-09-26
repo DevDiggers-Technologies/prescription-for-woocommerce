@@ -1,4 +1,4 @@
-=== Prescription for WooCommerce - Prescription Upload & Pharmacy Order Approval ===
+=== Prescription for WooCommerce - Medical Prescription Upload & Pharmacy Order Approval ===
 Contributors: devdiggers
 Plugin URI: https://devdiggers.com/product/woocommerce-medical-prescription-attachment/
 Author: DevDiggers
