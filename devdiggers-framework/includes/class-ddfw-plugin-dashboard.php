@@ -141,7 +141,15 @@ if ( ! class_exists( 'DDFW_Plugin_Dashboard' ) ) {
 		 * @return void
 		 */
 		public function add_turbo_config() {
-			if ( ! $this->is_a_plugin_page() || ! $this->is_turbo_enabled() ) {
+			if ( ! $this->is_a_plugin_page() ) {
+				return;
+			}
+
+			// The shell (layout, list tables, Turbo) needs these even when a plugin enqueues nothing of its own.
+			wp_enqueue_style( DDFW_Assets::$framework_css_handle );
+			wp_enqueue_script( DDFW_Assets::$framework_js_handle );
+
+			if ( ! $this->is_turbo_enabled() ) {
 				return;
 			}
 

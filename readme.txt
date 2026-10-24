@@ -148,6 +148,12 @@ The free plugin covers the full workflow, from the upload at checkout to the app
 * Pharmacy analytics with approval rate, review time, revenue approved and on hold, top prescribers and products, reviewer activity and refusal reasons
 * CSV export of prescriptions
 
+= A note from the founder =
+
+Hi, I am Yash Kapoor, founder of DevDiggers. WooCommerce ships a box of antibiotics the same way it ships a phone case. I built this plugin so no prescription order moves until a pharmacist has checked the file. My team keeps it updated for every new WooCommerce release, and the developers who wrote it answer the support forum.
+
+Have a question? Ask in the support forum or message me directly on [LinkedIn](https://www.linkedin.com/in/iamyashkapoor/).
+
 == Installation ==
 
 = Automatic installation =
