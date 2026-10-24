@@ -8,7 +8,7 @@
  *
  *   php bin/test-free-boundary.php
  *
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  */
 
 $root   = dirname( __DIR__ ) . '/';

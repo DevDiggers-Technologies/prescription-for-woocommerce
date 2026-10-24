@@ -4,7 +4,7 @@
  *
  * @author DevDiggers
  * @version 1.0.0
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  */
 
 namespace DDWCMedicalPrescriptionAttachment\Includes\Front;
@@ -143,14 +143,14 @@ if ( ! class_exists( 'DDWCMPA_Front_Functions' ) ) {
 						'ajaxNonce' => wp_create_nonce( 'ddwcmpa-nonce' ),
 					],
 					'i18n'   => [
-						'attachmentExtensionError' => esc_html__( 'Kindly select valid image or pdf file(s)', 'prescription-for-woocommerce' ),
+						'attachmentExtensionError' => esc_html__( 'Kindly select valid image or pdf file(s)', 'devdiggers-prescription-for-woocommerce' ),
 						'maxFilesError'            => sprintf(
 							/* translators: %d: maximum number of files */
-							esc_html__( 'You can attach a maximum of %d file(s).', 'prescription-for-woocommerce' ),
+							esc_html__( 'You can attach a maximum of %d file(s).', 'devdiggers-prescription-for-woocommerce' ),
 							absint( $this->ddwcmpa_configuration['max_files'] )
 						),
-						'uploading'                => esc_html__( 'Uploading', 'prescription-for-woocommerce' ),
-						'close'                    => esc_html__( 'Close', 'prescription-for-woocommerce' ),
+						'uploading'                => esc_html__( 'Uploading', 'devdiggers-prescription-for-woocommerce' ),
+						'close'                    => esc_html__( 'Close', 'devdiggers-prescription-for-woocommerce' ),
 					],
 					'config' => [
 						'cart_page_position'     => ! empty( $this->ddwcmpa_configuration['cart_page_position'] ) ? $this->ddwcmpa_configuration['cart_page_position'] : '',
@@ -313,7 +313,7 @@ if ( ! class_exists( 'DDWCMPA_Front_Functions' ) ) {
 
 			$order->update_status(
 				$hold_status,
-				esc_html__( 'Held until the medical prescription is approved.', 'prescription-for-woocommerce' )
+				esc_html__( 'Held until the medical prescription is approved.', 'devdiggers-prescription-for-woocommerce' )
 			);
 		}
 
@@ -334,12 +334,12 @@ if ( ! class_exists( 'DDWCMPA_Front_Functions' ) ) {
 			$email_message   = [];
 			$email_message[] = sprintf(
 				/* translators: %s: order number */
-				esc_html__( 'A customer has uploaded medical prescription(s) for order #%s.', 'prescription-for-woocommerce' ),
+				esc_html__( 'A customer has uploaded medical prescription(s) for order #%s.', 'devdiggers-prescription-for-woocommerce' ),
 				$order->get_order_number()
 			);
 			$email_message[] = sprintf(
 				/* translators: %s: review queue URL */
-				esc_html__( 'Review queue: %s', 'prescription-for-woocommerce' ),
+				esc_html__( 'Review queue: %s', 'devdiggers-prescription-for-woocommerce' ),
 				'<a href="' . esc_url( $review_url ) . '">' . esc_url( $review_url ) . '</a>'
 			);
 
@@ -400,8 +400,8 @@ if ( ! class_exists( 'DDWCMPA_Front_Functions' ) ) {
 				</div>
 			</div>
 			<div class="ddwcmpa-lightbox-overlay ddwcmpa-hide" role="dialog" aria-modal="true">
-				<button type="button" class="ddwcmpa-lightbox-close" aria-label="<?php esc_attr_e( 'Close', 'prescription-for-woocommerce' ); ?>">&times;</button>
-				<img src="" alt="<?php esc_attr_e( 'Prescription preview', 'prescription-for-woocommerce' ); ?>" />
+				<button type="button" class="ddwcmpa-lightbox-close" aria-label="<?php esc_attr_e( 'Close', 'devdiggers-prescription-for-woocommerce' ); ?>">&times;</button>
+				<img src="" alt="<?php esc_attr_e( 'Prescription preview', 'devdiggers-prescription-for-woocommerce' ); ?>" />
 			</div>
 			<?php
 		}

@@ -2,7 +2,7 @@
 /**
  * Email Notification Handler
  *
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  * @version 1.0.0
  */
 
@@ -65,14 +65,14 @@ if ( ! class_exists( 'DDWCMPA_Email_Notification_Handler' ) ) {
 		 */
 		public function __construct() {
 			$this->id             = 'ddwcmpa_notification';
-			$this->title          = esc_html__( 'Prescription Notification', 'prescription-for-woocommerce' );
-			$this->heading        = esc_html__( 'Prescription Notification', 'prescription-for-woocommerce' );
-			$this->description    = esc_html__( 'Email notifications sent when medical prescriptions are uploaded or status changes.', 'prescription-for-woocommerce' );
-			$this->subject        = '[' . get_option( 'blogname' ) . '] ' . esc_html__( 'Prescription Notification', 'prescription-for-woocommerce' );
+			$this->title          = esc_html__( 'Prescription Notification', 'devdiggers-prescription-for-woocommerce' );
+			$this->heading        = esc_html__( 'Prescription Notification', 'devdiggers-prescription-for-woocommerce' );
+			$this->description    = esc_html__( 'Email notifications sent when medical prescriptions are uploaded or status changes.', 'devdiggers-prescription-for-woocommerce' );
+			$this->subject        = '[' . get_option( 'blogname' ) . '] ' . esc_html__( 'Prescription Notification', 'devdiggers-prescription-for-woocommerce' );
 			$this->template_html  = 'emails/email-template.php';
 			$this->template_plain = 'emails/plain/email-template.php';
 			$this->template_base  = DDWCMPA_PLUGIN_FILE . '/templates/';
-			$this->footer         = esc_html__( 'Thank you for shopping with us.', 'prescription-for-woocommerce' );
+			$this->footer         = esc_html__( 'Thank you for shopping with us.', 'devdiggers-prescription-for-woocommerce' );
 
 			// Add placeholders.
 			$this->placeholders = [
@@ -107,7 +107,7 @@ if ( ! class_exists( 'DDWCMPA_Email_Notification_Handler' ) ) {
 			// Validate input data.
 			if ( empty( $data ) || ! is_array( $data ) ) {
 				$this->log_error( 'Invalid email data provided', $data );
-				return new \WP_Error( 'invalid_data', esc_html__( 'Invalid email data provided.', 'prescription-for-woocommerce' ) );
+				return new \WP_Error( 'invalid_data', esc_html__( 'Invalid email data provided.', 'devdiggers-prescription-for-woocommerce' ) );
 			}
 
 			try {
@@ -125,7 +125,7 @@ if ( ! class_exists( 'DDWCMPA_Email_Notification_Handler' ) ) {
 
 				// Validate required fields.
 				if ( ! $this->validate_email_data() ) {
-					return new \WP_Error( 'validation_failed', esc_html__( 'Email validation failed.', 'prescription-for-woocommerce' ) );
+					return new \WP_Error( 'validation_failed', esc_html__( 'Email validation failed.', 'devdiggers-prescription-for-woocommerce' ) );
 				}
 
 				// Check if email is enabled and recipient exists.
@@ -136,7 +136,7 @@ if ( ! class_exists( 'DDWCMPA_Email_Notification_Handler' ) ) {
 
 				if ( ! $this->get_recipient() ) {
 					$this->log_error( 'No recipient specified for email notification' );
-					return new \WP_Error( 'no_recipient', esc_html__( 'No recipient specified for email notification.', 'prescription-for-woocommerce' ) );
+					return new \WP_Error( 'no_recipient', esc_html__( 'No recipient specified for email notification.', 'devdiggers-prescription-for-woocommerce' ) );
 				}
 
 				// Update placeholders.
@@ -166,7 +166,7 @@ if ( ! class_exists( 'DDWCMPA_Email_Notification_Handler' ) ) {
 				return $result;
 			} catch ( \Exception $e ) {
 				$this->log_error( 'Exception in email trigger: ' . $e->getMessage(), $data );
-				return new \WP_Error( 'email_exception', esc_html__( 'An error occurred while sending the email.', 'prescription-for-woocommerce' ) );
+				return new \WP_Error( 'email_exception', esc_html__( 'An error occurred while sending the email.', 'devdiggers-prescription-for-woocommerce' ) );
 			}
 		}
 
@@ -203,17 +203,14 @@ if ( ! class_exists( 'DDWCMPA_Email_Notification_Handler' ) ) {
 				$this->customer_data = $data['customer_data'];
 			}
 
-			// A per status subject and heading, when the merchant configured one.
-			// They are kept apart from $this->subject and $this->heading because
-			// WC_Email's own getters ignore those properties and read the
-			// WooCommerce setting instead. The getters overridden below prefer
-			// these, and substitute the placeholders through format_string().
-			if ( ! empty( $data['subject'] ) ) {
+			// The built in per status subject and heading. A subject or heading the
+			// merchant saves under WooCommerce > Settings > Emails always wins.
+			if ( ! empty( $data['subject'] ) && '' === $this->get_option( 'subject', '' ) ) {
 				$this->subject                      = wp_strip_all_tags( $data['subject'] );
 				$this->ddwcmpa_overrides['subject'] = $this->subject;
 			}
 
-			if ( ! empty( $data['heading'] ) ) {
+			if ( ! empty( $data['heading'] ) && '' === $this->get_option( 'heading', '' ) ) {
 				$this->heading                      = wp_strip_all_tags( $data['heading'] );
 				$this->ddwcmpa_overrides['heading'] = $this->heading;
 			}
@@ -339,24 +336,24 @@ if ( ! class_exists( 'DDWCMPA_Email_Notification_Handler' ) ) {
 		public function init_form_fields() {
 			$placeholder_text = sprintf(
 				/* translators: %s: list of placeholders */
-				__( 'Available placeholders: %s', 'prescription-for-woocommerce' ),
+				__( 'Available placeholders: %s', 'devdiggers-prescription-for-woocommerce' ),
 				'<code>' . implode( '</code>, <code>', array_keys( $this->placeholders ) ) . '</code>'
 			);
 
 			$this->form_fields = [
 				'enabled'            => [
-					'title'    => __( 'Enable/Disable', 'prescription-for-woocommerce' ),
+					'title'    => __( 'Enable/Disable', 'devdiggers-prescription-for-woocommerce' ),
 					'type'     => 'checkbox',
-					'label'    => __( 'Enable this email notification', 'prescription-for-woocommerce' ),
+					'label'    => __( 'Enable this email notification', 'devdiggers-prescription-for-woocommerce' ),
 					'default'  => 'yes',
-					'desc_tip' => __( 'Enable or disable this email notification.', 'prescription-for-woocommerce' ),
+					'desc_tip' => __( 'Enable or disable this email notification.', 'devdiggers-prescription-for-woocommerce' ),
 				],
 				'recipient'          => [
-					'title'       => __( 'Recipient(s)', 'prescription-for-woocommerce' ),
+					'title'       => __( 'Recipient(s)', 'devdiggers-prescription-for-woocommerce' ),
 					'type'        => 'text',
 					'description' => sprintf(
 						/* translators: %s: WP admin email */
-						__( 'Enter recipients (comma separated) for this email. Defaults to %s.', 'prescription-for-woocommerce' ),
+						__( 'Enter recipients (comma separated) for this email. Defaults to %s.', 'devdiggers-prescription-for-woocommerce' ),
 						'<code>' . esc_attr( get_option( 'admin_email' ) ) . '</code>'
 					),
 					'placeholder' => get_option( 'admin_email' ),
@@ -365,48 +362,48 @@ if ( ! class_exists( 'DDWCMPA_Email_Notification_Handler' ) ) {
 					'class'       => 'ddwcmpa-email-recipient',
 				],
 				'subject'            => [
-					'title'       => __( 'Subject', 'prescription-for-woocommerce' ),
+					'title'       => __( 'Subject', 'devdiggers-prescription-for-woocommerce' ),
 					'type'        => 'text',
 					'desc_tip'    => true,
-					'description' => __( 'Used for the email the store receives when a prescription arrives. Customer emails use their own subject, written into the plugin.', 'prescription-for-woocommerce' ) . ' ' . $placeholder_text,
+					'description' => __( 'Used for the email the store receives when a prescription arrives. Customer emails use their own subject, written into the plugin.', 'devdiggers-prescription-for-woocommerce' ) . ' ' . $placeholder_text,
 					'placeholder' => $this->get_default_subject(),
 					'default'     => $this->get_default_subject(),
 					'class'       => 'ddwcmpa-email-subject',
 				],
 				'heading'            => [
-					'title'       => __( 'Email heading', 'prescription-for-woocommerce' ),
+					'title'       => __( 'Email heading', 'devdiggers-prescription-for-woocommerce' ),
 					'type'        => 'text',
 					'desc_tip'    => true,
-					'description' => __( 'Used for the email the store receives when a prescription arrives. Customer emails use their own heading, written into the plugin.', 'prescription-for-woocommerce' ) . ' ' . $placeholder_text,
+					'description' => __( 'Used for the email the store receives when a prescription arrives. Customer emails use their own heading, written into the plugin.', 'devdiggers-prescription-for-woocommerce' ) . ' ' . $placeholder_text,
 					'placeholder' => $this->get_default_heading(),
 					'default'     => $this->get_default_heading(),
 					'class'       => 'ddwcmpa-email-heading',
 				],
 				'additional_content' => [
-					'title'       => __( 'Additional content', 'prescription-for-woocommerce' ),
-					'description' => __( 'Text to appear below the main email content.', 'prescription-for-woocommerce' ) . ' ' . $placeholder_text,
+					'title'       => __( 'Additional content', 'devdiggers-prescription-for-woocommerce' ),
+					'description' => __( 'Text to appear below the main email content.', 'devdiggers-prescription-for-woocommerce' ) . ' ' . $placeholder_text,
 					'css'         => 'width:400px; height: 75px;',
-					'placeholder' => __( 'N/A', 'prescription-for-woocommerce' ),
+					'placeholder' => __( 'N/A', 'devdiggers-prescription-for-woocommerce' ),
 					'type'        => 'textarea',
 					'default'     => $this->get_default_additional_content(),
 					'desc_tip'    => true,
 					'class'       => 'ddwcmpa-email-additional-content',
 				],
 				'email_type'         => [
-					'title'       => __( 'Email type', 'prescription-for-woocommerce' ),
+					'title'       => __( 'Email type', 'devdiggers-prescription-for-woocommerce' ),
 					'type'        => 'select',
-					'description' => __( 'Choose which format of email to send.', 'prescription-for-woocommerce' ),
+					'description' => __( 'Choose which format of email to send.', 'devdiggers-prescription-for-woocommerce' ),
 					'default'     => 'html',
 					'class'       => 'email_type wc-enhanced-select',
 					'options'     => $this->get_email_type_options(),
 					'desc_tip'    => true,
 				],
 				'debug_mode'         => [
-					'title'       => __( 'Debug Mode', 'prescription-for-woocommerce' ),
+					'title'       => __( 'Debug Mode', 'devdiggers-prescription-for-woocommerce' ),
 					'type'        => 'checkbox',
-					'label'       => __( 'Enable debug logging for email notifications', 'prescription-for-woocommerce' ),
+					'label'       => __( 'Enable debug logging for email notifications', 'devdiggers-prescription-for-woocommerce' ),
 					'default'     => 'no',
-					'description' => __( 'Enable this to log detailed information about email sending process.', 'prescription-for-woocommerce' ),
+					'description' => __( 'Enable this to log detailed information about email sending process.', 'devdiggers-prescription-for-woocommerce' ),
 					'desc_tip'    => true,
 				],
 			];
@@ -451,7 +448,7 @@ if ( ! class_exists( 'DDWCMPA_Email_Notification_Handler' ) ) {
 		 * @return string
 		 */
 		public function get_default_subject() {
-			return '[' . get_option( 'blogname' ) . '] ' . __( 'Prescription Notification', 'prescription-for-woocommerce' );
+			return '[' . get_option( 'blogname' ) . '] ' . __( 'Prescription Notification', 'devdiggers-prescription-for-woocommerce' );
 		}
 
 		/**
@@ -460,7 +457,7 @@ if ( ! class_exists( 'DDWCMPA_Email_Notification_Handler' ) ) {
 		 * @return string
 		 */
 		public function get_default_heading() {
-			return __( 'Prescription Notification', 'prescription-for-woocommerce' );
+			return __( 'Prescription Notification', 'devdiggers-prescription-for-woocommerce' );
 		}
 
 		/**

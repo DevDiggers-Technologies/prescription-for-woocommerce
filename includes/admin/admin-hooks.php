@@ -4,7 +4,7 @@
  *
  * @author DevDiggers
  * @version 1.0.0
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  */
 
 namespace DDWCMedicalPrescriptionAttachment\Includes\Admin;

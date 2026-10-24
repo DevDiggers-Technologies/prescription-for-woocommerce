@@ -2,7 +2,7 @@
 /**
  * This file handles all admin dashboard functionalities.
  *
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  * @version 1.0.0
  */
 
@@ -61,11 +61,11 @@ if ( ! class_exists( 'DDWCMPA_Admin_Dashboard' ) ) {
 				return $footer_text;
 			}
 
-			$stars = '<a href="https://wordpress.org/support/plugin/prescription-for-woocommerce/reviews/#new-post" target="_blank" title="' . esc_attr__( 'Review', 'prescription-for-woocommerce' ) . '" aria-label="' . esc_attr__( 'Review', 'prescription-for-woocommerce' ) . '"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 32" height="10"><path d="M16 26.534L6.111 32 8 20.422l-8-8.2 11.056-1.688L16 0l4.944 10.534L32 12.223l-8 8.2L25.889 32zm40 0L46.111 32 48 20.422l-8-8.2 11.056-1.688L56 0l4.944 10.534L72 12.223l-8 8.2L65.889 32zm40 0L86.111 32 88 20.422l-8-8.2 11.056-1.688L96 0l4.944 10.534L112 12.223l-8 8.2L105.889 32zm40 0L126.111 32 128 20.422l-8-8.2 11.056-1.688L136 0l4.944 10.534L152 12.223l-8 8.2L145.889 32zm40 0L166.111 32 168 20.422l-8-8.2 11.056-1.688L176 0l4.944 10.534L192 12.223l-8 8.2L185.889 32z" fill="#F5A623" fill-rule="evenodd"/></svg></a>';
+			$stars = '<a href="https://wordpress.org/support/plugin/devdiggers-prescription-for-woocommerce/reviews/#new-post" target="_blank" title="' . esc_attr__( 'Review', 'devdiggers-prescription-for-woocommerce' ) . '" aria-label="' . esc_attr__( 'Review', 'devdiggers-prescription-for-woocommerce' ) . '"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 32" height="10"><path d="M16 26.534L6.111 32 8 20.422l-8-8.2 11.056-1.688L16 0l4.944 10.534L32 12.223l-8 8.2L25.889 32zm40 0L46.111 32 48 20.422l-8-8.2 11.056-1.688L56 0l4.944 10.534L72 12.223l-8 8.2L65.889 32zm40 0L86.111 32 88 20.422l-8-8.2 11.056-1.688L96 0l4.944 10.534L112 12.223l-8 8.2L105.889 32zm40 0L126.111 32 128 20.422l-8-8.2 11.056-1.688L136 0l4.944 10.534L152 12.223l-8 8.2L145.889 32zm40 0L166.111 32 168 20.422l-8-8.2 11.056-1.688L176 0l4.944 10.534L192 12.223l-8 8.2L185.889 32z" fill="#F5A623" fill-rule="evenodd"/></svg></a>';
 
 			return sprintf(
 				/* translators: %s: a link showing five stars. */
-				esc_html__( 'If you like Prescription for WooCommerce, please leave us a %s rating. We really appreciate it!', 'prescription-for-woocommerce' ),
+				esc_html__( 'If you like DevDiggers Prescription for WooCommerce, please leave us a %s rating. We really appreciate it!', 'devdiggers-prescription-for-woocommerce' ),
 				$stars
 			);
 		}
@@ -85,69 +85,69 @@ if ( ! class_exists( 'DDWCMPA_Admin_Dashboard' ) ) {
 				<path class="ddwcmpa-mark-line" d="M12.4 25.2v-9.4h3.3a2.7 2.7 0 0 1 0 5.4h-3.3"/>
 				<path class="ddwcmpa-mark-line" d="m15.2 21.2 5.4 4M20.8 20.9l-5.5 4.4"/>
 			</svg>
-			<?php esc_html_e( 'Prescriptions', 'prescription-for-woocommerce' ); ?>
+			<?php esc_html_e( 'Prescriptions', 'devdiggers-prescription-for-woocommerce' ); ?>
 			<?php
 			$plugin_name = ob_get_clean();
 
 			$args = [
-				'page_title'              => esc_html__( 'Prescriptions', 'prescription-for-woocommerce' ),
-				'menu_title'              => esc_html__( 'Prescriptions', 'prescription-for-woocommerce' ),
+				'page_title'              => esc_html__( 'Prescriptions', 'devdiggers-prescription-for-woocommerce' ),
+				'menu_title'              => esc_html__( 'Prescriptions', 'devdiggers-prescription-for-woocommerce' ),
 				'slug'                    => 'ddwcmpa-dashboard',
 				'plugin_name'             => $plugin_name,
 				'upgrade_url'             => 'https://devdiggers.com/product/woocommerce-medical-prescription-attachment/',
 				'screen_options_callback' => [ $this, 'add_screen_options' ],
 				'menus'                   => [
 					'dashboard'     => [
-						'label'    => esc_html__( 'Dashboard', 'prescription-for-woocommerce' ),
+						'label'    => esc_html__( 'Dashboard', 'devdiggers-prescription-for-woocommerce' ),
 						'callback' => [ $this, 'ddwcmpa_get_dashboard_template' ],
 						'layout'   => 'full-width',
 					],
 					'orders'        => [
-						'label'    => esc_html__( 'Orders', 'prescription-for-woocommerce' ),
+						'label'    => esc_html__( 'Orders', 'devdiggers-prescription-for-woocommerce' ),
 						'callback' => [ $this, 'ddwcmpa_get_orders_template' ],
 						'layout'   => 'full-width',
 					],
 					'review'        => [
-						'label'    => esc_html__( 'Review', 'prescription-for-woocommerce' ),
+						'label'    => esc_html__( 'Review', 'devdiggers-prescription-for-woocommerce' ),
 						'callback' => [ $this, 'ddwcmpa_get_review_template' ],
 						'layout'   => 'full-width',
 					],
 					'configuration' => [
-						'label'  => esc_html__( 'Configuration', 'prescription-for-woocommerce' ),
+						'label'  => esc_html__( 'Configuration', 'devdiggers-prescription-for-woocommerce' ),
 						'layout' => 'sidebar',
 						'tabs'   => [
 							'general'             => [
-								'label'    => esc_html__( 'General', 'prescription-for-woocommerce' ),
+								'label'    => esc_html__( 'General', 'devdiggers-prescription-for-woocommerce' ),
 								'icon'     => DDFW_SVG::get_svg_icon( 'general', true, [ 'size' => 18 ] ),
 								'callback' => [ $this, 'ddwcmpa_get_general_configuration_template' ],
 							],
 							'design'              => [
-								'label'    => esc_html__( 'Design', 'prescription-for-woocommerce' ),
+								'label'    => esc_html__( 'Design', 'devdiggers-prescription-for-woocommerce' ),
 								'icon'     => $this->ddwcmpa_get_tab_icon( 'image' ),
 								'callback' => [ $this, 'ddwcmpa_get_design_configuration_template' ],
 							],
 							'prescription-rules'  => [
-								'label'    => esc_html__( 'Prescription Rules', 'prescription-for-woocommerce' ),
+								'label'    => esc_html__( 'Prescription Rules', 'devdiggers-prescription-for-woocommerce' ),
 								'icon'     => $this->ddwcmpa_get_tab_icon( 'prescription' ),
 								'callback' => [ $this, 'ddwcmpa_get_prescription_rules_configuration_template' ],
 							],
 							'review-workflow'     => [
-								'label'    => esc_html__( 'Review Workflow', 'prescription-for-woocommerce' ),
+								'label'    => esc_html__( 'Review Workflow', 'devdiggers-prescription-for-woocommerce' ),
 								'icon'     => $this->ddwcmpa_get_tab_icon( 'check' ),
 								'callback' => [ $this, 'ddwcmpa_get_review_workflow_configuration_template' ],
 							],
 							'customer-experience' => [
-								'label'    => esc_html__( 'Customer Experience', 'prescription-for-woocommerce' ),
+								'label'    => esc_html__( 'Customer Experience', 'devdiggers-prescription-for-woocommerce' ),
 								'icon'     => $this->ddwcmpa_get_tab_icon( 'user' ),
 								'callback' => [ $this, 'ddwcmpa_get_customer_experience_configuration_template' ],
 							],
 							'emails'              => [
-								'label'    => esc_html__( 'Emails', 'prescription-for-woocommerce' ),
+								'label'    => esc_html__( 'Emails', 'devdiggers-prescription-for-woocommerce' ),
 								'icon'     => $this->ddwcmpa_get_tab_icon( 'email' ),
 								'callback' => [ $this, 'ddwcmpa_get_emails_configuration_template' ],
 							],
 							'compliance'          => [
-								'label'    => esc_html__( 'Compliance', 'prescription-for-woocommerce' ),
+								'label'    => esc_html__( 'Compliance', 'devdiggers-prescription-for-woocommerce' ),
 								'icon'     => $this->ddwcmpa_get_tab_icon( 'shield' ),
 								'callback' => [ $this, 'ddwcmpa_get_compliance_configuration_template' ],
 							],
@@ -173,7 +173,7 @@ if ( ! class_exists( 'DDWCMPA_Admin_Dashboard' ) ) {
 			$current_menu = ! empty( $_GET['menu'] ) ? sanitize_title( wp_unslash( $_GET['menu'] ) ) : 'dashboard';
 
 			$args = [
-				'label'    => esc_html__( 'Results Per Page', 'prescription-for-woocommerce' ),
+				'label'    => esc_html__( 'Results Per Page', 'devdiggers-prescription-for-woocommerce' ),
 				'default'  => 20,
 				'hidden'   => 'id',
 				'sanitize' => 'intval',
@@ -213,7 +213,7 @@ if ( ! class_exists( 'DDWCMPA_Admin_Dashboard' ) ) {
 			$prescription_status = isset( $_GET['prescription_status'] ) ? sanitize_key( wp_unslash( $_GET['prescription_status'] ) ) : '';
 			?>
 			<?php // The framework only lifts the search box into the title row when the heading opens the card, so it sits outside the form. ?>
-			<h1 class="wp-heading-inline"><?php esc_html_e( 'Orders with Prescriptions', 'prescription-for-woocommerce' ); ?></h1>
+			<h1 class="wp-heading-inline"><?php esc_html_e( 'Orders with Prescriptions', 'devdiggers-prescription-for-woocommerce' ); ?></h1>
 			<hr class="wp-header-end" />
 			<form method="GET">
 				<input type="hidden" name="page" value="<?php echo esc_attr( $page ); ?>" />
@@ -222,7 +222,7 @@ if ( ! class_exists( 'DDWCMPA_Admin_Dashboard' ) ) {
 				<?php
 				$obj->prepare_items();
 				$obj->views();
-				$obj->search_box( esc_html__( 'Search', 'prescription-for-woocommerce' ), 'search-id' );
+				$obj->search_box( esc_html__( 'Search', 'devdiggers-prescription-for-woocommerce' ), 'search-id' );
 				$obj->display();
 				?>
 			</form>
@@ -241,16 +241,16 @@ if ( ! class_exists( 'DDWCMPA_Admin_Dashboard' ) ) {
 			ddfw_upgrade_to_pro_section(
 				[
 					'image_url'     => DDWCMPA_PLUGIN_URL . 'assets/images/pro/review-workspace.webp',
-					'heading'       => esc_html__( 'Clear the whole queue from one screen with Pro', 'prescription-for-woocommerce' ),
-					'description'   => esc_html__( 'In Free each prescription is reviewed on its own order screen. The Pro review workspace puts the file, the details and the decision side by side and moves straight on to the next one.', 'prescription-for-woocommerce' ),
+					'heading'       => esc_html__( 'Clear the whole queue from one screen with Pro', 'devdiggers-prescription-for-woocommerce' ),
+					'description'   => esc_html__( 'In Free each prescription is reviewed on its own order screen. The Pro review workspace puts the file, the details and the decision side by side and moves straight on to the next one.', 'devdiggers-prescription-for-woocommerce' ),
 					'list_features' => [
-						esc_html__( 'A document viewer with zoom and rotate, so a phone photo taken sideways is still readable', 'prescription-for-woocommerce' ),
-						esc_html__( 'Approve, reject or ask for more, then land on the next prescription without a page load', 'prescription-for-woocommerce' ),
-						esc_html__( 'Approve or reject a batch of orders at once from the Orders screen', 'prescription-for-woocommerce' ),
-						esc_html__( 'Warnings before you decide: a file uploaded on another order, a blocked prescriber, a lapsed prescription', 'prescription-for-woocommerce' ),
-						esc_html__( 'Send the prescriber a private link to confirm they wrote it, answered without an account', 'prescription-for-woocommerce' ),
-						esc_html__( 'Assign prescriptions to a named pharmacist, with an overdue badge when one waits too long', 'prescription-for-woocommerce' ),
-						esc_html__( 'One click saved replies, a full audit trail and a log of who opened each file', 'prescription-for-woocommerce' ),
+						esc_html__( 'A document viewer with zoom and rotate, so a phone photo taken sideways is still readable', 'devdiggers-prescription-for-woocommerce' ),
+						esc_html__( 'Approve, reject or ask for more, then land on the next prescription without a page load', 'devdiggers-prescription-for-woocommerce' ),
+						esc_html__( 'Approve or reject a batch of orders at once from the Orders screen', 'devdiggers-prescription-for-woocommerce' ),
+						esc_html__( 'Warnings before you decide: a file uploaded on another order, a blocked prescriber, a lapsed prescription', 'devdiggers-prescription-for-woocommerce' ),
+						esc_html__( 'Send the prescriber a private link to confirm they wrote it, answered without an account', 'devdiggers-prescription-for-woocommerce' ),
+						esc_html__( 'Assign prescriptions to a named pharmacist, with an overdue badge when one waits too long', 'devdiggers-prescription-for-woocommerce' ),
+						esc_html__( 'One click saved replies, a full audit trail and a log of who opened each file', 'devdiggers-prescription-for-woocommerce' ),
 					],
 					'upgrade_url'   => 'https://devdiggers.com/product/woocommerce-medical-prescription-attachment/',
 				]
@@ -374,7 +374,7 @@ if ( ! class_exists( 'DDWCMPA_Admin_Dashboard' ) ) {
 				'ddwcmpaAdminObj',
 				[
 					'i18n' => [
-						'reasonRequired' => esc_html__( 'Please give the customer a reason before rejecting this prescription.', 'prescription-for-woocommerce' ),
+						'reasonRequired' => esc_html__( 'Please give the customer a reason before rejecting this prescription.', 'devdiggers-prescription-for-woocommerce' ),
 					],
 				]
 			);

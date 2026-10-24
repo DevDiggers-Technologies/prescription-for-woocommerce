@@ -6,7 +6,7 @@
  * the legacy posts tables. The previous WP_Query on the shop_order post type
  * returned nothing at all once a store enabled high performance order storage.
  *
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  * @version 1.0.0
  */
 
@@ -52,8 +52,8 @@ if ( ! class_exists( 'DDWCMPA_Orders_List_Template' ) ) {
 
 			parent::__construct(
 				[
-					'singular' => esc_html__( 'Order', 'prescription-for-woocommerce' ),
-					'plural'   => esc_html__( 'Orders', 'prescription-for-woocommerce' ),
+					'singular' => esc_html__( 'Order', 'devdiggers-prescription-for-woocommerce' ),
+					'plural'   => esc_html__( 'Orders', 'devdiggers-prescription-for-woocommerce' ),
 					'ajax'     => false,
 				]
 			);
@@ -233,7 +233,7 @@ if ( ! class_exists( 'DDWCMPA_Orders_List_Template' ) ) {
 
 			if ( $order->get_billing_first_name() || $order->get_billing_last_name() ) {
 				/* translators: 1: first name 2: last name */
-				$buyer = trim( sprintf( _x( '%1$s %2$s', 'full name', 'prescription-for-woocommerce' ), $order->get_billing_first_name(), $order->get_billing_last_name() ) );
+				$buyer = trim( sprintf( _x( '%1$s %2$s', 'full name', 'devdiggers-prescription-for-woocommerce' ), $order->get_billing_first_name(), $order->get_billing_last_name() ) );
 			} elseif ( $order->get_billing_company() ) {
 				$buyer = trim( $order->get_billing_company() );
 			} elseif ( $order->get_customer_id() ) {
@@ -279,12 +279,12 @@ if ( ! class_exists( 'DDWCMPA_Orders_List_Template' ) ) {
 			if ( $timestamp > strtotime( '-1 day', time() ) && $timestamp <= time() ) {
 				$show_date = sprintf(
 					/* translators: %s = human-readable time difference */
-					_x( '%s ago', '%s = human-readable time difference', 'prescription-for-woocommerce' ),
+					_x( '%s ago', '%s = human-readable time difference', 'devdiggers-prescription-for-woocommerce' ),
 					human_time_diff( $timestamp, time() )
 				);
 			} else {
 				// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core WordPress/WooCommerce hook.
-				$show_date = $created->date_i18n( apply_filters( 'woocommerce_admin_order_date_format', __( 'M j, Y', 'prescription-for-woocommerce' ) ) );
+				$show_date = $created->date_i18n( apply_filters( 'woocommerce_admin_order_date_format', __( 'M j, Y', 'devdiggers-prescription-for-woocommerce' ) ) );
 			}
 
 			return sprintf(
@@ -320,7 +320,7 @@ if ( ! class_exists( 'DDWCMPA_Orders_List_Template' ) ) {
 			$attachments = array_filter( DDWCMPA_Prescription_Helper::ddwcmpa_get_array_meta( $order, '_ddwcmpa_attachments' ) );
 
 			if ( empty( $attachments ) ) {
-				return '<span class="ddwcmpa-muted">' . esc_html__( 'Awaiting upload', 'prescription-for-woocommerce' ) . '</span>';
+				return '<span class="ddwcmpa-muted">' . esc_html__( 'Awaiting upload', 'devdiggers-prescription-for-woocommerce' ) . '</span>';
 			}
 
 			ob_start();
@@ -397,7 +397,7 @@ if ( ! class_exists( 'DDWCMPA_Orders_List_Template' ) ) {
 		 */
 		protected function ddwcmpa_render_total_cell( $order ) {
 			if ( $order->get_payment_method_title() ) {
-				return '<span class="tips" data-tip="' . esc_attr( sprintf( /* translators: %s: payment method */ __( 'via %s', 'prescription-for-woocommerce' ), $order->get_payment_method_title() ) ) . '">' . wp_kses_post( $order->get_formatted_order_total() ) . '</span>';
+				return '<span class="tips" data-tip="' . esc_attr( sprintf( /* translators: %s: payment method */ __( 'via %s', 'devdiggers-prescription-for-woocommerce' ), $order->get_payment_method_title() ) ) . '">' . wp_kses_post( $order->get_formatted_order_total() ) . '</span>';
 			}
 
 			return wp_kses_post( $order->get_formatted_order_total() );
@@ -479,7 +479,7 @@ if ( ! class_exists( 'DDWCMPA_Orders_List_Template' ) ) {
 					'<a href="%1$s" class="%2$s">%3$s <span class="count">(%4$d)</span></a>',
 					esc_url( $base_url ),
 					'' === $current ? 'current' : '',
-					esc_html__( 'All', 'prescription-for-woocommerce' ),
+					esc_html__( 'All', 'devdiggers-prescription-for-woocommerce' ),
 					$this->ddwcmpa_get_orders_count()
 				),
 			];
@@ -518,7 +518,7 @@ if ( ! class_exists( 'DDWCMPA_Orders_List_Template' ) ) {
 					// get_edit_order_url() follows the store's storage mode; a hardcoded
 					// wc-orders link 404s on stores still on the posts table.
 					esc_url( $order ? $order->get_edit_order_url() : '' ),
-					esc_html__( 'Review prescription', 'prescription-for-woocommerce' )
+					esc_html__( 'Review prescription', 'devdiggers-prescription-for-woocommerce' )
 				),
 			];
 
@@ -539,8 +539,8 @@ if ( ! class_exists( 'DDWCMPA_Orders_List_Template' ) ) {
 			}
 			?>
 			<div class="alignleft actions ddwcmpa-bulk-locked">
-				<select disabled="disabled" aria-label="<?php esc_attr_e( 'Bulk decisions', 'prescription-for-woocommerce' ); ?>">
-					<option><?php esc_html_e( 'Bulk approve or reject', 'prescription-for-woocommerce' ); ?></option>
+				<select disabled="disabled" aria-label="<?php esc_attr_e( 'Bulk decisions', 'devdiggers-prescription-for-woocommerce' ); ?>">
+					<option><?php esc_html_e( 'Bulk approve or reject', 'devdiggers-prescription-for-woocommerce' ); ?></option>
 				</select>
 				<a href="<?php echo esc_url( 'https://devdiggers.com/product/woocommerce-medical-prescription-attachment/' ); ?>" target="_blank" rel="noopener noreferrer"><?php echo wp_kses_post( ddfw_get_pro_tag() ); ?></a>
 			</div>
@@ -556,11 +556,11 @@ if ( ! class_exists( 'DDWCMPA_Orders_List_Template' ) ) {
 			return apply_filters(
 				'ddwcmpa_orders_list_columns',
 				[
-					'order'               => esc_html__( 'Order', 'prescription-for-woocommerce' ),
-					'status'              => esc_html__( 'Status & Date', 'prescription-for-woocommerce' ),
-					'prescription'        => esc_html__( 'Prescription', 'prescription-for-woocommerce' ),
-					'prescription_status' => esc_html__( 'Review', 'prescription-for-woocommerce' ),
-					'total'               => esc_html__( 'Total', 'prescription-for-woocommerce' ),
+					'order'               => esc_html__( 'Order', 'devdiggers-prescription-for-woocommerce' ),
+					'status'              => esc_html__( 'Status & Date', 'devdiggers-prescription-for-woocommerce' ),
+					'prescription'        => esc_html__( 'Prescription', 'devdiggers-prescription-for-woocommerce' ),
+					'prescription_status' => esc_html__( 'Review', 'devdiggers-prescription-for-woocommerce' ),
+					'total'               => esc_html__( 'Total', 'devdiggers-prescription-for-woocommerce' ),
 				]
 			);
 		}
@@ -572,14 +572,14 @@ if ( ! class_exists( 'DDWCMPA_Orders_List_Template' ) ) {
 		 */
 		public function no_items() {
 			if ( '' !== $this->ddwcmpa_get_search_term() ) {
-				$heading = esc_html__( 'No matching orders', 'prescription-for-woocommerce' );
-				$message = esc_html__( 'Nothing matches that search. Try an order number, a billing email or a customer name.', 'prescription-for-woocommerce' );
+				$heading = esc_html__( 'No matching orders', 'devdiggers-prescription-for-woocommerce' );
+				$message = esc_html__( 'Nothing matches that search. Try an order number, a billing email or a customer name.', 'devdiggers-prescription-for-woocommerce' );
 			} elseif ( '' !== $this->ddwcmpa_get_current_status() ) {
-				$heading = esc_html__( 'No orders with this status', 'prescription-for-woocommerce' );
-				$message = esc_html__( 'Choose another tab above to see the rest of the queue.', 'prescription-for-woocommerce' );
+				$heading = esc_html__( 'No orders with this status', 'devdiggers-prescription-for-woocommerce' );
+				$message = esc_html__( 'Choose another tab above to see the rest of the queue.', 'devdiggers-prescription-for-woocommerce' );
 			} else {
-				$heading = esc_html__( 'Nothing waiting for review', 'prescription-for-woocommerce' );
-				$message = esc_html__( 'Orders appear here as soon as a customer attaches a medical prescription at checkout.', 'prescription-for-woocommerce' );
+				$heading = esc_html__( 'Nothing waiting for review', 'devdiggers-prescription-for-woocommerce' );
+				$message = esc_html__( 'Orders appear here as soon as a customer attaches a medical prescription at checkout.', 'devdiggers-prescription-for-woocommerce' );
 			}
 			?>
 			<div class="ddwcmpa-empty-state">

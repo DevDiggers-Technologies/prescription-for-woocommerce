@@ -2,7 +2,7 @@
 /**
  * General Configuration template class
  *
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  * @version 1.0.0
  */
 
@@ -43,15 +43,15 @@ if ( ! class_exists( 'DDWCMPA_Configuration_Template' ) ) {
 			$args = [
 				[
 					'header' => [
-						'heading'     => esc_html__( 'Plugin Settings', 'prescription-for-woocommerce' ),
-						'description' => esc_html__( 'Switch the prescription workflow on and choose which products need a prescription.', 'prescription-for-woocommerce' ),
+						'heading'     => esc_html__( 'Plugin Settings', 'devdiggers-prescription-for-woocommerce' ),
+						'description' => esc_html__( 'Switch the prescription workflow on and choose which products need a prescription.', 'devdiggers-prescription-for-woocommerce' ),
 					],
 					'fields' => [
 						[
 							'type'           => 'checkbox',
-							'label'          => esc_html__( 'Enable/Disable', 'prescription-for-woocommerce' ),
-							'checkbox_label' => esc_html__( 'Enable Prescription for WooCommerce', 'prescription-for-woocommerce' ),
-							'description'    => esc_html__( 'This allows the module functionality to be used on the frontend.', 'prescription-for-woocommerce' ),
+							'label'          => esc_html__( 'Enable/Disable', 'devdiggers-prescription-for-woocommerce' ),
+							'checkbox_label' => esc_html__( 'Enable DevDiggers Prescription for WooCommerce', 'devdiggers-prescription-for-woocommerce' ),
+							'description'    => esc_html__( 'This allows the module functionality to be used on the frontend.', 'devdiggers-prescription-for-woocommerce' ),
 							'id'             => 'ddwcmpa-enabled',
 							'name'           => '_ddwcmpa_enabled',
 							'value'          => $this->ddwcmpa_configuration['enabled'],
@@ -60,14 +60,14 @@ if ( ! class_exists( 'DDWCMPA_Configuration_Template' ) ) {
 				],
 				[
 					'header' => [
-						'heading'     => esc_html__( 'Product Categories and Exclusions', 'prescription-for-woocommerce' ),
-						'description' => esc_html__( 'Configure which product categories require prescription approval and which products to exclude.', 'prescription-for-woocommerce' ),
+						'heading'     => esc_html__( 'Product Categories and Exclusions', 'devdiggers-prescription-for-woocommerce' ),
+						'description' => esc_html__( 'Configure which product categories require prescription approval and which products to exclude.', 'devdiggers-prescription-for-woocommerce' ),
 					],
 					'fields' => [
 						[
 							'type'              => 'categories',
-							'label'             => esc_html__( 'Allowed Categories', 'prescription-for-woocommerce' ),
-							'description'       => esc_html__( 'Prescription approval is mandatory for products which exists in the selected categories. If there are no selected category, then it will get applied for all products.', 'prescription-for-woocommerce' ),
+							'label'             => esc_html__( 'Allowed Categories', 'devdiggers-prescription-for-woocommerce' ),
+							'description'       => esc_html__( 'Prescription approval is mandatory for products which exists in the selected categories. If there are no selected category, then it will get applied for all products.', 'devdiggers-prescription-for-woocommerce' ),
 							'id'                => 'ddwcmpa-allowed-categories',
 							'name'              => '_ddwcmpa_allowed_categories[]',
 							'value'             => $this->ddwcmpa_configuration['allowed_categories'],
@@ -77,8 +77,8 @@ if ( ! class_exists( 'DDWCMPA_Configuration_Template' ) ) {
 						],
 						[
 							'type'              => 'products',
-							'label'             => esc_html__( 'Excluded Products', 'prescription-for-woocommerce' ),
-							'description'       => esc_html__( 'Prescription won\'t be needed for these selected products even if they exists in the above allowed categories.', 'prescription-for-woocommerce' ),
+							'label'             => esc_html__( 'Excluded Products', 'devdiggers-prescription-for-woocommerce' ),
+							'description'       => esc_html__( 'Prescription won\'t be needed for these selected products even if they exists in the above allowed categories.', 'devdiggers-prescription-for-woocommerce' ),
 							'id'                => 'ddwcmpa-excluded-products',
 							'name'              => '_ddwcmpa_excluded_products[]',
 							'value'             => $this->ddwcmpa_configuration['excluded_products'],

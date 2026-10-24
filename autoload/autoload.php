@@ -2,7 +2,7 @@
 /**
  * Dynamically loads classes
  *
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  */
 
 defined( 'ABSPATH' ) || exit();

@@ -4,7 +4,7 @@
  *
  * Supplies data and configuration to the shared framework dashboard builder.
  *
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  * @version 1.0.0
  */
 
@@ -67,40 +67,40 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Template' ) ) {
 					'columns'       => 5,
 					'header'        => [
 						/* translators: %s: admin display name. */
-						'welcome'  => esc_html__( 'Welcome back, %s! 👋🏻', 'prescription-for-woocommerce' ),
-						'subtitle' => esc_html__( 'Here is how prescription review is going across your store.', 'prescription-for-woocommerce' ),
+						'welcome'  => esc_html__( 'Welcome back, %s! 👋🏻', 'devdiggers-prescription-for-woocommerce' ),
+						'subtitle' => esc_html__( 'Here is how prescription review is going across your store.', 'devdiggers-prescription-for-woocommerce' ),
 					],
 					'summary_cards' => [
 						[
-							'title'       => esc_html__( 'Awaiting Review', 'prescription-for-woocommerce' ),
+							'title'       => esc_html__( 'Awaiting Review', 'devdiggers-prescription-for-woocommerce' ),
 							'value'       => $summary['awaiting']['value'],
 							'change'      => $summary['awaiting']['change'],
 							'is_positive' => $summary['awaiting']['is_positive'],
 							'icon'        => $this->get_clock_icon(),
 						],
 						[
-							'title'       => esc_html__( 'Approved', 'prescription-for-woocommerce' ),
+							'title'       => esc_html__( 'Approved', 'devdiggers-prescription-for-woocommerce' ),
 							'value'       => $summary['approved']['value'],
 							'change'      => $summary['approved']['change'],
 							'is_positive' => $summary['approved']['is_positive'],
 							'icon'        => DDFW_SVG::get_svg_icon( 'circle-check', true ),
 						],
 						[
-							'title'       => esc_html__( 'Rejected', 'prescription-for-woocommerce' ),
+							'title'       => esc_html__( 'Rejected', 'devdiggers-prescription-for-woocommerce' ),
 							'value'       => $summary['rejected']['value'],
 							'change'      => $summary['rejected']['change'],
 							'is_positive' => $summary['rejected']['is_positive'],
 							'icon'        => $this->get_cross_icon(),
 						],
 						[
-							'title'       => esc_html__( 'Waiting on the Customer', 'prescription-for-woocommerce' ),
+							'title'       => esc_html__( 'Waiting on the Customer', 'devdiggers-prescription-for-woocommerce' ),
 							'value'       => $summary['info_required']['value'],
 							'change'      => $summary['info_required']['change'],
 							'is_positive' => $summary['info_required']['is_positive'],
 							'icon'        => DDWCMPA_Icon_Helper::get( 'reply', [ 'size' => 24 ] ),
 						],
 						[
-							'title'       => esc_html__( 'Prescription Orders', 'prescription-for-woocommerce' ),
+							'title'       => esc_html__( 'Prescription Orders', 'devdiggers-prescription-for-woocommerce' ),
 							'value'       => $summary['total']['value'],
 							'change'      => $summary['total']['change'],
 							'is_positive' => $summary['total']['is_positive'],
@@ -110,7 +110,7 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Template' ) ) {
 					'charts'        => [
 						[
 							'id'         => 'ddwcmpa-trend',
-							'title'      => esc_html__( 'Prescription Activity', 'prescription-for-woocommerce' ),
+							'title'      => esc_html__( 'Prescription Activity', 'devdiggers-prescription-for-woocommerce' ),
 							'date_label' => $date_label,
 							'full_width' => true,
 							'type'       => 'line',
@@ -119,24 +119,24 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Template' ) ) {
 							'series'     => [
 								[
 									'key'   => 'orders',
-									'label' => esc_html__( 'Prescription Orders', 'prescription-for-woocommerce' ),
+									'label' => esc_html__( 'Prescription Orders', 'devdiggers-prescription-for-woocommerce' ),
 									'color' => '#0256ff',
 								],
 								[
 									'key'   => 'approved',
-									'label' => esc_html__( 'Approved', 'prescription-for-woocommerce' ),
+									'label' => esc_html__( 'Approved', 'devdiggers-prescription-for-woocommerce' ),
 									'color' => '#16a34a',
 								],
 							],
 							'empty'      => [
-								'title' => esc_html__( 'No prescription activity yet', 'prescription-for-woocommerce' ),
-								'desc'  => esc_html__( 'Once customers start attaching prescriptions at checkout, their volume and approval trend appear here.', 'prescription-for-woocommerce' ),
+								'title' => esc_html__( 'No prescription activity yet', 'devdiggers-prescription-for-woocommerce' ),
+								'desc'  => esc_html__( 'Once customers start attaching prescriptions at checkout, their volume and approval trend appear here.', 'devdiggers-prescription-for-woocommerce' ),
 							],
 						],
 					],
 					'widgets'       => [
 						[
-							'title' => esc_html__( 'Review Status Mix', 'prescription-for-woocommerce' ),
+							'title' => esc_html__( 'Review Status Mix', 'devdiggers-prescription-for-woocommerce' ),
 							'width' => 'half',
 							'chart' => [
 								'id'        => 'ddwcmpa-status-mix',
@@ -145,17 +145,45 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Template' ) ) {
 								'label_key' => 'label',
 								'value_key' => 'value',
 								'empty'     => [
-									'title' => esc_html__( 'No review data', 'prescription-for-woocommerce' ),
-									'desc'  => esc_html__( 'The split between pending, approved and rejected prescriptions appears here.', 'prescription-for-woocommerce' ),
+									'title' => esc_html__( 'No review data', 'devdiggers-prescription-for-woocommerce' ),
+									'desc'  => esc_html__( 'The split between pending, approved and rejected prescriptions appears here.', 'devdiggers-prescription-for-woocommerce' ),
 								],
 							],
 						],
 						[
-							'title'  => esc_html__( 'Review Queue', 'prescription-for-woocommerce' ),
+							'title'  => esc_html__( 'Review Queue', 'devdiggers-prescription-for-woocommerce' ),
 							'width'  => 'half',
 							'render' => [ $this, 'render_review_queue' ],
 						],
+						[
+							'title'  => esc_html__( 'Pharmacy Analytics', 'devdiggers-prescription-for-woocommerce' ),
+							'width'  => 'full',
+							'render' => [ $this, 'render_pro_analytics' ],
+						],
 					],
+				]
+			);
+		}
+
+		/**
+		 * The analytics Pro adds to this screen.
+		 *
+		 * @return void
+		 */
+		public function render_pro_analytics() {
+			ddfw_upgrade_to_pro_section(
+				[
+					'heading'       => esc_html__( 'See where your prescription revenue and delays come from, in Pro', 'devdiggers-prescription-for-woocommerce' ),
+					'description'   => esc_html__( 'Pro turns the same orders into the numbers a pharmacy manager asks for.', 'devdiggers-prescription-for-woocommerce' ),
+					'list_features' => [
+						esc_html__( 'Approval rate, average review time and orders that missed your review target', 'devdiggers-prescription-for-woocommerce' ),
+						esc_html__( 'Revenue approved and revenue still on hold waiting for a decision', 'devdiggers-prescription-for-woocommerce' ),
+						esc_html__( 'The prescribers and products behind your prescription orders', 'devdiggers-prescription-for-woocommerce' ),
+						esc_html__( 'Approved prescriptions expiring in the next 30 days', 'devdiggers-prescription-for-woocommerce' ),
+						esc_html__( 'Decisions per reviewer and the reasons customers are refused most', 'devdiggers-prescription-for-woocommerce' ),
+						esc_html__( 'A CSV export of every prescription, with the columns you choose', 'devdiggers-prescription-for-woocommerce' ),
+					],
+					'upgrade_url'   => 'https://devdiggers.com/product/woocommerce-medical-prescription-attachment/',
 				]
 			);
 		}
@@ -170,7 +198,7 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Template' ) ) {
 
 			if ( empty( $queue ) ) {
 				?>
-				<div class="ddfw-dash-no-data"><?php esc_html_e( 'Nothing is waiting for review. Nice work.', 'prescription-for-woocommerce' ); ?></div>
+				<div class="ddfw-dash-no-data"><?php esc_html_e( 'Nothing is waiting for review. Nice work.', 'devdiggers-prescription-for-woocommerce' ); ?></div>
 				<?php
 				return;
 			}
@@ -184,7 +212,7 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Template' ) ) {
 								<?php
 								printf(
 									/* translators: 1: human readable duration, 2: number of files */
-									esc_html__( 'Waiting %1$s &middot; %2$d file(s)', 'prescription-for-woocommerce' ),
+									esc_html__( 'Waiting %1$s &middot; %2$d file(s)', 'devdiggers-prescription-for-woocommerce' ),
 									esc_html( $item['waiting'] ),
 									absint( $item['files'] )
 								);
@@ -196,7 +224,7 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Template' ) ) {
 				<?php endforeach; ?>
 			</div>
 			<a class="ddwcmpa-dash-more" href="<?php echo esc_url( admin_url( 'admin.php?page=ddwcmpa-dashboard&menu=orders&prescription_status=pending' ) ); ?>">
-				<?php esc_html_e( 'Open the full queue', 'prescription-for-woocommerce' ); ?>
+				<?php esc_html_e( 'Open the full queue', 'devdiggers-prescription-for-woocommerce' ); ?>
 			</a>
 			<?php
 		}

@@ -3,7 +3,7 @@
  * Activation routine.
  *
  * @author DevDiggers
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  * @version 1.0.0
  */
 

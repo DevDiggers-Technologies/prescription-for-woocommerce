@@ -43,70 +43,70 @@ if ( ! class_exists( 'DDFW_Dashboard_Data' ) ) {
 					$data = [
 						'from'  => current_time( 'Y-m-d' ),
 						'to'    => current_time( 'Y-m-d' ),
-						'label' => esc_html__( 'Today', 'prescription-for-woocommerce' ),
+						'label' => esc_html__( 'Today', 'devdiggers-prescription-for-woocommerce' ),
 					];
 					break;
 				case '7_days':
 					$data = [
 						'from'  => gmdate( 'Y-m-d', strtotime( 'monday this week' ) ),
 						'to'    => current_time( 'Y-m-d' ),
-						'label' => esc_html__( 'This Week', 'prescription-for-woocommerce' ),
+						'label' => esc_html__( 'This Week', 'devdiggers-prescription-for-woocommerce' ),
 					];
 					break;
 				case 'last_week':
 					$data = [
 						'from'  => gmdate( 'Y-m-d', strtotime( 'monday last week' ) ),
 						'to'    => gmdate( 'Y-m-d', strtotime( 'sunday last week' ) ),
-						'label' => esc_html__( 'Last Week', 'prescription-for-woocommerce' ),
+						'label' => esc_html__( 'Last Week', 'devdiggers-prescription-for-woocommerce' ),
 					];
 					break;
 				case '30_days':
 					$data = [
 						'from'  => current_time( 'Y-m-01' ),
 						'to'    => current_time( 'Y-m-d' ),
-						'label' => esc_html__( 'This Month', 'prescription-for-woocommerce' ),
+						'label' => esc_html__( 'This Month', 'devdiggers-prescription-for-woocommerce' ),
 					];
 					break;
 				case 'last_month':
 					$data = [
 						'from'  => gmdate( 'Y-m-01', strtotime( 'first day of last month' ) ),
 						'to'    => gmdate( 'Y-m-t', strtotime( 'last day of last month' ) ),
-						'label' => esc_html__( 'Last Month', 'prescription-for-woocommerce' ),
+						'label' => esc_html__( 'Last Month', 'devdiggers-prescription-for-woocommerce' ),
 					];
 					break;
 				case '90_days':
 					$data = [
 						'from'  => gmdate( 'Y-m-d', strtotime( '-90 days' ) ),
 						'to'    => current_time( 'Y-m-d' ),
-						'label' => esc_html__( 'Last 3 Months', 'prescription-for-woocommerce' ),
+						'label' => esc_html__( 'Last 3 Months', 'devdiggers-prescription-for-woocommerce' ),
 					];
 					break;
 				case '180_days':
 					$data = [
 						'from'  => gmdate( 'Y-m-d', strtotime( '-180 days' ) ),
 						'to'    => current_time( 'Y-m-d' ),
-						'label' => esc_html__( 'Last 6 Months', 'prescription-for-woocommerce' ),
+						'label' => esc_html__( 'Last 6 Months', 'devdiggers-prescription-for-woocommerce' ),
 					];
 					break;
 				case 'year_to_date':
 					$data = [
 						'from'  => current_time( 'Y-01-01' ),
 						'to'    => current_time( 'Y-m-d' ),
-						'label' => esc_html__( 'Year to Date', 'prescription-for-woocommerce' ),
+						'label' => esc_html__( 'Year to Date', 'devdiggers-prescription-for-woocommerce' ),
 					];
 					break;
 				case 'last_year':
 					$data = [
 						'from'  => gmdate( 'Y-01-01', strtotime( '-1 year' ) ),
 						'to'    => gmdate( 'Y-12-31', strtotime( '-1 year' ) ),
-						'label' => esc_html__( 'Last Year', 'prescription-for-woocommerce' ),
+						'label' => esc_html__( 'Last Year', 'devdiggers-prescription-for-woocommerce' ),
 					];
 					break;
 				case 'all_time':
 					$data = [
 						'from'  => $all_time_start,
 						'to'    => current_time( 'Y-m-d' ),
-						'label' => esc_html__( 'All Time', 'prescription-for-woocommerce' ),
+						'label' => esc_html__( 'All Time', 'devdiggers-prescription-for-woocommerce' ),
 					];
 					break;
 				case 'custom':
@@ -118,7 +118,7 @@ if ( ! class_exists( 'DDFW_Dashboard_Data' ) ) {
 						'from'  => $from,
 						'to'    => $to,
 						/* translators: 1: from date, 2: to date. */
-						'label' => sprintf( esc_html__( '%1$s to %2$s', 'prescription-for-woocommerce' ), $from, $to ),
+						'label' => sprintf( esc_html__( '%1$s to %2$s', 'devdiggers-prescription-for-woocommerce' ), $from, $to ),
 					];
 					break;
 				default:
@@ -126,7 +126,7 @@ if ( ! class_exists( 'DDFW_Dashboard_Data' ) ) {
 					$data  = [
 						'from'  => current_time( 'Y-m-01' ),
 						'to'    => current_time( 'Y-m-d' ),
-						'label' => esc_html__( 'This Month', 'prescription-for-woocommerce' ),
+						'label' => esc_html__( 'This Month', 'devdiggers-prescription-for-woocommerce' ),
 					];
 					break;
 			}
@@ -272,16 +272,16 @@ if ( ! class_exists( 'DDFW_Dashboard_Data' ) ) {
 		 */
 		public static function get_presets() {
 			return [
-				'today'        => esc_html__( 'Today', 'prescription-for-woocommerce' ),
-				'7_days'       => esc_html__( 'This Week', 'prescription-for-woocommerce' ),
-				'last_week'    => esc_html__( 'Last Week', 'prescription-for-woocommerce' ),
-				'30_days'      => esc_html__( 'This Month', 'prescription-for-woocommerce' ),
-				'last_month'   => esc_html__( 'Last Month', 'prescription-for-woocommerce' ),
-				'90_days'      => esc_html__( 'Last 3 Months', 'prescription-for-woocommerce' ),
-				'180_days'     => esc_html__( 'Last 6 Months', 'prescription-for-woocommerce' ),
-				'year_to_date' => esc_html__( 'Year to Date', 'prescription-for-woocommerce' ),
-				'last_year'    => esc_html__( 'Last Year', 'prescription-for-woocommerce' ),
-				'all_time'     => esc_html__( 'All Time', 'prescription-for-woocommerce' ),
+				'today'        => esc_html__( 'Today', 'devdiggers-prescription-for-woocommerce' ),
+				'7_days'       => esc_html__( 'This Week', 'devdiggers-prescription-for-woocommerce' ),
+				'last_week'    => esc_html__( 'Last Week', 'devdiggers-prescription-for-woocommerce' ),
+				'30_days'      => esc_html__( 'This Month', 'devdiggers-prescription-for-woocommerce' ),
+				'last_month'   => esc_html__( 'Last Month', 'devdiggers-prescription-for-woocommerce' ),
+				'90_days'      => esc_html__( 'Last 3 Months', 'devdiggers-prescription-for-woocommerce' ),
+				'180_days'     => esc_html__( 'Last 6 Months', 'devdiggers-prescription-for-woocommerce' ),
+				'year_to_date' => esc_html__( 'Year to Date', 'devdiggers-prescription-for-woocommerce' ),
+				'last_year'    => esc_html__( 'Last Year', 'devdiggers-prescription-for-woocommerce' ),
+				'all_time'     => esc_html__( 'All Time', 'devdiggers-prescription-for-woocommerce' ),
 			];
 		}
 	}

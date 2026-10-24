@@ -51,8 +51,8 @@ if ( ! class_exists( 'DDFW_Plugin_Dashboard' ) ) {
 			if ( ! empty( $args ) ) {
 				$default_args = [
 					'parent_slug' => ddfw_get_parent_menu_slug(),
-					'page_title'  => __( 'Plugin Dashboard', 'prescription-for-woocommerce' ),
-					'menu_title'  => __( 'Plugin', 'prescription-for-woocommerce' ),
+					'page_title'  => __( 'Plugin Dashboard', 'devdiggers-prescription-for-woocommerce' ),
+					'menu_title'  => __( 'Plugin', 'devdiggers-prescription-for-woocommerce' ),
 					'capability'  => ddfw_get_menu_capability(),
 					'icon_url'    => '',
 					'position'    => null,
@@ -141,7 +141,15 @@ if ( ! class_exists( 'DDFW_Plugin_Dashboard' ) ) {
 		 * @return void
 		 */
 		public function add_turbo_config() {
-			if ( ! $this->is_a_plugin_page() || ! $this->is_turbo_enabled() ) {
+			if ( ! $this->is_a_plugin_page() ) {
+				return;
+			}
+
+			// The shell (layout, list tables, Turbo) needs these even when a plugin enqueues nothing of its own.
+			wp_enqueue_style( DDFW_Assets::$framework_css_handle );
+			wp_enqueue_script( DDFW_Assets::$framework_js_handle );
+
+			if ( ! $this->is_turbo_enabled() ) {
 				return;
 			}
 
@@ -161,9 +169,9 @@ if ( ! class_exists( 'DDFW_Plugin_Dashboard' ) ) {
 				'dirtyGuard'      => true,
 				'licenseInterval' => 30,
 				'i18n'            => [
-					'unsavedChanges' => esc_html__( 'You have unsaved changes. Do you want to leave this page?', 'prescription-for-woocommerce' ),
+					'unsavedChanges' => esc_html__( 'You have unsaved changes. Do you want to leave this page?', 'devdiggers-prescription-for-woocommerce' ),
 					/* translators: %s: screen title. */
-					'loaded'         => esc_html__( '%s loaded', 'prescription-for-woocommerce' ),
+					'loaded'         => esc_html__( '%s loaded', 'devdiggers-prescription-for-woocommerce' ),
 				],
 			];
 
@@ -371,7 +379,7 @@ if ( ! class_exists( 'DDFW_Plugin_Dashboard' ) ) {
 				do_action( 'ddfw_render_setup_wizard', $page );
 			} else {
 				// Fallback if no wizard matches this dashboard page.
-				echo '<div class="notice notice-error"><p>' . esc_html__( 'Setup wizard not found for this plugin.', 'prescription-for-woocommerce' ) . '</p></div>';
+				echo '<div class="notice notice-error"><p>' . esc_html__( 'Setup wizard not found for this plugin.', 'devdiggers-prescription-for-woocommerce' ) . '</p></div>';
 			}
 		}
 	}

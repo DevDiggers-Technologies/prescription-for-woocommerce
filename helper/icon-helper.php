@@ -7,7 +7,7 @@
  * Every icon the plugin draws therefore comes from here as inline SVG instead.
  *
  * @author DevDiggers
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  * @version 1.0.0
  */
 

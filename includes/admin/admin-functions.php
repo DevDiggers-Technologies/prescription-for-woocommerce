@@ -4,7 +4,7 @@
  *
  * @author DevDiggers
  * @version 1.0.0
- * @package Prescription for WooCommerce
+ * @package DevDiggers Prescription for WooCommerce
  */
 
 namespace DDWCMedicalPrescriptionAttachment\Includes\Admin;
@@ -51,63 +51,193 @@ if ( ! class_exists( 'DDWCMPA_Admin_Functions' ) ) {
 		 */
 		public function ddwcmpa_register_settings() {
 			// One group per configuration tab, so saving a tab never wipes the fields
-			// that live on the other tabs. Only settings Free acts on are registered, so
-			// a crafted options.php request has nothing Pro-only to write.
-			$groups = [
-				'ddwcmpa-general-configuration-fields'    => [
-					'_ddwcmpa_enabled',
-					'_ddwcmpa_allowed_categories',
-					'_ddwcmpa_excluded_products',
-				],
-				'ddwcmpa-design-configuration-fields'     => [
-					'_ddwcmpa_product_label',
-					'_ddwcmpa_product_label_font_color',
-					'_ddwcmpa_product_label_background_color',
-					'_ddwcmpa_prescription_description',
-					'_ddwcmpa_product_page_position',
-					'_ddwcmpa_shop_page_position',
-					'_ddwcmpa_cart_page_position',
-					'_ddwcmpa_checkout_page_position',
-					'_ddwcmpa_order_page_position',
-				],
-				'ddwcmpa-prescription-rules-configuration-fields' => [
-					'_ddwcmpa_max_files',
-				],
-				'ddwcmpa-review-workflow-configuration-fields' => [
-					'_ddwcmpa_hold_order_status',
-					'_ddwcmpa_approved_order_status',
-					'_ddwcmpa_rejected_order_status',
-					'_ddwcmpa_rejection_reason_required',
-					'_ddwcmpa_order_notes_enabled',
-				],
-				'ddwcmpa-customer-experience-configuration-fields' => [
-					'_ddwcmpa_attach_later_enabled',
-					'_ddwcmpa_self_service_enabled',
-				],
-				'ddwcmpa-emails-configuration-fields'     => [
-					'_ddwcmpa_admin_email_enabled',
-					'_ddwcmpa_customer_email_enabled',
-				],
-			];
+			// that live on the other tabs.
+			register_setting(
+				'ddwcmpa-general-configuration-fields',
+				'_ddwcmpa_enabled',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => [ $this, 'ddwcmpa_sanitize_yes_no' ],
+				]
+			);
+			register_setting(
+				'ddwcmpa-general-configuration-fields',
+				'_ddwcmpa_allowed_categories',
+				[
+					'type'              => 'array',
+					'sanitize_callback' => [ $this, 'ddwcmpa_sanitize_id_list' ],
+				]
+			);
+			register_setting(
+				'ddwcmpa-general-configuration-fields',
+				'_ddwcmpa_excluded_products',
+				[
+					'type'              => 'array',
+					'sanitize_callback' => [ $this, 'ddwcmpa_sanitize_id_list' ],
+				]
+			);
+			register_setting(
+				'ddwcmpa-design-configuration-fields',
+				'_ddwcmpa_product_label',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_text_field',
+				]
+			);
+			register_setting(
+				'ddwcmpa-design-configuration-fields',
+				'_ddwcmpa_product_label_font_color',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_hex_color',
+				]
+			);
+			register_setting(
+				'ddwcmpa-design-configuration-fields',
+				'_ddwcmpa_product_label_background_color',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_hex_color',
+				]
+			);
+			register_setting(
+				'ddwcmpa-design-configuration-fields',
+				'_ddwcmpa_prescription_description',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_textarea_field',
+				]
+			);
+			register_setting(
+				'ddwcmpa-design-configuration-fields',
+				'_ddwcmpa_product_page_position',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_key',
+				]
+			);
+			register_setting(
+				'ddwcmpa-design-configuration-fields',
+				'_ddwcmpa_shop_page_position',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_key',
+				]
+			);
+			register_setting(
+				'ddwcmpa-design-configuration-fields',
+				'_ddwcmpa_cart_page_position',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_key',
+				]
+			);
+			register_setting(
+				'ddwcmpa-design-configuration-fields',
+				'_ddwcmpa_checkout_page_position',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_key',
+				]
+			);
+			register_setting(
+				'ddwcmpa-design-configuration-fields',
+				'_ddwcmpa_order_page_position',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_key',
+				]
+			);
+			register_setting(
+				'ddwcmpa-prescription-rules-configuration-fields',
+				'_ddwcmpa_max_files',
+				[
+					'type'              => 'integer',
+					'sanitize_callback' => 'absint',
+				]
+			);
+			register_setting(
+				'ddwcmpa-review-workflow-configuration-fields',
+				'_ddwcmpa_hold_order_status',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_key',
+				]
+			);
+			register_setting(
+				'ddwcmpa-review-workflow-configuration-fields',
+				'_ddwcmpa_approved_order_status',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_key',
+				]
+			);
+			register_setting(
+				'ddwcmpa-review-workflow-configuration-fields',
+				'_ddwcmpa_rejected_order_status',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_key',
+				]
+			);
+			register_setting(
+				'ddwcmpa-review-workflow-configuration-fields',
+				'_ddwcmpa_rejection_reason_required',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => [ $this, 'ddwcmpa_sanitize_yes_no' ],
+				]
+			);
+			register_setting(
+				'ddwcmpa-review-workflow-configuration-fields',
+				'_ddwcmpa_order_notes_enabled',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => [ $this, 'ddwcmpa_sanitize_yes_no' ],
+				]
+			);
+			register_setting(
+				'ddwcmpa-customer-experience-configuration-fields',
+				'_ddwcmpa_attach_later_enabled',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => [ $this, 'ddwcmpa_sanitize_yes_no' ],
+				]
+			);
+			register_setting(
+				'ddwcmpa-customer-experience-configuration-fields',
+				'_ddwcmpa_self_service_enabled',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => [ $this, 'ddwcmpa_sanitize_yes_no' ],
+				]
+			);
+			register_setting(
+				'ddwcmpa-emails-configuration-fields',
+				'_ddwcmpa_admin_email_enabled',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => [ $this, 'ddwcmpa_sanitize_yes_no' ],
+				]
+			);
+			register_setting(
+				'ddwcmpa-emails-configuration-fields',
+				'_ddwcmpa_customer_email_enabled',
+				[
+					'type'              => 'string',
+					'sanitize_callback' => [ $this, 'ddwcmpa_sanitize_yes_no' ],
+				]
+			);
+		}
 
-			$sanitizers = [
-				'_ddwcmpa_allowed_categories'             => [ $this, 'ddwcmpa_sanitize_id_list' ],
-				'_ddwcmpa_excluded_products'              => [ $this, 'ddwcmpa_sanitize_id_list' ],
-				'_ddwcmpa_product_label_font_color'       => 'sanitize_hex_color',
-				'_ddwcmpa_product_label_background_color' => 'sanitize_hex_color',
-				'_ddwcmpa_prescription_description'       => 'sanitize_textarea_field',
-				'_ddwcmpa_max_files'                      => 'absint',
-			];
-
-			foreach ( $groups as $group => $settings ) {
-				foreach ( $settings as $setting ) {
-					register_setting(
-						$group,
-						$setting,
-						[ 'sanitize_callback' => isset( $sanitizers[ $setting ] ) ? $sanitizers[ $setting ] : 'sanitize_text_field' ]
-					);
-				}
-			}
+		/**
+		 * Sanitize an on/off switch.
+		 *
+		 * @param mixed $value Submitted value.
+		 * @return string
+		 */
+		public function ddwcmpa_sanitize_yes_no( $value ) {
+			return 'yes' === $value ? 'yes' : '';
 		}
 
 		/**
@@ -140,14 +270,14 @@ if ( ! class_exists( 'DDWCMPA_Admin_Functions' ) ) {
 				woocommerce_wp_select(
 					[
 						'id'          => '_ddwcmpa_requires_prescription',
-						'label'       => esc_html__( 'Requires prescription', 'prescription-for-woocommerce' ),
-						'description' => esc_html__( 'Overrides the category rules for this product. Leave on "Use category rules" to keep the global behaviour.', 'prescription-for-woocommerce' ),
+						'label'       => esc_html__( 'Requires prescription', 'devdiggers-prescription-for-woocommerce' ),
+						'description' => esc_html__( 'Overrides the category rules for this product. Leave on "Use category rules" to keep the global behaviour.', 'devdiggers-prescription-for-woocommerce' ),
 						'desc_tip'    => true,
 						'value'       => $product->get_meta( '_ddwcmpa_requires_prescription', true ),
 						'options'     => [
-							''    => esc_html__( 'Use category rules', 'prescription-for-woocommerce' ),
-							'yes' => esc_html__( 'Always require a prescription', 'prescription-for-woocommerce' ),
-							'no'  => esc_html__( 'Never require a prescription', 'prescription-for-woocommerce' ),
+							''    => esc_html__( 'Use category rules', 'devdiggers-prescription-for-woocommerce' ),
+							'yes' => esc_html__( 'Always require a prescription', 'devdiggers-prescription-for-woocommerce' ),
+							'no'  => esc_html__( 'Never require a prescription', 'devdiggers-prescription-for-woocommerce' ),
 						],
 					]
 				);
@@ -157,8 +287,8 @@ if ( ! class_exists( 'DDWCMPA_Admin_Functions' ) ) {
 					[
 						'id'                => 'ddwcmpa-max-quantity-locked',
 						'name'              => '',
-						'label'             => esc_html__( 'Maximum quantity per order (Pro)', 'prescription-for-woocommerce' ),
-						'description'       => esc_html__( 'Pro caps how much of a controlled product one order may contain.', 'prescription-for-woocommerce' ),
+						'label'             => esc_html__( 'Maximum quantity per order (Pro)', 'devdiggers-prescription-for-woocommerce' ),
+						'description'       => esc_html__( 'Pro caps how much of a controlled product one order may contain.', 'devdiggers-prescription-for-woocommerce' ),
 						'desc_tip'          => true,
 						'type'              => 'number',
 						'value'             => '',
@@ -185,7 +315,10 @@ if ( ! class_exists( 'DDWCMPA_Admin_Functions' ) ) {
 				return;
 			}
 
-			// phpcs:ignore WordPress.Security.NonceVerification.Missing -- WooCommerce verifies the product meta nonce before firing this hook.
+			if ( ! isset( $_POST['woocommerce_meta_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['woocommerce_meta_nonce'] ) ), 'woocommerce_save_data' ) ) {
+				return;
+			}
+
 			$requires = isset( $_POST['_ddwcmpa_requires_prescription'] ) ? sanitize_key( wp_unslash( $_POST['_ddwcmpa_requires_prescription'] ) ) : '';
 
 			$product = wc_get_product( $product_id );
@@ -211,12 +344,12 @@ if ( ! class_exists( 'DDWCMPA_Admin_Functions' ) ) {
 				$new_columns[ $key ] = $label;
 
 				if ( 'order_status' === $key ) {
-					$new_columns['ddwcmpa_status'] = esc_html__( 'Prescription', 'prescription-for-woocommerce' );
+					$new_columns['ddwcmpa_status'] = esc_html__( 'Prescription', 'devdiggers-prescription-for-woocommerce' );
 				}
 			}
 
 			if ( ! isset( $new_columns['ddwcmpa_status'] ) ) {
-				$new_columns['ddwcmpa_status'] = esc_html__( 'Prescription', 'prescription-for-woocommerce' );
+				$new_columns['ddwcmpa_status'] = esc_html__( 'Prescription', 'devdiggers-prescription-for-woocommerce' );
 			}
 
 			return $new_columns;
@@ -265,7 +398,7 @@ if ( ! class_exists( 'DDWCMPA_Admin_Functions' ) ) {
 		 */
 		public function ddwcmpa_add_custom_meta_box( $screen_id ) {
 			if ( 'woocommerce_page_wc-orders' === $screen_id || 'shop_order' === $screen_id ) {
-				add_meta_box( 'ddwcmpa-meta-box', esc_html__( 'Medical Prescription Review', 'prescription-for-woocommerce' ), [ $this, 'ddwcmpa_add_content_in_meta_box' ], $screen_id, 'normal', 'high' );
+				add_meta_box( 'ddwcmpa-meta-box', esc_html__( 'Medical Prescription Review', 'devdiggers-prescription-for-woocommerce' ), [ $this, 'ddwcmpa_add_content_in_meta_box' ], $screen_id, 'normal', 'high' );
 			}
 		}
 
@@ -287,7 +420,7 @@ if ( ! class_exists( 'DDWCMPA_Admin_Functions' ) ) {
 			}
 
 			if ( ! $order || ! is_a( $order, 'WC_Order' ) ) {
-				echo '<p>' . esc_html__( 'Order not found.', 'prescription-for-woocommerce' ) . '</p>';
+				echo '<p>' . esc_html__( 'Order not found.', 'devdiggers-prescription-for-woocommerce' ) . '</p>';
 				return;
 			}
 
@@ -318,14 +451,14 @@ if ( ! class_exists( 'DDWCMPA_Admin_Functions' ) ) {
 							<?php
 							printf(
 								/* translators: %d: number of uploaded files */
-								esc_html( _n( 'Uploaded File (%d)', 'Uploaded Files (%d)', count( $attachments ), 'prescription-for-woocommerce' ) ),
+								esc_html( _n( 'Uploaded File (%d)', 'Uploaded Files (%d)', count( $attachments ), 'devdiggers-prescription-for-woocommerce' ) ),
 								count( $attachments )
 							);
 							?>
 						</h4>
 
 						<?php if ( empty( $attachments ) ) : ?>
-							<p class="ddwcmpa-review-note"><?php esc_html_e( 'The customer has not uploaded a prescription yet.', 'prescription-for-woocommerce' ); ?></p>
+							<p class="ddwcmpa-review-note"><?php esc_html_e( 'The customer has not uploaded a prescription yet.', 'devdiggers-prescription-for-woocommerce' ); ?></p>
 						<?php else : ?>
 							<div class="ddwcmpa-prescription-attachment-box">
 								<?php
@@ -340,13 +473,13 @@ if ( ! class_exists( 'DDWCMPA_Admin_Functions' ) ) {
 					<section class="ddwcmpa-review-panel-card ddwcmpa-review-decide">
 						<h4 class="ddwcmpa-review-panel-title">
 							<?php DDWCMPA_Icon_Helper::render( 'check', [ 'size' => 15 ] ); ?>
-							<?php esc_html_e( 'Decision', 'prescription-for-woocommerce' ); ?>
+							<?php esc_html_e( 'Decision', 'devdiggers-prescription-for-woocommerce' ); ?>
 						</h4>
 
 						<?php if ( $can_review ) : ?>
 							<div class="ddwcmpa-review-controls">
 								<label class="ddwcmpa-field ddwcmpa-status-select-label">
-									<span><?php esc_html_e( 'Review decision', 'prescription-for-woocommerce' ); ?></span>
+									<span><?php esc_html_e( 'Review decision', 'devdiggers-prescription-for-woocommerce' ); ?></span>
 									<select name="ddwcmpa_status" id="ddwcmpa-status-select">
 										<?php foreach ( $all_statuses as $key => $value ) : ?>
 											<option value="<?php echo esc_attr( $key ); ?>" <?php selected( $key, $status ); ?>><?php echo esc_html( $value ); ?></option>
@@ -355,17 +488,17 @@ if ( ! class_exists( 'DDWCMPA_Admin_Functions' ) ) {
 								</label>
 
 								<label class="ddwcmpa-field ddwcmpa-reason-label <?php echo esc_attr( in_array( $status, [ 'rejected', 'info_required' ], true ) ? '' : 'ddwcmpa-hide' ); ?>">
-									<span><?php esc_html_e( 'Message to the customer', 'prescription-for-woocommerce' ); ?></span>
-									<textarea name="ddwcmpa_rejection_reason" id="ddwcmpa-rejection-reason" rows="3" placeholder="<?php esc_attr_e( 'e.g. the prescription is unreadable, or the prescriber details are missing.', 'prescription-for-woocommerce' ); ?>"><?php echo esc_textarea( $reason ); ?></textarea>
+									<span><?php esc_html_e( 'Message to the customer', 'devdiggers-prescription-for-woocommerce' ); ?></span>
+									<textarea name="ddwcmpa_rejection_reason" id="ddwcmpa-rejection-reason" rows="3" placeholder="<?php esc_attr_e( 'e.g. the prescription is unreadable, or the prescriber details are missing.', 'devdiggers-prescription-for-woocommerce' ); ?>"><?php echo esc_textarea( $reason ); ?></textarea>
 								</label>
 							</div>
 
 							<p class="ddwcmpa-review-hint">
 								<?php DDWCMPA_Icon_Helper::render( 'info', [ 'size' => 14 ] ); ?>
-								<span><?php esc_html_e( 'The decision is saved when you update the order, and the customer is emailed straight away.', 'prescription-for-woocommerce' ); ?></span>
+								<span><?php esc_html_e( 'The decision is saved when you update the order, and the customer is emailed straight away.', 'devdiggers-prescription-for-woocommerce' ); ?></span>
 							</p>
 						<?php else : ?>
-							<p class="ddwcmpa-review-note"><?php esc_html_e( 'You do not have permission to review prescriptions.', 'prescription-for-woocommerce' ); ?></p>
+							<p class="ddwcmpa-review-note"><?php esc_html_e( 'You do not have permission to review prescriptions.', 'devdiggers-prescription-for-woocommerce' ); ?></p>
 						<?php endif; ?>
 					</section>
 				</div>
@@ -379,7 +512,10 @@ if ( ! class_exists( 'DDWCMPA_Admin_Functions' ) ) {
 		 * @return void
 		 */
 		public function ddwcmpa_handle_save_shop_order_meta() {
-			// phpcs:ignore WordPress.Security.NonceVerification.Missing -- WooCommerce verifies the order meta nonce before firing this hook.
+			if ( ! isset( $_POST['woocommerce_meta_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['woocommerce_meta_nonce'] ) ), 'woocommerce_save_data' ) ) {
+				return;
+			}
+
 			if ( empty( $_POST['ddwcmpa_order_id'] ) || empty( $_POST['ddwcmpa_status'] ) ) {
 				return;
 			}
@@ -388,15 +524,12 @@ if ( ! class_exists( 'DDWCMPA_Admin_Functions' ) ) {
 				return;
 			}
 
-			// phpcs:ignore WordPress.Security.NonceVerification.Missing -- WooCommerce verifies the order meta nonce before firing this hook.
 			$order_id = intval( wp_unslash( $_POST['ddwcmpa_order_id'] ) );
-			// phpcs:ignore WordPress.Security.NonceVerification.Missing -- WooCommerce verifies the order meta nonce before firing this hook.
 			$status = sanitize_key( wp_unslash( $_POST['ddwcmpa_status'] ) );
-			// phpcs:ignore WordPress.Security.NonceVerification.Missing -- WooCommerce verifies the order meta nonce before firing this hook.
 			$reason = ! empty( $_POST['ddwcmpa_rejection_reason'] ) ? sanitize_textarea_field( wp_unslash( $_POST['ddwcmpa_rejection_reason'] ) ) : '';
 
 			if ( 'rejected' === $status && empty( $reason ) && ! empty( $this->ddwcmpa_configuration['rejection_reason_required'] ) ) {
-				set_transient( 'ddwcmpa_admin_error_' . get_current_user_id(), esc_html__( 'A rejection reason is required, so the prescription status was left unchanged.', 'prescription-for-woocommerce' ), 60 );
+				set_transient( 'ddwcmpa_admin_error_' . get_current_user_id(), esc_html__( 'A rejection reason is required, so the prescription status was left unchanged.', 'devdiggers-prescription-for-woocommerce' ), 60 );
 				return;
 			}
 
