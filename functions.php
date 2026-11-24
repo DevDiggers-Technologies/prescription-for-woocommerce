@@ -5,7 +5,7 @@
  * Plugin URI: https://devdiggers.com/product/woocommerce-medical-prescription-attachment/
  * Author: DevDiggers
  * Author URI: https://devdiggers.com/
- * Version: 1.0.0
+ * Version: 1.1.0
  * Text Domain: devdiggers-prescription-for-woocommerce
  * Domain Path: /i18n
  * Requires at least: 6.5
@@ -52,7 +52,9 @@ if ( ! class_exists( 'DDWCMPA_Free_Init' ) ) {
 		 * Class constructor.
 		 */
 		public function __construct() {
-			add_action( 'init', [ $this, 'ddwcmpa_init' ] );
+			// Priority 9: WooCommerce reads the email actions at init 10, so the plugin's emails ( ddwcmpa_mail ) must be
+			// registered before that, whatever order the plugins load in.
+			add_action( 'init', [ $this, 'ddwcmpa_init' ], 9 );
 			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'ddwcmpa_plugin_settings_link' ] );
 			add_filter( 'plugin_row_meta', [ $this, 'ddwcmpa_plugin_row_meta' ], 10, 2 );
 		}

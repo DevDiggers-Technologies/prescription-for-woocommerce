@@ -62,6 +62,18 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Template' ) ) {
 			$summary    = $data['summary'];
 			$date_label = $data['date_range']['label'];
 
+			// Every card gets a line under its figure, so a row of cards reads alike: the change
+			// ( "↗ 12% from 9" ), "None in the previous period", or what the figure counts.
+			$no_change = function ( $metric ) {
+				if ( null === $metric['change'] || 0.0 !== (float) $metric['change'] ) {
+					return '';
+				}
+
+				return empty( $metric['value'] ) && empty( $metric['previous'] )
+					? esc_html__( 'None in either period', 'devdiggers-prescription-for-woocommerce' )
+					: esc_html__( 'No change vs previous period', 'devdiggers-prescription-for-woocommerce' );
+			};
+
 			new DDFW_Dashboard(
 				[
 					'columns'       => 5,
@@ -76,6 +88,7 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Template' ) ) {
 							'value'       => $summary['awaiting']['value'],
 							'change'      => $summary['awaiting']['change'],
 							'is_positive' => $summary['awaiting']['is_positive'],
+							'note'        => esc_html__( 'In the queue now, from any date', 'devdiggers-prescription-for-woocommerce' ),
 							'icon'        => $this->get_clock_icon(),
 						],
 						[
@@ -83,6 +96,8 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Template' ) ) {
 							'value'       => $summary['approved']['value'],
 							'change'      => $summary['approved']['change'],
 							'is_positive' => $summary['approved']['is_positive'],
+							'previous'    => number_format_i18n( $summary['approved']['previous'] ),
+							'note'        => $no_change( $summary['approved'] ),
 							'icon'        => DDFW_SVG::get_svg_icon( 'circle-check', true ),
 						],
 						[
@@ -90,6 +105,8 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Template' ) ) {
 							'value'       => $summary['rejected']['value'],
 							'change'      => $summary['rejected']['change'],
 							'is_positive' => $summary['rejected']['is_positive'],
+							'previous'    => number_format_i18n( $summary['rejected']['previous'] ),
+							'note'        => $no_change( $summary['rejected'] ),
 							'icon'        => $this->get_cross_icon(),
 						],
 						[
@@ -97,6 +114,8 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Template' ) ) {
 							'value'       => $summary['info_required']['value'],
 							'change'      => $summary['info_required']['change'],
 							'is_positive' => $summary['info_required']['is_positive'],
+							'previous'    => number_format_i18n( $summary['info_required']['previous'] ),
+							'note'        => $no_change( $summary['info_required'] ),
 							'icon'        => DDWCMPA_Icon_Helper::get( 'reply', [ 'size' => 24 ] ),
 						],
 						[
@@ -104,6 +123,8 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Template' ) ) {
 							'value'       => $summary['total']['value'],
 							'change'      => $summary['total']['change'],
 							'is_positive' => $summary['total']['is_positive'],
+							'previous'    => number_format_i18n( $summary['total']['previous'] ),
+							'note'        => $no_change( $summary['total'] ),
 							'icon'        => $this->get_document_icon(),
 						],
 					],
@@ -156,7 +177,7 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Template' ) ) {
 							'render' => [ $this, 'render_review_queue' ],
 						],
 						[
-							'title'  => esc_html__( 'Pharmacy Analytics', 'devdiggers-prescription-for-woocommerce' ),
+							// No title: the upgrade card is its own card, not a box inside a widget.
 							'width'  => 'full',
 							'render' => [ $this, 'render_pro_analytics' ],
 						],
@@ -195,38 +216,34 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Template' ) ) {
 		 */
 		public function render_review_queue() {
 			$queue = $this->dashboard_data['tables']['queue'];
+			$items = [];
 
-			if ( empty( $queue ) ) {
-				?>
-				<div class="ddfw-dash-no-data"><?php esc_html_e( 'Nothing is waiting for review. Nice work.', 'devdiggers-prescription-for-woocommerce' ); ?></div>
-				<?php
-				return;
+			foreach ( $queue as $item ) {
+				$items[] = [
+					'url'         => $item['url'],
+					'title'       => '#' . $item['number'] . ' ' . $item['customer'],
+					'meta'        => sprintf(
+						/* translators: 1: human readable duration, 2: number of files */
+						_n( 'Waiting %1$s, %2$d file', 'Waiting %1$s, %2$d files', absint( $item['files'] ), 'devdiggers-prescription-for-woocommerce' ),
+						$item['waiting'],
+						absint( $item['files'] )
+					),
+					'image'       => $item['avatar'],
+					'shape'       => 'round',
+					'value'       => $item['total'],
+					'value_class' => ! empty( $item['overdue'] ) ? 'negative' : '',
+				];
 			}
-			?>
-			<div class="ddwcmpa-dash-list">
-				<?php foreach ( $queue as $item ) : ?>
-					<a class="ddwcmpa-dash-item" href="<?php echo esc_url( $item['url'] ); ?>">
-						<span class="ddwcmpa-dash-item-main">
-							<strong><?php echo esc_html( '#' . $item['number'] . ' ' . $item['customer'] ); ?></strong>
-							<span class="ddwcmpa-dash-item-sub">
-								<?php
-								printf(
-									/* translators: 1: human readable duration, 2: number of files */
-									esc_html__( 'Waiting %1$s &middot; %2$d file(s)', 'devdiggers-prescription-for-woocommerce' ),
-									esc_html( $item['waiting'] ),
-									absint( $item['files'] )
-								);
-								?>
-							</span>
-						</span>
-						<span class="ddwcmpa-dash-item-value"><?php echo wp_kses_post( $item['total'] ); ?></span>
-					</a>
-				<?php endforeach; ?>
-			</div>
-			<a class="ddwcmpa-dash-more" href="<?php echo esc_url( admin_url( 'admin.php?page=ddwcmpa-dashboard&menu=orders&prescription_status=pending' ) ); ?>">
-				<?php esc_html_e( 'Open the full queue', 'devdiggers-prescription-for-woocommerce' ); ?>
-			</a>
-			<?php
+
+			DDFW_Dashboard::render_list( $items, __( 'Nothing is waiting for review. Nice work.', 'devdiggers-prescription-for-woocommerce' ) );
+
+			if ( ! empty( $queue ) ) {
+				?>
+				<p class="ddfw-dash-list-footer">
+					<a href="<?php echo esc_url( admin_url( 'admin.php?page=ddwcmpa-dashboard&menu=orders&prescription_status=pending' ) ); ?>"><?php esc_html_e( 'Open the full queue', 'devdiggers-prescription-for-woocommerce' ); ?></a>
+				</p>
+				<?php
+			}
 		}
 
 		/**

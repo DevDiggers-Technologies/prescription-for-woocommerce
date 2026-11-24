@@ -97,6 +97,7 @@ if ( ! class_exists( 'DDWCMPA_File_Handler' ) ) {
 
 			new Front\DDWCMPA_Front_Ajax_Hooks( $ddwcmpa_configuration );
 			new Common\DDWCMPA_Common_Hooks( $ddwcmpa_configuration );
+			new Integrations\DDWCMPA_MCP_Integration( $ddwcmpa_configuration );
 
 			if ( is_admin() ) {
 				new DDWCMPA_Admin_Dashboard( $ddwcmpa_configuration );
