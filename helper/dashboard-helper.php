@@ -101,8 +101,7 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Helper' ) ) {
 					'meta_query' => [
 						[
 							'key'     => '_ddwcmpa_status',
-							'value'   => [ 'pending', 'attachments_pending' ],
-							'compare' => 'IN',
+							'value'   => 'pending',
 						],
 					],
 				]
@@ -238,16 +237,19 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Helper' ) ) {
 		 * @return array
 		 */
 		protected function ddwcmpa_compare( $current, $previous, $more_is_better = true ) {
+			// Nothing in the previous period: there is no percentage to give, so null makes the card
+			// say "None in the previous period" ( "100%" read as a doubling ).
 			if ( empty( $previous ) ) {
-				$change = empty( $current ) ? 0 : 100;
+				$change = empty( $current ) ? 0 : null;
 			} else {
 				$change = round( ( ( $current - $previous ) / $previous ) * 100, 1 );
 			}
 
-			$is_positive = $more_is_better ? ( $change >= 0 ) : ( $change <= 0 );
+			$is_positive = $more_is_better ? ( $current >= $previous ) : ( $current <= $previous );
 
 			return [
 				'value'       => $current,
+				'previous'    => $previous,
 				'change'      => $change,
 				'is_positive' => $is_positive,
 			];
@@ -286,6 +288,7 @@ if ( ! class_exists( 'DDWCMPA_Dashboard_Helper' ) ) {
 					'id'       => $order->get_id(),
 					'number'   => $order->get_order_number(),
 					'customer' => trim( $order->get_billing_first_name() . ' ' . $order->get_billing_last_name() ),
+					'avatar'   => get_avatar_url( $order->get_billing_email(), [ 'size' => 72 ] ),
 					'waiting'  => $created ? human_time_diff( $created->getTimestamp(), time() ) : '',
 					'total'    => $order->get_formatted_order_total(),
 					'url'      => $order->get_edit_order_url(),

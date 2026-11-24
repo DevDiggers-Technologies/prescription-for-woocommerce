@@ -9,7 +9,7 @@ Tested up to: 7.1
 Requires PHP: 7.4
 WC requires at least: 9.0
 WC tested up to: 11.1
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -103,6 +103,16 @@ Customers know where their order stands without contacting you.
 * An email to the store when a new prescription is waiting for review
 * Recipients, format and footer managed under WooCommerce > Settings > Emails
 * Self Service shows a refused customer the reviewer's message on their order page and lets them upload a new file there
+
+=== AI assistants (MCP) ===
+
+Ask Claude, ChatGPT, Cursor, VS Code or any MCP client about your prescription queue in plain words: "How many prescriptions are waiting?", "Which orders have waited longest?", "Does this product need a prescription?"
+
+* Tools for the queue overview, prescriptions per order with filters, one prescription in detail, orders waiting on verification, which products need a prescription and the workflow settings, plus a Triage pending prescriptions prompt
+* Optional: let the assistant approve, reject or ask for more on a prescription through the same path as the order screen, logged under WooCommerce > Status > Logs
+* File contents are never returned, only file names and the checked link a reviewer can open
+* Reviewers only, managed in DevDiggers Plugins > AI & MCP with an on / off switch per plugin and per write tool (write tools start off)
+* Needs WordPress 6.9+ and the MCP Adapter, which WooCommerce 10.3+ bundles
 
 There is no limit on orders, prescriptions, files or reviewers in the free version.
 
@@ -324,10 +334,24 @@ The build configuration is in `webpack.config.js` and `babel.config.js`. Two thi
 
 == Changelog ==
 
+= 1.1.0 =
+* Added: AI assistants (MCP). Ask Claude, ChatGPT, Cursor, VS Code or any MCP client about the prescription queue, prescriptions per order, orders waiting on verification, products that need a prescription and your workflow settings, plus a Triage pending prescriptions prompt.
+* Added: An optional AI tool to approve, reject or ask for more information on a prescription, the same way as the order screen. It stays off until you turn on Allow changes.
+* Added: DevDiggers Plugins > AI & MCP page. Connect Claude, ChatGPT, Claude Code, Codex, Cursor, VS Code or any MCP client by signing in and clicking Allow in WordPress, with nothing to copy. Turn each plugin and each write tool on or off, try tools in the Try panel and check the activity log.
+* Improved: Dashboard cards show the previous period's figure and a short note under every number, and say "None in the previous period" instead of a misleading 100% change.
+* Improved: The review queue on the Dashboard shows each customer's avatar.
+* Improved: Updated the DevDiggers framework to 1.3.0. On edit screens the title bar with Save stays visible while you scroll on desktop.
+* Fixed: Prescription emails to customers and to the store were not being sent. They are sent again.
+* Fixed: The Awaiting Review card counted orders still waiting for the customer to upload. It now counts only prescriptions waiting on a reviewer.
+* Fixed: Charts and pickers no longer break when a theme or plugin replaces the shared select2 script.
+
 = 1.0.0 =
 * Initial free release.
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+Prescription emails are sent again, plus AI assistants (MCP) and a clearer Dashboard. Recommended update.
 
 = 1.0.0 =
 First release. After activating, run the setup wizard, then turn the plugin on under Configuration > General.

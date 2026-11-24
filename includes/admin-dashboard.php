@@ -71,23 +71,31 @@ if ( ! class_exists( 'DDWCMPA_Admin_Dashboard' ) ) {
 		}
 
 		/**
+		 * The plugin logo, shared by the dashboard header and the AI & MCP hub.
+		 *
+		 * @return string SVG markup.
+		 */
+		public static function ddwcmpa_get_logo() {
+			ob_start();
+			?>
+			<svg class="ddwcmpa-mark" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+				<path class="ddwcmpa-mark-bg" fill="#e4ecff" d="M10.5 3.2h7.1L25.8 11.4v15.1a3.3 3.3 0 0 1-3.3 3.3h-12a3.3 3.3 0 0 1-3.3-3.3v-20a3.3 3.3 0 0 1 3.3-3.3Z"/>
+				<path class="ddwcmpa-mark-line" fill="none" stroke="var(--ddfw-primary-color, #0256ff)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" d="M10.5 3.2h7.1L25.8 11.4v15.1a3.3 3.3 0 0 1-3.3 3.3h-12a3.3 3.3 0 0 1-3.3-3.3v-20a3.3 3.3 0 0 1 3.3-3.3Z"/>
+				<path class="ddwcmpa-mark-line" fill="none" stroke="var(--ddfw-primary-color, #0256ff)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" d="M17.4 3.4v6.2a2 2 0 0 0 2 2h6.2"/>
+				<path class="ddwcmpa-mark-line" fill="none" stroke="var(--ddfw-primary-color, #0256ff)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" d="M12.4 25.2v-9.4h3.3a2.7 2.7 0 0 1 0 5.4h-3.3"/>
+				<path class="ddwcmpa-mark-line" fill="none" stroke="var(--ddfw-primary-color, #0256ff)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" d="m15.2 21.2 5.4 4M20.8 20.9l-5.5 4.4"/>
+			</svg>
+			<?php
+			return ob_get_clean();
+		}
+
+		/**
 		 * Add Admin menu function
 		 *
 		 * @return void
 		 */
 		public function ddwcmpa_add_dashboard_menu() {
-			ob_start();
-			?>
-			<svg class="ddwcmpa-mark" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-				<path class="ddwcmpa-mark-bg" d="M10.5 3.2h7.1L25.8 11.4v15.1a3.3 3.3 0 0 1-3.3 3.3h-12a3.3 3.3 0 0 1-3.3-3.3v-20a3.3 3.3 0 0 1 3.3-3.3Z"/>
-				<path class="ddwcmpa-mark-line" d="M10.5 3.2h7.1L25.8 11.4v15.1a3.3 3.3 0 0 1-3.3 3.3h-12a3.3 3.3 0 0 1-3.3-3.3v-20a3.3 3.3 0 0 1 3.3-3.3Z"/>
-				<path class="ddwcmpa-mark-line" d="M17.4 3.4v6.2a2 2 0 0 0 2 2h6.2"/>
-				<path class="ddwcmpa-mark-line" d="M12.4 25.2v-9.4h3.3a2.7 2.7 0 0 1 0 5.4h-3.3"/>
-				<path class="ddwcmpa-mark-line" d="m15.2 21.2 5.4 4M20.8 20.9l-5.5 4.4"/>
-			</svg>
-			<?php esc_html_e( 'Prescriptions', 'devdiggers-prescription-for-woocommerce' ); ?>
-			<?php
-			$plugin_name = ob_get_clean();
+			$plugin_name = self::ddwcmpa_get_logo() . ' ' . esc_html__( 'Prescriptions', 'devdiggers-prescription-for-woocommerce' );
 
 			$args = [
 				'page_title'              => esc_html__( 'Prescriptions', 'devdiggers-prescription-for-woocommerce' ),
