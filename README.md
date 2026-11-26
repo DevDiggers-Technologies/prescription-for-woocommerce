@@ -5,7 +5,7 @@ Require a prescription upload at WooCommerce checkout, hold the order until a ph
 - **Author:** [DevDiggers](https://devdiggers.com/)
 - **Version:** 1.1.0
 - **License:** GPLv3 or later
-- **Requires:** WordPress 6.5+, WooCommerce 9.0+, PHP 7.4+
+- **Requires:** WordPress 6.9+, WooCommerce 9.0+, PHP 7.4+
 - **Compatible with:** HPOS, WooCommerce Cart and Checkout blocks
 
 The WordPress.org listing text lives in `readme.txt`.
