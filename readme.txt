@@ -4,7 +4,7 @@ Plugin URI: https://devdiggers.com/product/woocommerce-medical-prescription-atta
 Author: DevDiggers
 Author URI: https://devdiggers.com/
 Tags: prescription, prescription upload, pharmacy, online pharmacy, order approval
-Requires at least: 6.5
+Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 7.4
 WC requires at least: 9.0
